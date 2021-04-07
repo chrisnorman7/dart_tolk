@@ -13,6 +13,6 @@ Future<void> main() async {
   print('Screen reader ${t.hasSpeech ? "has" : "does not have"} speech.');
   t.output('Hello from Tolk, speaking through dart.');
   await Future.delayed(Duration(seconds: 2));
-  t.Tolk_Unload();
+  t.unload();
   print('Unloaded Tolk.');
 }

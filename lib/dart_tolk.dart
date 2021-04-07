@@ -12,21 +12,24 @@ import 'tolk_bindings.dart';
 /// The main tolk object.
 ///
 /// An instance of this class must be created in order to use screen reading functionality.
-class Tolk extends DartTolk {
-  Tolk(DynamicLibrary lib) : super(lib);
+class Tolk {
+  /// The tolk instance to use.
+  final DartTolk _tolk;
+
+  Tolk(DynamicLibrary lib) : _tolk = DartTolk(lib);
 
   /// Load the C portions of the library.
   ///
   /// This function must be called before doing anything else.
-  void load() => Tolk_Load();
+  void load() => _tolk.Tolk_Load();
 
   /// Returns `true` if the C portion of the library has been loaded.
-  bool get isLoaded => Tolk_IsLoaded();
+  bool get isLoaded => _tolk.Tolk_IsLoaded();
 
   /// Unload the library.
   ///
   /// This function must be called when the library is no longer needed.
-  void unload() => Tolk_Unload();
+  void unload() => _tolk.Tolk_Unload();
 
   /// Output some text.
   ///
@@ -34,39 +37,39 @@ class Tolk extends DartTolk {
   ///
   /// Pass `interrupt: true` to interrupt speech before speaking.
   void output(String text, {bool interrupt = false}) =>
-      Tolk_Output(text.toNativeUtf16().cast<Uint16>(), interrupt);
+      _tolk.Tolk_Output(text.toNativeUtf16().cast<Uint16>(), interrupt);
 
   /// Speak some text.
   ///
   /// Pass `interrupt: true` to stop speaking before speaking the new string.
   void speak(String text, {bool interrupt = false}) =>
-      Tolk_Speak(text.toNativeUtf16().cast<Uint16>(), interrupt);
+      _tolk.Tolk_Speak(text.toNativeUtf16().cast<Uint16>(), interrupt);
 
   /// Braille some text.
   void braille(String text) =>
-      Tolk_Braille(text.toNativeUtf16().cast<Uint16>());
+      _tolk.Tolk_Braille(text.toNativeUtf16().cast<Uint16>());
 
   /// Returns `true` if something is currently being spoken.
-  bool get isSpeaking => Tolk_IsSpeaking();
+  bool get isSpeaking => _tolk.Tolk_IsSpeaking();
 
   /// Configures whether or not to try SAPI if no other screen reader can be found.
-  void trySapi(bool value) => Tolk_TrySAPI(value);
+  void trySapi(bool value) => _tolk.Tolk_TrySAPI(value);
 
   /// Configures whether or not SAPI should be preferred over other screen readers.
-  void preferSapi(bool value) => Tolk_PreferSAPI(value);
+  void preferSapi(bool value) => _tolk.Tolk_PreferSAPI(value);
 
   /// Returns `true` if the current screen reader supports speech.
-  bool get hasSpeech => Tolk_HasSpeech();
+  bool get hasSpeech => _tolk.Tolk_HasSpeech();
 
   /// Returns `true` if the current screen reader supports braille.
-  bool get hasBraille => Tolk_HasBraille();
+  bool get hasBraille => _tolk.Tolk_HasBraille();
 
   /// Silences the screen reader.
-  void silence() => Tolk_Silence();
+  void silence() => _tolk.Tolk_Silence();
 
   /// Returns the name of the current screenreader.
   String? get currentScreenReader {
-    final ptr = Tolk_DetectScreenReader();
+    final ptr = _tolk.Tolk_DetectScreenReader();
     if (ptr == nullptr) {
       return null;
     }
