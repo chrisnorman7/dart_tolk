@@ -1,10 +1,8 @@
 /// A simple tolk example.
-import 'dart:ffi';
-
 import 'package:dart_tolk/dart_tolk.dart';
 
 Future<void> main() async {
-  final t = Tolk(DynamicLibrary.open('tolk.dll'));
+  final t = Tolk.fromPath('tolk.dll');
   t.load();
   print('Loaded tolk.');
   t.trySapi(true);

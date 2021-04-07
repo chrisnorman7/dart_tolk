@@ -1,3 +1,13 @@
+# Changelog
+
+## 1.1.0
+
+You can now create your Tolk instances with a handy `Tolk.fromPath` constructor, thus allowing you to simply pass in the path to a library to load.
+
+## 1.0.1
+
+Removed ugly implementation details.
+
 ## 1.0.0
 
 - Initial version, created by Stagehand

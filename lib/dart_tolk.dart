@@ -16,7 +16,19 @@ class Tolk {
   /// The tolk instance to use.
   final DartTolk _tolk;
 
+  /// Create an instance.
+  ///
+  /// If you do not wish to pass a [DynamicLibrary] instance, you can use [Tolk.fromPath].
   Tolk(DynamicLibrary lib) : _tolk = DartTolk(lib);
+
+  /// Create an instance from a path.
+  ///
+  /// For example:
+  ///
+  /// ```
+  /// final t = Tolk.fromPath('tolk.dll');
+  /// ```
+  factory Tolk.fromPath(String path) => Tolk(DynamicLibrary.open(path));
 
   /// Load the C portions of the library.
   ///
