@@ -2,8 +2,7 @@
 import 'package:dart_tolk/dart_tolk.dart';
 
 Future<void> main() async {
-  final t = Tolk.fromPath('tolk.dll');
-  t.load();
+  final t = Tolk.fromPath('tolk.dll')..load();
   print('Loaded tolk.');
   t.trySapi(true);
   print('Screen reader: ${t.currentScreenReader}.');

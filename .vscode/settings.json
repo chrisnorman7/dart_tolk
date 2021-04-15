@@ -2,9 +2,11 @@
   "cSpell.words": [
     "SAPI",
     "Tolk",
+    "analyzer",
     "brailled",
     "ffi",
     "ffigen",
+    "formals",
     "nullptr",
     "ptr",
     "screenreader",

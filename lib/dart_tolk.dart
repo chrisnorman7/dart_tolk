@@ -1,6 +1,7 @@
 /// Use the popular [Tolk](https://github.com/dkager/tolk/) library from Dart.
 ///
-/// Before doing anything else, you must create a [Tolk] instance, and call [Tolk.load].
+/// Before doing anything else, you must create a [Tolk] instance, and call
+/// [Tolk.load].
 library dart_tolk;
 
 import 'dart:ffi';
@@ -11,14 +12,13 @@ import 'tolk_bindings.dart';
 
 /// The main tolk object.
 ///
-/// An instance of this class must be created in order to use screen reading functionality.
+/// An instance of this class must be created in order to use screen reading
+/// functionality.
 class Tolk {
-  /// The tolk instance to use.
-  final DartTolk _tolk;
-
   /// Create an instance.
   ///
-  /// If you do not wish to pass a [DynamicLibrary] instance, you can use [Tolk.fromPath].
+  /// If you do not wish to pass a [DynamicLibrary] instance, you can use
+  /// [Tolk.fromPath].
   Tolk(DynamicLibrary lib) : _tolk = DartTolk(lib);
 
   /// Create an instance from a path.
@@ -29,6 +29,16 @@ class Tolk {
   /// final t = Tolk.fromPath('tolk.dll');
   /// ```
   factory Tolk.fromPath(String path) => Tolk(DynamicLibrary.open(path));
+
+  /// Create an instance from "tolk.dll".
+  ///
+  /// Note: At time of writing, Windows is the only supported platform on which
+  /// Tolk runs. Nothing in the tolk source code indicates this is likely to
+  /// change.
+  factory Tolk.windows() => Tolk.fromPath('tolk.dll');
+
+  /// The tolk instance to use.
+  final DartTolk _tolk;
 
   /// Load the C portions of the library.
   ///
@@ -64,10 +74,12 @@ class Tolk {
   /// Returns `true` if something is currently being spoken.
   bool get isSpeaking => _tolk.Tolk_IsSpeaking();
 
-  /// Configures whether or not to try SAPI if no other screen reader can be found.
+  /// Configures whether or not to try SAPI if no other screen reader can be
+  /// found.
   void trySapi(bool value) => _tolk.Tolk_TrySAPI(value);
 
-  /// Configures whether or not SAPI should be preferred over other screen readers.
+  /// Configures whether or not SAPI should be preferred over other screen
+  /// readers.
   void preferSapi(bool value) => _tolk.Tolk_PreferSAPI(value);
 
   /// Returns `true` if the current screen reader supports speech.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0
+
+* Cleaned up documentation.
+* Tightened up analysis options.
+* Added a Tolk.windows constructor.
+
 ## 1.1.0
 
 You can now create your Tolk instances with a handy `Tolk.fromPath` constructor, thus allowing you to simply pass in the path to a library to load.
