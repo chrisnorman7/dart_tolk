@@ -58,25 +58,35 @@ class Tolk {
   /// The provided string will be both spoken and brailled.
   ///
   /// Pass `interrupt: true` to interrupt speech before speaking.
-  void output(String text, {bool interrupt = false}) =>
-      _tolk.Tolk_Output(text.toNativeUtf16().cast<Uint16>(), interrupt);
+  bool output(String text, {bool interrupt = false}) {
+    final ptr = text.toNativeUtf16().cast<wchar_t>();
+    final value = _tolk.Tolk_Output(ptr, interrupt);
+    malloc.free(ptr);
+    return value;
+  }
 
   /// Speak some text.
   ///
   /// Pass `interrupt: true` to stop speaking before speaking the new string.
-  void speak(String text, {bool interrupt = false}) =>
-      _tolk.Tolk_Speak(text.toNativeUtf16().cast<Uint16>(), interrupt);
+  void speak(String text, {bool interrupt = false}) {
+    final ptr = text.toNativeUtf16().cast<wchar_t>();
+    _tolk.Tolk_Speak(ptr, interrupt);
+    malloc.free(ptr);
+  }
 
   /// Braille some text.
-  void braille(String text) =>
-      _tolk.Tolk_Braille(text.toNativeUtf16().cast<Uint16>());
+  void braille(String text) {
+    final ptr = text.toNativeUtf16().cast<wchar_t>();
+    _tolk.Tolk_Braille(ptr);
+    malloc.free(ptr);
+  }
 
   /// Returns `true` if something is currently being spoken.
   bool get isSpeaking => _tolk.Tolk_IsSpeaking();
 
   /// Configures whether or not to try SAPI if no other screen reader can be
   /// found.
-  void trySapi(bool value) => _tolk.Tolk_TrySAPI(value);
+  set trySapi(bool value) => _tolk.Tolk_TrySAPI(value);
 
   /// Configures whether or not SAPI should be preferred over other screen
   /// readers.
