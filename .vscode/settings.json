@@ -1,16 +1,18 @@
 {
   "cSpell.words": [
-    "SAPI",
-    "Tolk",
     "analyzer",
     "brailled",
     "ffi",
     "ffigen",
     "formals",
+    "malloc",
     "nullptr",
     "ptr",
+    "SAPI",
     "screenreader",
-    "va"
+    "Tolk",
+    "va",
+    "wchar"
   ],
   "cSpell.enabled": true
 }
