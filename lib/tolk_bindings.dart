@@ -19,27 +19,28 @@ class DartTolk {
       : _lookup = lookup;
 
   void __va_start(
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+    ffi.Pointer<va_list> arg0,
   ) {
     return ___va_start(
       arg0,
     );
   }
 
-  late final ___va_start_ptr =
-      _lookup<ffi.NativeFunction<_c___va_start>>('__va_start');
-  late final _dart___va_start ___va_start =
-      ___va_start_ptr.asFunction<_dart___va_start>();
+  late final ___va_startPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<va_list>)>>(
+          '__va_start');
+  late final ___va_start =
+      ___va_startPtr.asFunction<void Function(ffi.Pointer<va_list>)>();
 
   void __security_init_cookie() {
     return ___security_init_cookie();
   }
 
-  late final ___security_init_cookie_ptr =
-      _lookup<ffi.NativeFunction<_c___security_init_cookie>>(
+  late final ___security_init_cookiePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>(
           '__security_init_cookie');
-  late final _dart___security_init_cookie ___security_init_cookie =
-      ___security_init_cookie_ptr.asFunction<_dart___security_init_cookie>();
+  late final ___security_init_cookie =
+      ___security_init_cookiePtr.asFunction<void Function()>();
 
   void __security_check_cookie(
     int _StackCookie,
@@ -49,11 +50,11 @@ class DartTolk {
     );
   }
 
-  late final ___security_check_cookie_ptr =
-      _lookup<ffi.NativeFunction<_c___security_check_cookie>>(
+  late final ___security_check_cookiePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(uintptr_t)>>(
           '__security_check_cookie');
-  late final _dart___security_check_cookie ___security_check_cookie =
-      ___security_check_cookie_ptr.asFunction<_dart___security_check_cookie>();
+  late final ___security_check_cookie =
+      ___security_check_cookiePtr.asFunction<void Function(int)>();
 
   void __report_gsfailure(
     int _StackCookie,
@@ -63,13 +64,14 @@ class DartTolk {
     );
   }
 
-  late final ___report_gsfailure_ptr =
-      _lookup<ffi.NativeFunction<_c___report_gsfailure>>('__report_gsfailure');
-  late final _dart___report_gsfailure ___report_gsfailure =
-      ___report_gsfailure_ptr.asFunction<_dart___report_gsfailure>();
+  late final ___report_gsfailurePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(uintptr_t)>>(
+          '__report_gsfailure');
+  late final ___report_gsfailure =
+      ___report_gsfailurePtr.asFunction<void Function(int)>();
 
-  late final ffi.Pointer<ffi.Uint64> ___security_cookie =
-      _lookup<ffi.Uint64>('__security_cookie');
+  late final ffi.Pointer<uintptr_t> ___security_cookie =
+      _lookup<uintptr_t>('__security_cookie');
 
   int get __security_cookie => ___security_cookie.value;
 
@@ -79,29 +81,26 @@ class DartTolk {
     return __invalid_parameter_noinfo();
   }
 
-  late final __invalid_parameter_noinfo_ptr =
-      _lookup<ffi.NativeFunction<_c__invalid_parameter_noinfo>>(
+  late final __invalid_parameter_noinfoPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>(
           '_invalid_parameter_noinfo');
-  late final _dart__invalid_parameter_noinfo __invalid_parameter_noinfo =
-      __invalid_parameter_noinfo_ptr
-          .asFunction<_dart__invalid_parameter_noinfo>();
+  late final __invalid_parameter_noinfo =
+      __invalid_parameter_noinfoPtr.asFunction<void Function()>();
 
   void _invalid_parameter_noinfo_noreturn() {
     return __invalid_parameter_noinfo_noreturn();
   }
 
-  late final __invalid_parameter_noinfo_noreturn_ptr =
-      _lookup<ffi.NativeFunction<_c__invalid_parameter_noinfo_noreturn>>(
+  late final __invalid_parameter_noinfo_noreturnPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>(
           '_invalid_parameter_noinfo_noreturn');
-  late final _dart__invalid_parameter_noinfo_noreturn
-      __invalid_parameter_noinfo_noreturn =
-      __invalid_parameter_noinfo_noreturn_ptr
-          .asFunction<_dart__invalid_parameter_noinfo_noreturn>();
+  late final __invalid_parameter_noinfo_noreturn =
+      __invalid_parameter_noinfo_noreturnPtr.asFunction<void Function()>();
 
   void _invoke_watson(
-    ffi.Pointer<ffi.Uint16> _Expression,
-    ffi.Pointer<ffi.Uint16> _FunctionName,
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _Expression,
+    ffi.Pointer<wchar_t> _FunctionName,
+    ffi.Pointer<wchar_t> _FileName,
     int _LineNo,
     int _Reserved,
   ) {
@@ -114,17 +113,22 @@ class DartTolk {
     );
   }
 
-  late final __invoke_watson_ptr =
-      _lookup<ffi.NativeFunction<_c__invoke_watson>>('_invoke_watson');
-  late final _dart__invoke_watson __invoke_watson =
-      __invoke_watson_ptr.asFunction<_dart__invoke_watson>();
+  late final __invoke_watsonPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>, ffi.Uint32, uintptr_t)>>('_invoke_watson');
+  late final __invoke_watson = __invoke_watsonPtr.asFunction<
+      void Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+          ffi.Pointer<wchar_t>, int, int)>();
 
   ffi.Pointer<ffi.Int32> _errno() {
     return __errno();
   }
 
-  late final __errno_ptr = _lookup<ffi.NativeFunction<_c__errno>>('_errno');
-  late final _dart__errno __errno = __errno_ptr.asFunction<_dart__errno>();
+  late final __errnoPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Int32> Function()>>('_errno');
+  late final __errno =
+      __errnoPtr.asFunction<ffi.Pointer<ffi.Int32> Function()>();
 
   int _set_errno(
     int _Value,
@@ -134,10 +138,9 @@ class DartTolk {
     );
   }
 
-  late final __set_errno_ptr =
-      _lookup<ffi.NativeFunction<_c__set_errno>>('_set_errno');
-  late final _dart__set_errno __set_errno =
-      __set_errno_ptr.asFunction<_dart__set_errno>();
+  late final __set_errnoPtr =
+      _lookup<ffi.NativeFunction<errno_t Function(ffi.Int32)>>('_set_errno');
+  late final __set_errno = __set_errnoPtr.asFunction<int Function(int)>();
 
   int _get_errno(
     ffi.Pointer<ffi.Int32> _Value,
@@ -147,19 +150,21 @@ class DartTolk {
     );
   }
 
-  late final __get_errno_ptr =
-      _lookup<ffi.NativeFunction<_c__get_errno>>('_get_errno');
-  late final _dart__get_errno __get_errno =
-      __get_errno_ptr.asFunction<_dart__get_errno>();
+  late final __get_errnoPtr =
+      _lookup<ffi.NativeFunction<errno_t Function(ffi.Pointer<ffi.Int32>)>>(
+          '_get_errno');
+  late final __get_errno =
+      __get_errnoPtr.asFunction<int Function(ffi.Pointer<ffi.Int32>)>();
 
   ffi.Pointer<ffi.Uint64> __doserrno() {
     return ___doserrno();
   }
 
-  late final ___doserrno_ptr =
-      _lookup<ffi.NativeFunction<_c___doserrno>>('__doserrno');
-  late final _dart___doserrno ___doserrno =
-      ___doserrno_ptr.asFunction<_dart___doserrno>();
+  late final ___doserrnoPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Uint64> Function()>>(
+          '__doserrno');
+  late final ___doserrno =
+      ___doserrnoPtr.asFunction<ffi.Pointer<ffi.Uint64> Function()>();
 
   int _set_doserrno(
     int _Value,
@@ -169,10 +174,10 @@ class DartTolk {
     );
   }
 
-  late final __set_doserrno_ptr =
-      _lookup<ffi.NativeFunction<_c__set_doserrno>>('_set_doserrno');
-  late final _dart__set_doserrno __set_doserrno =
-      __set_doserrno_ptr.asFunction<_dart__set_doserrno>();
+  late final __set_doserrnoPtr =
+      _lookup<ffi.NativeFunction<errno_t Function(ffi.Uint64)>>(
+          '_set_doserrno');
+  late final __set_doserrno = __set_doserrnoPtr.asFunction<int Function(int)>();
 
   int _get_doserrno(
     ffi.Pointer<ffi.Uint64> _Value,
@@ -182,10 +187,11 @@ class DartTolk {
     );
   }
 
-  late final __get_doserrno_ptr =
-      _lookup<ffi.NativeFunction<_c__get_doserrno>>('_get_doserrno');
-  late final _dart__get_doserrno __get_doserrno =
-      __get_doserrno_ptr.asFunction<_dart__get_doserrno>();
+  late final __get_doserrnoPtr =
+      _lookup<ffi.NativeFunction<errno_t Function(ffi.Pointer<ffi.Uint64>)>>(
+          '_get_doserrno');
+  late final __get_doserrno =
+      __get_doserrnoPtr.asFunction<int Function(ffi.Pointer<ffi.Uint64>)>();
 
   ffi.Pointer<ffi.Void> memchr(
     ffi.Pointer<ffi.Void> _Buf,
@@ -199,8 +205,12 @@ class DartTolk {
     );
   }
 
-  late final _memchr_ptr = _lookup<ffi.NativeFunction<_c_memchr>>('memchr');
-  late final _dart_memchr _memchr = _memchr_ptr.asFunction<_dart_memchr>();
+  late final _memchrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<ffi.Void>, ffi.Int32, size_t)>>('memchr');
+  late final _memchr = _memchrPtr.asFunction<
+      ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, int, int)>();
 
   int memcmp(
     ffi.Pointer<ffi.Void> _Buf1,
@@ -214,8 +224,12 @@ class DartTolk {
     );
   }
 
-  late final _memcmp_ptr = _lookup<ffi.NativeFunction<_c_memcmp>>('memcmp');
-  late final _dart_memcmp _memcmp = _memcmp_ptr.asFunction<_dart_memcmp>();
+  late final _memcmpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, size_t)>>('memcmp');
+  late final _memcmp = _memcmpPtr.asFunction<
+      int Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   ffi.Pointer<ffi.Void> memcpy(
     ffi.Pointer<ffi.Void> _Dst,
@@ -229,8 +243,13 @@ class DartTolk {
     );
   }
 
-  late final _memcpy_ptr = _lookup<ffi.NativeFunction<_c_memcpy>>('memcpy');
-  late final _dart_memcpy _memcpy = _memcpy_ptr.asFunction<_dart_memcpy>();
+  late final _memcpyPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, size_t)>>('memcpy');
+  late final _memcpy = _memcpyPtr.asFunction<
+      ffi.Pointer<ffi.Void> Function(
+          ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   ffi.Pointer<ffi.Void> memmove(
     ffi.Pointer<ffi.Void> _Dst,
@@ -244,8 +263,13 @@ class DartTolk {
     );
   }
 
-  late final _memmove_ptr = _lookup<ffi.NativeFunction<_c_memmove>>('memmove');
-  late final _dart_memmove _memmove = _memmove_ptr.asFunction<_dart_memmove>();
+  late final _memmovePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, size_t)>>('memmove');
+  late final _memmove = _memmovePtr.asFunction<
+      ffi.Pointer<ffi.Void> Function(
+          ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, int)>();
 
   ffi.Pointer<ffi.Void> memset(
     ffi.Pointer<ffi.Void> _Dst,
@@ -259,8 +283,12 @@ class DartTolk {
     );
   }
 
-  late final _memset_ptr = _lookup<ffi.NativeFunction<_c_memset>>('memset');
-  late final _dart_memset _memset = _memset_ptr.asFunction<_dart_memset>();
+  late final _memsetPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<ffi.Void>, ffi.Int32, size_t)>>('memset');
+  late final _memset = _memsetPtr.asFunction<
+      ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, int, int)>();
 
   ffi.Pointer<ffi.Int8> strchr(
     ffi.Pointer<ffi.Int8> _Str,
@@ -272,8 +300,12 @@ class DartTolk {
     );
   }
 
-  late final _strchr_ptr = _lookup<ffi.NativeFunction<_c_strchr>>('strchr');
-  late final _dart_strchr _strchr = _strchr_ptr.asFunction<_dart_strchr>();
+  late final _strchrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Int8> Function(
+              ffi.Pointer<ffi.Int8>, ffi.Int32)>>('strchr');
+  late final _strchr = _strchrPtr
+      .asFunction<ffi.Pointer<ffi.Int8> Function(ffi.Pointer<ffi.Int8>, int)>();
 
   ffi.Pointer<ffi.Int8> strrchr(
     ffi.Pointer<ffi.Int8> _Str,
@@ -285,8 +317,12 @@ class DartTolk {
     );
   }
 
-  late final _strrchr_ptr = _lookup<ffi.NativeFunction<_c_strrchr>>('strrchr');
-  late final _dart_strrchr _strrchr = _strrchr_ptr.asFunction<_dart_strrchr>();
+  late final _strrchrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Int8> Function(
+              ffi.Pointer<ffi.Int8>, ffi.Int32)>>('strrchr');
+  late final _strrchr = _strrchrPtr
+      .asFunction<ffi.Pointer<ffi.Int8> Function(ffi.Pointer<ffi.Int8>, int)>();
 
   ffi.Pointer<ffi.Int8> strstr(
     ffi.Pointer<ffi.Int8> _Str,
@@ -298,11 +334,16 @@ class DartTolk {
     );
   }
 
-  late final _strstr_ptr = _lookup<ffi.NativeFunction<_c_strstr>>('strstr');
-  late final _dart_strstr _strstr = _strstr_ptr.asFunction<_dart_strstr>();
+  late final _strstrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Int8> Function(
+              ffi.Pointer<ffi.Int8>, ffi.Pointer<ffi.Int8>)>>('strstr');
+  late final _strstr = _strstrPtr.asFunction<
+      ffi.Pointer<ffi.Int8> Function(
+          ffi.Pointer<ffi.Int8>, ffi.Pointer<ffi.Int8>)>();
 
   ffi.Pointer<ffi.Uint16> wcschr(
-    ffi.Pointer<ffi.Uint16> _Str,
+    ffi.Pointer<wchar_t> _Str,
     int _Ch,
   ) {
     return _wcschr(
@@ -311,11 +352,15 @@ class DartTolk {
     );
   }
 
-  late final _wcschr_ptr = _lookup<ffi.NativeFunction<_c_wcschr>>('wcschr');
-  late final _dart_wcschr _wcschr = _wcschr_ptr.asFunction<_dart_wcschr>();
+  late final _wcschrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Uint16> Function(
+              ffi.Pointer<wchar_t>, wchar_t)>>('wcschr');
+  late final _wcschr = _wcschrPtr.asFunction<
+      ffi.Pointer<ffi.Uint16> Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> wcsrchr(
-    ffi.Pointer<ffi.Uint16> _Str,
+  ffi.Pointer<wchar_t> wcsrchr(
+    ffi.Pointer<wchar_t> _Str,
     int _Ch,
   ) {
     return _wcsrchr(
@@ -324,12 +369,16 @@ class DartTolk {
     );
   }
 
-  late final _wcsrchr_ptr = _lookup<ffi.NativeFunction<_c_wcsrchr>>('wcsrchr');
-  late final _dart_wcsrchr _wcsrchr = _wcsrchr_ptr.asFunction<_dart_wcsrchr>();
+  late final _wcsrchrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, wchar_t)>>('wcsrchr');
+  late final _wcsrchr = _wcsrchrPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> wcsstr(
-    ffi.Pointer<ffi.Uint16> _Str,
-    ffi.Pointer<ffi.Uint16> _SubStr,
+  ffi.Pointer<wchar_t> wcsstr(
+    ffi.Pointer<wchar_t> _Str,
+    ffi.Pointer<wchar_t> _SubStr,
   ) {
     return _wcsstr(
       _Str,
@@ -337,13 +386,18 @@ class DartTolk {
     );
   }
 
-  late final _wcsstr_ptr = _lookup<ffi.NativeFunction<_c_wcsstr>>('wcsstr');
-  late final _dart_wcsstr _wcsstr = _wcsstr_ptr.asFunction<_dart_wcsstr>();
+  late final _wcsstrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('wcsstr');
+  late final _wcsstr = _wcsstrPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _cgetws_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
-    ffi.Pointer<ffi.Uint64> _SizeRead,
+    ffi.Pointer<size_t> _SizeRead,
   ) {
     return __cgetws_s(
       _Buffer,
@@ -352,37 +406,42 @@ class DartTolk {
     );
   }
 
-  late final __cgetws_s_ptr =
-      _lookup<ffi.NativeFunction<_c__cgetws_s>>('_cgetws_s');
-  late final _dart__cgetws_s __cgetws_s =
-      __cgetws_s_ptr.asFunction<_dart__cgetws_s>();
+  late final __cgetws_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>, size_t, ffi.Pointer<size_t>)>>('_cgetws_s');
+  late final __cgetws_s = __cgetws_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<size_t>)>();
 
   int _cputws(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
   ) {
     return __cputws(
       _Buffer,
     );
   }
 
-  late final __cputws_ptr = _lookup<ffi.NativeFunction<_c__cputws>>('_cputws');
-  late final _dart__cputws __cputws = __cputws_ptr.asFunction<_dart__cputws>();
+  late final __cputwsPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<wchar_t>)>>(
+          '_cputws');
+  late final __cputws =
+      __cputwsPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int _getwch() {
     return __getwch();
   }
 
-  late final __getwch_ptr = _lookup<ffi.NativeFunction<_c__getwch>>('_getwch');
-  late final _dart__getwch __getwch = __getwch_ptr.asFunction<_dart__getwch>();
+  late final __getwchPtr =
+      _lookup<ffi.NativeFunction<wint_t Function()>>('_getwch');
+  late final __getwch = __getwchPtr.asFunction<int Function()>();
 
   int _getwche() {
     return __getwche();
   }
 
-  late final __getwche_ptr =
-      _lookup<ffi.NativeFunction<_c__getwche>>('_getwche');
-  late final _dart__getwche __getwche =
-      __getwche_ptr.asFunction<_dart__getwche>();
+  late final __getwchePtr =
+      _lookup<ffi.NativeFunction<wint_t Function()>>('_getwche');
+  late final __getwche = __getwchePtr.asFunction<int Function()>();
 
   int _putwch(
     int _Character,
@@ -392,8 +451,9 @@ class DartTolk {
     );
   }
 
-  late final __putwch_ptr = _lookup<ffi.NativeFunction<_c__putwch>>('_putwch');
-  late final _dart__putwch __putwch = __putwch_ptr.asFunction<_dart__putwch>();
+  late final __putwchPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wchar_t)>>('_putwch');
+  late final __putwch = __putwchPtr.asFunction<int Function(int)>();
 
   int _ungetwch(
     int _Character,
@@ -403,28 +463,26 @@ class DartTolk {
     );
   }
 
-  late final __ungetwch_ptr =
-      _lookup<ffi.NativeFunction<_c__ungetwch>>('_ungetwch');
-  late final _dart__ungetwch __ungetwch =
-      __ungetwch_ptr.asFunction<_dart__ungetwch>();
+  late final __ungetwchPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wint_t)>>('_ungetwch');
+  late final __ungetwch = __ungetwchPtr.asFunction<int Function(int)>();
 
   int _getwch_nolock() {
     return __getwch_nolock();
   }
 
-  late final __getwch_nolock_ptr =
-      _lookup<ffi.NativeFunction<_c__getwch_nolock>>('_getwch_nolock');
-  late final _dart__getwch_nolock __getwch_nolock =
-      __getwch_nolock_ptr.asFunction<_dart__getwch_nolock>();
+  late final __getwch_nolockPtr =
+      _lookup<ffi.NativeFunction<wint_t Function()>>('_getwch_nolock');
+  late final __getwch_nolock = __getwch_nolockPtr.asFunction<int Function()>();
 
   int _getwche_nolock() {
     return __getwche_nolock();
   }
 
-  late final __getwche_nolock_ptr =
-      _lookup<ffi.NativeFunction<_c__getwche_nolock>>('_getwche_nolock');
-  late final _dart__getwche_nolock __getwche_nolock =
-      __getwche_nolock_ptr.asFunction<_dart__getwche_nolock>();
+  late final __getwche_nolockPtr =
+      _lookup<ffi.NativeFunction<wint_t Function()>>('_getwche_nolock');
+  late final __getwche_nolock =
+      __getwche_nolockPtr.asFunction<int Function()>();
 
   int _putwch_nolock(
     int _Character,
@@ -434,10 +492,10 @@ class DartTolk {
     );
   }
 
-  late final __putwch_nolock_ptr =
-      _lookup<ffi.NativeFunction<_c__putwch_nolock>>('_putwch_nolock');
-  late final _dart__putwch_nolock __putwch_nolock =
-      __putwch_nolock_ptr.asFunction<_dart__putwch_nolock>();
+  late final __putwch_nolockPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wchar_t)>>('_putwch_nolock');
+  late final __putwch_nolock =
+      __putwch_nolockPtr.asFunction<int Function(int)>();
 
   int _ungetwch_nolock(
     int _Character,
@@ -447,16 +505,16 @@ class DartTolk {
     );
   }
 
-  late final __ungetwch_nolock_ptr =
-      _lookup<ffi.NativeFunction<_c__ungetwch_nolock>>('_ungetwch_nolock');
-  late final _dart__ungetwch_nolock __ungetwch_nolock =
-      __ungetwch_nolock_ptr.asFunction<_dart__ungetwch_nolock>();
+  late final __ungetwch_nolockPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wint_t)>>('_ungetwch_nolock');
+  late final __ungetwch_nolock =
+      __ungetwch_nolockPtr.asFunction<int Function(int)>();
 
   int __conio_common_vcwprintf(
     int _Options,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___conio_common_vcwprintf(
       _Options,
@@ -466,18 +524,19 @@ class DartTolk {
     );
   }
 
-  late final ___conio_common_vcwprintf_ptr =
-      _lookup<ffi.NativeFunction<_c___conio_common_vcwprintf>>(
-          '__conio_common_vcwprintf');
-  late final _dart___conio_common_vcwprintf ___conio_common_vcwprintf =
-      ___conio_common_vcwprintf_ptr
-          .asFunction<_dart___conio_common_vcwprintf>();
+  late final ___conio_common_vcwprintfPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Uint64, ffi.Pointer<wchar_t>, _locale_t,
+              va_list)>>('__conio_common_vcwprintf');
+  late final ___conio_common_vcwprintf =
+      ___conio_common_vcwprintfPtr.asFunction<
+          int Function(int, ffi.Pointer<wchar_t>, _locale_t, va_list)>();
 
   int __conio_common_vcwprintf_s(
     int _Options,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___conio_common_vcwprintf_s(
       _Options,
@@ -487,18 +546,19 @@ class DartTolk {
     );
   }
 
-  late final ___conio_common_vcwprintf_s_ptr =
-      _lookup<ffi.NativeFunction<_c___conio_common_vcwprintf_s>>(
-          '__conio_common_vcwprintf_s');
-  late final _dart___conio_common_vcwprintf_s ___conio_common_vcwprintf_s =
-      ___conio_common_vcwprintf_s_ptr
-          .asFunction<_dart___conio_common_vcwprintf_s>();
+  late final ___conio_common_vcwprintf_sPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Uint64, ffi.Pointer<wchar_t>, _locale_t,
+              va_list)>>('__conio_common_vcwprintf_s');
+  late final ___conio_common_vcwprintf_s =
+      ___conio_common_vcwprintf_sPtr.asFunction<
+          int Function(int, ffi.Pointer<wchar_t>, _locale_t, va_list)>();
 
   int __conio_common_vcwprintf_p(
     int _Options,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___conio_common_vcwprintf_p(
       _Options,
@@ -508,18 +568,19 @@ class DartTolk {
     );
   }
 
-  late final ___conio_common_vcwprintf_p_ptr =
-      _lookup<ffi.NativeFunction<_c___conio_common_vcwprintf_p>>(
-          '__conio_common_vcwprintf_p');
-  late final _dart___conio_common_vcwprintf_p ___conio_common_vcwprintf_p =
-      ___conio_common_vcwprintf_p_ptr
-          .asFunction<_dart___conio_common_vcwprintf_p>();
+  late final ___conio_common_vcwprintf_pPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Uint64, ffi.Pointer<wchar_t>, _locale_t,
+              va_list)>>('__conio_common_vcwprintf_p');
+  late final ___conio_common_vcwprintf_p =
+      ___conio_common_vcwprintf_pPtr.asFunction<
+          int Function(int, ffi.Pointer<wchar_t>, _locale_t, va_list)>();
 
   int __conio_common_vcwscanf(
     int _Options,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___conio_common_vcwscanf(
       _Options,
@@ -529,29 +590,32 @@ class DartTolk {
     );
   }
 
-  late final ___conio_common_vcwscanf_ptr =
-      _lookup<ffi.NativeFunction<_c___conio_common_vcwscanf>>(
-          '__conio_common_vcwscanf');
-  late final _dart___conio_common_vcwscanf ___conio_common_vcwscanf =
-      ___conio_common_vcwscanf_ptr.asFunction<_dart___conio_common_vcwscanf>();
+  late final ___conio_common_vcwscanfPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Uint64, ffi.Pointer<wchar_t>, _locale_t,
+              va_list)>>('__conio_common_vcwscanf');
+  late final ___conio_common_vcwscanf = ___conio_common_vcwscanfPtr.asFunction<
+      int Function(int, ffi.Pointer<wchar_t>, _locale_t, va_list)>();
 
   ffi.Pointer<ffi.Uint16> __pctype_func() {
     return ___pctype_func();
   }
 
-  late final ___pctype_func_ptr =
-      _lookup<ffi.NativeFunction<_c___pctype_func>>('__pctype_func');
-  late final _dart___pctype_func ___pctype_func =
-      ___pctype_func_ptr.asFunction<_dart___pctype_func>();
+  late final ___pctype_funcPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Uint16> Function()>>(
+          '__pctype_func');
+  late final ___pctype_func =
+      ___pctype_funcPtr.asFunction<ffi.Pointer<ffi.Uint16> Function()>();
 
-  ffi.Pointer<ffi.Uint16> __pwctype_func() {
+  ffi.Pointer<wctype_t> __pwctype_func() {
     return ___pwctype_func();
   }
 
-  late final ___pwctype_func_ptr =
-      _lookup<ffi.NativeFunction<_c___pwctype_func>>('__pwctype_func');
-  late final _dart___pwctype_func ___pwctype_func =
-      ___pwctype_func_ptr.asFunction<_dart___pwctype_func>();
+  late final ___pwctype_funcPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wctype_t> Function()>>(
+          '__pwctype_func');
+  late final ___pwctype_func =
+      ___pwctype_funcPtr.asFunction<ffi.Pointer<wctype_t> Function()>();
 
   int iswalnum(
     int _C,
@@ -561,10 +625,9 @@ class DartTolk {
     );
   }
 
-  late final _iswalnum_ptr =
-      _lookup<ffi.NativeFunction<_c_iswalnum>>('iswalnum');
-  late final _dart_iswalnum _iswalnum =
-      _iswalnum_ptr.asFunction<_dart_iswalnum>();
+  late final _iswalnumPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswalnum');
+  late final _iswalnum = _iswalnumPtr.asFunction<int Function(int)>();
 
   int iswalpha(
     int _C,
@@ -574,10 +637,9 @@ class DartTolk {
     );
   }
 
-  late final _iswalpha_ptr =
-      _lookup<ffi.NativeFunction<_c_iswalpha>>('iswalpha');
-  late final _dart_iswalpha _iswalpha =
-      _iswalpha_ptr.asFunction<_dart_iswalpha>();
+  late final _iswalphaPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswalpha');
+  late final _iswalpha = _iswalphaPtr.asFunction<int Function(int)>();
 
   int iswascii(
     int _C,
@@ -587,10 +649,9 @@ class DartTolk {
     );
   }
 
-  late final _iswascii_ptr =
-      _lookup<ffi.NativeFunction<_c_iswascii>>('iswascii');
-  late final _dart_iswascii _iswascii =
-      _iswascii_ptr.asFunction<_dart_iswascii>();
+  late final _iswasciiPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswascii');
+  late final _iswascii = _iswasciiPtr.asFunction<int Function(int)>();
 
   int iswblank(
     int _C,
@@ -600,10 +661,9 @@ class DartTolk {
     );
   }
 
-  late final _iswblank_ptr =
-      _lookup<ffi.NativeFunction<_c_iswblank>>('iswblank');
-  late final _dart_iswblank _iswblank =
-      _iswblank_ptr.asFunction<_dart_iswblank>();
+  late final _iswblankPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswblank');
+  late final _iswblank = _iswblankPtr.asFunction<int Function(int)>();
 
   int iswcntrl(
     int _C,
@@ -613,10 +673,9 @@ class DartTolk {
     );
   }
 
-  late final _iswcntrl_ptr =
-      _lookup<ffi.NativeFunction<_c_iswcntrl>>('iswcntrl');
-  late final _dart_iswcntrl _iswcntrl =
-      _iswcntrl_ptr.asFunction<_dart_iswcntrl>();
+  late final _iswcntrlPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswcntrl');
+  late final _iswcntrl = _iswcntrlPtr.asFunction<int Function(int)>();
 
   int iswdigit(
     int _C,
@@ -626,10 +685,9 @@ class DartTolk {
     );
   }
 
-  late final _iswdigit_ptr =
-      _lookup<ffi.NativeFunction<_c_iswdigit>>('iswdigit');
-  late final _dart_iswdigit _iswdigit =
-      _iswdigit_ptr.asFunction<_dart_iswdigit>();
+  late final _iswdigitPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswdigit');
+  late final _iswdigit = _iswdigitPtr.asFunction<int Function(int)>();
 
   int iswgraph(
     int _C,
@@ -639,10 +697,9 @@ class DartTolk {
     );
   }
 
-  late final _iswgraph_ptr =
-      _lookup<ffi.NativeFunction<_c_iswgraph>>('iswgraph');
-  late final _dart_iswgraph _iswgraph =
-      _iswgraph_ptr.asFunction<_dart_iswgraph>();
+  late final _iswgraphPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswgraph');
+  late final _iswgraph = _iswgraphPtr.asFunction<int Function(int)>();
 
   int iswlower(
     int _C,
@@ -652,10 +709,9 @@ class DartTolk {
     );
   }
 
-  late final _iswlower_ptr =
-      _lookup<ffi.NativeFunction<_c_iswlower>>('iswlower');
-  late final _dart_iswlower _iswlower =
-      _iswlower_ptr.asFunction<_dart_iswlower>();
+  late final _iswlowerPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswlower');
+  late final _iswlower = _iswlowerPtr.asFunction<int Function(int)>();
 
   int iswprint(
     int _C,
@@ -665,10 +721,9 @@ class DartTolk {
     );
   }
 
-  late final _iswprint_ptr =
-      _lookup<ffi.NativeFunction<_c_iswprint>>('iswprint');
-  late final _dart_iswprint _iswprint =
-      _iswprint_ptr.asFunction<_dart_iswprint>();
+  late final _iswprintPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswprint');
+  late final _iswprint = _iswprintPtr.asFunction<int Function(int)>();
 
   int iswpunct(
     int _C,
@@ -678,10 +733,9 @@ class DartTolk {
     );
   }
 
-  late final _iswpunct_ptr =
-      _lookup<ffi.NativeFunction<_c_iswpunct>>('iswpunct');
-  late final _dart_iswpunct _iswpunct =
-      _iswpunct_ptr.asFunction<_dart_iswpunct>();
+  late final _iswpunctPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswpunct');
+  late final _iswpunct = _iswpunctPtr.asFunction<int Function(int)>();
 
   int iswspace(
     int _C,
@@ -691,10 +745,9 @@ class DartTolk {
     );
   }
 
-  late final _iswspace_ptr =
-      _lookup<ffi.NativeFunction<_c_iswspace>>('iswspace');
-  late final _dart_iswspace _iswspace =
-      _iswspace_ptr.asFunction<_dart_iswspace>();
+  late final _iswspacePtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswspace');
+  late final _iswspace = _iswspacePtr.asFunction<int Function(int)>();
 
   int iswupper(
     int _C,
@@ -704,10 +757,9 @@ class DartTolk {
     );
   }
 
-  late final _iswupper_ptr =
-      _lookup<ffi.NativeFunction<_c_iswupper>>('iswupper');
-  late final _dart_iswupper _iswupper =
-      _iswupper_ptr.asFunction<_dart_iswupper>();
+  late final _iswupperPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswupper');
+  late final _iswupper = _iswupperPtr.asFunction<int Function(int)>();
 
   int iswxdigit(
     int _C,
@@ -717,10 +769,9 @@ class DartTolk {
     );
   }
 
-  late final _iswxdigit_ptr =
-      _lookup<ffi.NativeFunction<_c_iswxdigit>>('iswxdigit');
-  late final _dart_iswxdigit _iswxdigit =
-      _iswxdigit_ptr.asFunction<_dart_iswxdigit>();
+  late final _iswxdigitPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('iswxdigit');
+  late final _iswxdigit = _iswxdigitPtr.asFunction<int Function(int)>();
 
   int __iswcsymf(
     int _C,
@@ -730,10 +781,9 @@ class DartTolk {
     );
   }
 
-  late final ___iswcsymf_ptr =
-      _lookup<ffi.NativeFunction<_c___iswcsymf>>('__iswcsymf');
-  late final _dart___iswcsymf ___iswcsymf =
-      ___iswcsymf_ptr.asFunction<_dart___iswcsymf>();
+  late final ___iswcsymfPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('__iswcsymf');
+  late final ___iswcsymf = ___iswcsymfPtr.asFunction<int Function(int)>();
 
   int __iswcsym(
     int _C,
@@ -743,14 +793,13 @@ class DartTolk {
     );
   }
 
-  late final ___iswcsym_ptr =
-      _lookup<ffi.NativeFunction<_c___iswcsym>>('__iswcsym');
-  late final _dart___iswcsym ___iswcsym =
-      ___iswcsym_ptr.asFunction<_dart___iswcsym>();
+  late final ___iswcsymPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('__iswcsym');
+  late final ___iswcsym = ___iswcsymPtr.asFunction<int Function(int)>();
 
   int _iswalnum_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswalnum_l(
       _C,
@@ -758,14 +807,15 @@ class DartTolk {
     );
   }
 
-  late final __iswalnum_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswalnum_l>>('_iswalnum_l');
-  late final _dart__iswalnum_l __iswalnum_l =
-      __iswalnum_l_ptr.asFunction<_dart__iswalnum_l>();
+  late final __iswalnum_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswalnum_l');
+  late final __iswalnum_l =
+      __iswalnum_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswalpha_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswalpha_l(
       _C,
@@ -773,14 +823,15 @@ class DartTolk {
     );
   }
 
-  late final __iswalpha_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswalpha_l>>('_iswalpha_l');
-  late final _dart__iswalpha_l __iswalpha_l =
-      __iswalpha_l_ptr.asFunction<_dart__iswalpha_l>();
+  late final __iswalpha_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswalpha_l');
+  late final __iswalpha_l =
+      __iswalpha_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswblank_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswblank_l(
       _C,
@@ -788,14 +839,15 @@ class DartTolk {
     );
   }
 
-  late final __iswblank_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswblank_l>>('_iswblank_l');
-  late final _dart__iswblank_l __iswblank_l =
-      __iswblank_l_ptr.asFunction<_dart__iswblank_l>();
+  late final __iswblank_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswblank_l');
+  late final __iswblank_l =
+      __iswblank_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswcntrl_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswcntrl_l(
       _C,
@@ -803,14 +855,15 @@ class DartTolk {
     );
   }
 
-  late final __iswcntrl_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswcntrl_l>>('_iswcntrl_l');
-  late final _dart__iswcntrl_l __iswcntrl_l =
-      __iswcntrl_l_ptr.asFunction<_dart__iswcntrl_l>();
+  late final __iswcntrl_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswcntrl_l');
+  late final __iswcntrl_l =
+      __iswcntrl_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswdigit_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswdigit_l(
       _C,
@@ -818,14 +871,15 @@ class DartTolk {
     );
   }
 
-  late final __iswdigit_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswdigit_l>>('_iswdigit_l');
-  late final _dart__iswdigit_l __iswdigit_l =
-      __iswdigit_l_ptr.asFunction<_dart__iswdigit_l>();
+  late final __iswdigit_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswdigit_l');
+  late final __iswdigit_l =
+      __iswdigit_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswgraph_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswgraph_l(
       _C,
@@ -833,14 +887,15 @@ class DartTolk {
     );
   }
 
-  late final __iswgraph_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswgraph_l>>('_iswgraph_l');
-  late final _dart__iswgraph_l __iswgraph_l =
-      __iswgraph_l_ptr.asFunction<_dart__iswgraph_l>();
+  late final __iswgraph_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswgraph_l');
+  late final __iswgraph_l =
+      __iswgraph_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswlower_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswlower_l(
       _C,
@@ -848,14 +903,15 @@ class DartTolk {
     );
   }
 
-  late final __iswlower_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswlower_l>>('_iswlower_l');
-  late final _dart__iswlower_l __iswlower_l =
-      __iswlower_l_ptr.asFunction<_dart__iswlower_l>();
+  late final __iswlower_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswlower_l');
+  late final __iswlower_l =
+      __iswlower_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswprint_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswprint_l(
       _C,
@@ -863,14 +919,15 @@ class DartTolk {
     );
   }
 
-  late final __iswprint_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswprint_l>>('_iswprint_l');
-  late final _dart__iswprint_l __iswprint_l =
-      __iswprint_l_ptr.asFunction<_dart__iswprint_l>();
+  late final __iswprint_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswprint_l');
+  late final __iswprint_l =
+      __iswprint_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswpunct_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswpunct_l(
       _C,
@@ -878,14 +935,15 @@ class DartTolk {
     );
   }
 
-  late final __iswpunct_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswpunct_l>>('_iswpunct_l');
-  late final _dart__iswpunct_l __iswpunct_l =
-      __iswpunct_l_ptr.asFunction<_dart__iswpunct_l>();
+  late final __iswpunct_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswpunct_l');
+  late final __iswpunct_l =
+      __iswpunct_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswspace_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswspace_l(
       _C,
@@ -893,14 +951,15 @@ class DartTolk {
     );
   }
 
-  late final __iswspace_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswspace_l>>('_iswspace_l');
-  late final _dart__iswspace_l __iswspace_l =
-      __iswspace_l_ptr.asFunction<_dart__iswspace_l>();
+  late final __iswspace_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswspace_l');
+  late final __iswspace_l =
+      __iswspace_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswupper_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswupper_l(
       _C,
@@ -908,14 +967,15 @@ class DartTolk {
     );
   }
 
-  late final __iswupper_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswupper_l>>('_iswupper_l');
-  late final _dart__iswupper_l __iswupper_l =
-      __iswupper_l_ptr.asFunction<_dart__iswupper_l>();
+  late final __iswupper_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswupper_l');
+  late final __iswupper_l =
+      __iswupper_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswxdigit_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswxdigit_l(
       _C,
@@ -923,14 +983,15 @@ class DartTolk {
     );
   }
 
-  late final __iswxdigit_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswxdigit_l>>('_iswxdigit_l');
-  late final _dart__iswxdigit_l __iswxdigit_l =
-      __iswxdigit_l_ptr.asFunction<_dart__iswxdigit_l>();
+  late final __iswxdigit_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswxdigit_l');
+  late final __iswxdigit_l =
+      __iswxdigit_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswcsymf_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswcsymf_l(
       _C,
@@ -938,14 +999,15 @@ class DartTolk {
     );
   }
 
-  late final __iswcsymf_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswcsymf_l>>('_iswcsymf_l');
-  late final _dart__iswcsymf_l __iswcsymf_l =
-      __iswcsymf_l_ptr.asFunction<_dart__iswcsymf_l>();
+  late final __iswcsymf_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswcsymf_l');
+  late final __iswcsymf_l =
+      __iswcsymf_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswcsym_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswcsym_l(
       _C,
@@ -953,10 +1015,11 @@ class DartTolk {
     );
   }
 
-  late final __iswcsym_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswcsym_l>>('_iswcsym_l');
-  late final _dart__iswcsym_l __iswcsym_l =
-      __iswcsym_l_ptr.asFunction<_dart__iswcsym_l>();
+  late final __iswcsym_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, _locale_t)>>(
+          '_iswcsym_l');
+  late final __iswcsym_l =
+      __iswcsym_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int towupper(
     int _C,
@@ -966,10 +1029,9 @@ class DartTolk {
     );
   }
 
-  late final _towupper_ptr =
-      _lookup<ffi.NativeFunction<_c_towupper>>('towupper');
-  late final _dart_towupper _towupper =
-      _towupper_ptr.asFunction<_dart_towupper>();
+  late final _towupperPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wint_t)>>('towupper');
+  late final _towupper = _towupperPtr.asFunction<int Function(int)>();
 
   int towlower(
     int _C,
@@ -979,10 +1041,9 @@ class DartTolk {
     );
   }
 
-  late final _towlower_ptr =
-      _lookup<ffi.NativeFunction<_c_towlower>>('towlower');
-  late final _dart_towlower _towlower =
-      _towlower_ptr.asFunction<_dart_towlower>();
+  late final _towlowerPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wint_t)>>('towlower');
+  late final _towlower = _towlowerPtr.asFunction<int Function(int)>();
 
   int iswctype(
     int _C,
@@ -994,14 +1055,14 @@ class DartTolk {
     );
   }
 
-  late final _iswctype_ptr =
-      _lookup<ffi.NativeFunction<_c_iswctype>>('iswctype');
-  late final _dart_iswctype _iswctype =
-      _iswctype_ptr.asFunction<_dart_iswctype>();
+  late final _iswctypePtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, wctype_t)>>(
+          'iswctype');
+  late final _iswctype = _iswctypePtr.asFunction<int Function(int, int)>();
 
   int _towupper_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __towupper_l(
       _C,
@@ -1009,14 +1070,15 @@ class DartTolk {
     );
   }
 
-  late final __towupper_l_ptr =
-      _lookup<ffi.NativeFunction<_c__towupper_l>>('_towupper_l');
-  late final _dart__towupper_l __towupper_l =
-      __towupper_l_ptr.asFunction<_dart__towupper_l>();
+  late final __towupper_lPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wint_t, _locale_t)>>(
+          '_towupper_l');
+  late final __towupper_l =
+      __towupper_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _towlower_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __towlower_l(
       _C,
@@ -1024,15 +1086,16 @@ class DartTolk {
     );
   }
 
-  late final __towlower_l_ptr =
-      _lookup<ffi.NativeFunction<_c__towlower_l>>('_towlower_l');
-  late final _dart__towlower_l __towlower_l =
-      __towlower_l_ptr.asFunction<_dart__towlower_l>();
+  late final __towlower_lPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wint_t, _locale_t)>>(
+          '_towlower_l');
+  late final __towlower_l =
+      __towlower_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int _iswctype_l(
     int _C,
     int _Type,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __iswctype_l(
       _C,
@@ -1041,10 +1104,11 @@ class DartTolk {
     );
   }
 
-  late final __iswctype_l_ptr =
-      _lookup<ffi.NativeFunction<_c__iswctype_l>>('_iswctype_l');
-  late final _dart__iswctype_l __iswctype_l =
-      __iswctype_l_ptr.asFunction<_dart__iswctype_l>();
+  late final __iswctype_lPtr = _lookup<
+          ffi.NativeFunction<ffi.Int32 Function(wint_t, wctype_t, _locale_t)>>(
+      '_iswctype_l');
+  late final __iswctype_l =
+      __iswctype_lPtr.asFunction<int Function(int, int, _locale_t)>();
 
   int isleadbyte(
     int _C,
@@ -1054,14 +1118,13 @@ class DartTolk {
     );
   }
 
-  late final _isleadbyte_ptr =
-      _lookup<ffi.NativeFunction<_c_isleadbyte>>('isleadbyte');
-  late final _dart_isleadbyte _isleadbyte =
-      _isleadbyte_ptr.asFunction<_dart_isleadbyte>();
+  late final _isleadbytePtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Int32)>>('isleadbyte');
+  late final _isleadbyte = _isleadbytePtr.asFunction<int Function(int)>();
 
   int _isleadbyte_l(
     int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __isleadbyte_l(
       _C,
@@ -1069,10 +1132,11 @@ class DartTolk {
     );
   }
 
-  late final __isleadbyte_l_ptr =
-      _lookup<ffi.NativeFunction<_c__isleadbyte_l>>('_isleadbyte_l');
-  late final _dart__isleadbyte_l __isleadbyte_l =
-      __isleadbyte_l_ptr.asFunction<_dart__isleadbyte_l>();
+  late final __isleadbyte_lPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Int32, _locale_t)>>(
+          '_isleadbyte_l');
+  late final __isleadbyte_l =
+      __isleadbyte_lPtr.asFunction<int Function(int, _locale_t)>();
 
   int is_wctype(
     int _C,
@@ -1084,13 +1148,13 @@ class DartTolk {
     );
   }
 
-  late final _is_wctype_ptr =
-      _lookup<ffi.NativeFunction<_c_is_wctype>>('is_wctype');
-  late final _dart_is_wctype _is_wctype =
-      _is_wctype_ptr.asFunction<_dart_is_wctype>();
+  late final _is_wctypePtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t, wctype_t)>>(
+          'is_wctype');
+  late final _is_wctype = _is_wctypePtr.asFunction<int Function(int, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wgetcwd(
-    ffi.Pointer<ffi.Uint16> _DstBuf,
+  ffi.Pointer<wchar_t> _wgetcwd(
+    ffi.Pointer<wchar_t> _DstBuf,
     int _SizeInWords,
   ) {
     return __wgetcwd(
@@ -1099,14 +1163,16 @@ class DartTolk {
     );
   }
 
-  late final __wgetcwd_ptr =
-      _lookup<ffi.NativeFunction<_c__wgetcwd>>('_wgetcwd');
-  late final _dart__wgetcwd __wgetcwd =
-      __wgetcwd_ptr.asFunction<_dart__wgetcwd>();
+  late final __wgetcwdPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, ffi.Int32)>>('_wgetcwd');
+  late final __wgetcwd = __wgetcwdPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wgetdcwd(
+  ffi.Pointer<wchar_t> _wgetdcwd(
     int _Drive,
-    ffi.Pointer<ffi.Uint16> _DstBuf,
+    ffi.Pointer<wchar_t> _DstBuf,
     int _SizeInWords,
   ) {
     return __wgetdcwd(
@@ -1116,46 +1182,57 @@ class DartTolk {
     );
   }
 
-  late final __wgetdcwd_ptr =
-      _lookup<ffi.NativeFunction<_c__wgetdcwd>>('_wgetdcwd');
-  late final _dart__wgetdcwd __wgetdcwd =
-      __wgetdcwd_ptr.asFunction<_dart__wgetdcwd>();
+  late final __wgetdcwdPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Int32, ffi.Pointer<wchar_t>, ffi.Int32)>>('_wgetdcwd');
+  late final __wgetdcwd = __wgetdcwdPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(int, ffi.Pointer<wchar_t>, int)>();
 
   int _wchdir(
-    ffi.Pointer<ffi.Uint16> _Path,
+    ffi.Pointer<wchar_t> _Path,
   ) {
     return __wchdir(
       _Path,
     );
   }
 
-  late final __wchdir_ptr = _lookup<ffi.NativeFunction<_c__wchdir>>('_wchdir');
-  late final _dart__wchdir __wchdir = __wchdir_ptr.asFunction<_dart__wchdir>();
+  late final __wchdirPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<wchar_t>)>>(
+          '_wchdir');
+  late final __wchdir =
+      __wchdirPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int _wmkdir(
-    ffi.Pointer<ffi.Uint16> _Path,
+    ffi.Pointer<wchar_t> _Path,
   ) {
     return __wmkdir(
       _Path,
     );
   }
 
-  late final __wmkdir_ptr = _lookup<ffi.NativeFunction<_c__wmkdir>>('_wmkdir');
-  late final _dart__wmkdir __wmkdir = __wmkdir_ptr.asFunction<_dart__wmkdir>();
+  late final __wmkdirPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<wchar_t>)>>(
+          '_wmkdir');
+  late final __wmkdir =
+      __wmkdirPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int _wrmdir(
-    ffi.Pointer<ffi.Uint16> _Path,
+    ffi.Pointer<wchar_t> _Path,
   ) {
     return __wrmdir(
       _Path,
     );
   }
 
-  late final __wrmdir_ptr = _lookup<ffi.NativeFunction<_c__wrmdir>>('_wrmdir');
-  late final _dart__wrmdir __wrmdir = __wrmdir_ptr.asFunction<_dart__wrmdir>();
+  late final __wrmdirPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<wchar_t>)>>(
+          '_wrmdir');
+  late final __wrmdir =
+      __wrmdirPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int _waccess(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     int _AccessMode,
   ) {
     return __waccess(
@@ -1164,13 +1241,14 @@ class DartTolk {
     );
   }
 
-  late final __waccess_ptr =
-      _lookup<ffi.NativeFunction<_c__waccess>>('_waccess');
-  late final _dart__waccess __waccess =
-      __waccess_ptr.asFunction<_dart__waccess>();
+  late final __waccessPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Int32)>>('_waccess');
+  late final __waccess =
+      __waccessPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
   int _waccess_s(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     int _AccessMode,
   ) {
     return __waccess_s(
@@ -1179,13 +1257,14 @@ class DartTolk {
     );
   }
 
-  late final __waccess_s_ptr =
-      _lookup<ffi.NativeFunction<_c__waccess_s>>('_waccess_s');
-  late final _dart__waccess_s __waccess_s =
-      __waccess_s_ptr.asFunction<_dart__waccess_s>();
+  late final __waccess_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, ffi.Int32)>>('_waccess_s');
+  late final __waccess_s =
+      __waccess_sPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
   int _wchmod(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     int _Mode,
   ) {
     return __wchmod(
@@ -1194,11 +1273,14 @@ class DartTolk {
     );
   }
 
-  late final __wchmod_ptr = _lookup<ffi.NativeFunction<_c__wchmod>>('_wchmod');
-  late final _dart__wchmod __wchmod = __wchmod_ptr.asFunction<_dart__wchmod>();
+  late final __wchmodPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Int32)>>('_wchmod');
+  late final __wchmod =
+      __wchmodPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
   int _wcreat(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     int _PermissionMode,
   ) {
     return __wcreat(
@@ -1207,11 +1289,14 @@ class DartTolk {
     );
   }
 
-  late final __wcreat_ptr = _lookup<ffi.NativeFunction<_c__wcreat>>('_wcreat');
-  late final _dart__wcreat __wcreat = __wcreat_ptr.asFunction<_dart__wcreat>();
+  late final __wcreatPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Int32)>>('_wcreat');
+  late final __wcreat =
+      __wcreatPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
   int _wfindfirst32(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     ffi.Pointer<_wfinddata32_t> _FindData,
   ) {
     return __wfindfirst32(
@@ -1220,10 +1305,12 @@ class DartTolk {
     );
   }
 
-  late final __wfindfirst32_ptr =
-      _lookup<ffi.NativeFunction<_c__wfindfirst32>>('_wfindfirst32');
-  late final _dart__wfindfirst32 __wfindfirst32 =
-      __wfindfirst32_ptr.asFunction<_dart__wfindfirst32>();
+  late final __wfindfirst32Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<_wfinddata32_t>)>>('_wfindfirst32');
+  late final __wfindfirst32 = __wfindfirst32Ptr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<_wfinddata32_t>)>();
 
   int _wfindnext32(
     int _FindHandle,
@@ -1235,27 +1322,30 @@ class DartTolk {
     );
   }
 
-  late final __wfindnext32_ptr =
-      _lookup<ffi.NativeFunction<_c__wfindnext32>>('_wfindnext32');
-  late final _dart__wfindnext32 __wfindnext32 =
-      __wfindnext32_ptr.asFunction<_dart__wfindnext32>();
+  late final __wfindnext32Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.IntPtr, ffi.Pointer<_wfinddata32_t>)>>('_wfindnext32');
+  late final __wfindnext32 = __wfindnext32Ptr
+      .asFunction<int Function(int, ffi.Pointer<_wfinddata32_t>)>();
 
   int _wunlink(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
   ) {
     return __wunlink(
       _FileName,
     );
   }
 
-  late final __wunlink_ptr =
-      _lookup<ffi.NativeFunction<_c__wunlink>>('_wunlink');
-  late final _dart__wunlink __wunlink =
-      __wunlink_ptr.asFunction<_dart__wunlink>();
+  late final __wunlinkPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<wchar_t>)>>(
+          '_wunlink');
+  late final __wunlink =
+      __wunlinkPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int _wrename(
-    ffi.Pointer<ffi.Uint16> _OldFileName,
-    ffi.Pointer<ffi.Uint16> _NewFileName,
+    ffi.Pointer<wchar_t> _OldFileName,
+    ffi.Pointer<wchar_t> _NewFileName,
   ) {
     return __wrename(
       _OldFileName,
@@ -1263,13 +1353,15 @@ class DartTolk {
     );
   }
 
-  late final __wrename_ptr =
-      _lookup<ffi.NativeFunction<_c__wrename>>('_wrename');
-  late final _dart__wrename __wrename =
-      __wrename_ptr.asFunction<_dart__wrename>();
+  late final __wrenamePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wrename');
+  late final __wrename = __wrenamePtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wmktemp_s(
-    ffi.Pointer<ffi.Uint16> _TemplateName,
+    ffi.Pointer<wchar_t> _TemplateName,
     int _SizeInWords,
   ) {
     return __wmktemp_s(
@@ -1278,26 +1370,28 @@ class DartTolk {
     );
   }
 
-  late final __wmktemp_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wmktemp_s>>('_wmktemp_s');
-  late final _dart__wmktemp_s __wmktemp_s =
-      __wmktemp_s_ptr.asFunction<_dart__wmktemp_s>();
+  late final __wmktemp_sPtr = _lookup<
+          ffi.NativeFunction<errno_t Function(ffi.Pointer<wchar_t>, size_t)>>(
+      '_wmktemp_s');
+  late final __wmktemp_s =
+      __wmktemp_sPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wmktemp(
-    ffi.Pointer<ffi.Uint16> _TemplateName,
+  ffi.Pointer<wchar_t> _wmktemp(
+    ffi.Pointer<wchar_t> _TemplateName,
   ) {
     return __wmktemp(
       _TemplateName,
     );
   }
 
-  late final __wmktemp_ptr =
-      _lookup<ffi.NativeFunction<_c__wmktemp>>('_wmktemp');
-  late final _dart__wmktemp __wmktemp =
-      __wmktemp_ptr.asFunction<_dart__wmktemp>();
+  late final __wmktempPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('_wmktemp');
+  late final __wmktemp = __wmktempPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int _wfindfirst32i64(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     ffi.Pointer<_wfinddata32i64_t> _FindData,
   ) {
     return __wfindfirst32i64(
@@ -1306,13 +1400,15 @@ class DartTolk {
     );
   }
 
-  late final __wfindfirst32i64_ptr =
-      _lookup<ffi.NativeFunction<_c__wfindfirst32i64>>('_wfindfirst32i64');
-  late final _dart__wfindfirst32i64 __wfindfirst32i64 =
-      __wfindfirst32i64_ptr.asFunction<_dart__wfindfirst32i64>();
+  late final __wfindfirst32i64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<_wfinddata32i64_t>)>>('_wfindfirst32i64');
+  late final __wfindfirst32i64 = __wfindfirst32i64Ptr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<_wfinddata32i64_t>)>();
 
   int _wfindfirst64i32(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     ffi.Pointer<_wfinddata64i32_t> _FindData,
   ) {
     return __wfindfirst64i32(
@@ -1321,13 +1417,15 @@ class DartTolk {
     );
   }
 
-  late final __wfindfirst64i32_ptr =
-      _lookup<ffi.NativeFunction<_c__wfindfirst64i32>>('_wfindfirst64i32');
-  late final _dart__wfindfirst64i32 __wfindfirst64i32 =
-      __wfindfirst64i32_ptr.asFunction<_dart__wfindfirst64i32>();
+  late final __wfindfirst64i32Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<_wfinddata64i32_t>)>>('_wfindfirst64i32');
+  late final __wfindfirst64i32 = __wfindfirst64i32Ptr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<_wfinddata64i32_t>)>();
 
   int _wfindfirst64(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     ffi.Pointer<_wfinddata64_t> _FindData,
   ) {
     return __wfindfirst64(
@@ -1336,10 +1434,12 @@ class DartTolk {
     );
   }
 
-  late final __wfindfirst64_ptr =
-      _lookup<ffi.NativeFunction<_c__wfindfirst64>>('_wfindfirst64');
-  late final _dart__wfindfirst64 __wfindfirst64 =
-      __wfindfirst64_ptr.asFunction<_dart__wfindfirst64>();
+  late final __wfindfirst64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<_wfinddata64_t>)>>('_wfindfirst64');
+  late final __wfindfirst64 = __wfindfirst64Ptr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<_wfinddata64_t>)>();
 
   int _wfindnext32i64(
     int _FindHandle,
@@ -1351,10 +1451,12 @@ class DartTolk {
     );
   }
 
-  late final __wfindnext32i64_ptr =
-      _lookup<ffi.NativeFunction<_c__wfindnext32i64>>('_wfindnext32i64');
-  late final _dart__wfindnext32i64 __wfindnext32i64 =
-      __wfindnext32i64_ptr.asFunction<_dart__wfindnext32i64>();
+  late final __wfindnext32i64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.IntPtr, ffi.Pointer<_wfinddata32i64_t>)>>('_wfindnext32i64');
+  late final __wfindnext32i64 = __wfindnext32i64Ptr
+      .asFunction<int Function(int, ffi.Pointer<_wfinddata32i64_t>)>();
 
   int _wfindnext64i32(
     int _FindHandle,
@@ -1366,10 +1468,12 @@ class DartTolk {
     );
   }
 
-  late final __wfindnext64i32_ptr =
-      _lookup<ffi.NativeFunction<_c__wfindnext64i32>>('_wfindnext64i32');
-  late final _dart__wfindnext64i32 __wfindnext64i32 =
-      __wfindnext64i32_ptr.asFunction<_dart__wfindnext64i32>();
+  late final __wfindnext64i32Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.IntPtr, ffi.Pointer<_wfinddata64i32_t>)>>('_wfindnext64i32');
+  late final __wfindnext64i32 = __wfindnext64i32Ptr
+      .asFunction<int Function(int, ffi.Pointer<_wfinddata64i32_t>)>();
 
   int _wfindnext64(
     int _FindHandle,
@@ -1381,14 +1485,16 @@ class DartTolk {
     );
   }
 
-  late final __wfindnext64_ptr =
-      _lookup<ffi.NativeFunction<_c__wfindnext64>>('_wfindnext64');
-  late final _dart__wfindnext64 __wfindnext64 =
-      __wfindnext64_ptr.asFunction<_dart__wfindnext64>();
+  late final __wfindnext64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.IntPtr, ffi.Pointer<_wfinddata64_t>)>>('_wfindnext64');
+  late final __wfindnext64 = __wfindnext64Ptr
+      .asFunction<int Function(int, ffi.Pointer<_wfinddata64_t>)>();
 
   int _wsopen_s(
     ffi.Pointer<ffi.Int32> _FileHandle,
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     int _OpenFlag,
     int _ShareFlag,
     int _PermissionFlag,
@@ -1402,13 +1508,16 @@ class DartTolk {
     );
   }
 
-  late final __wsopen_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wsopen_s>>('_wsopen_s');
-  late final _dart__wsopen_s __wsopen_s =
-      __wsopen_s_ptr.asFunction<_dart__wsopen_s>();
+  late final __wsopen_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<ffi.Int32>, ffi.Pointer<wchar_t>,
+              ffi.Int32, ffi.Int32, ffi.Int32)>>('_wsopen_s');
+  late final __wsopen_s = __wsopen_sPtr.asFunction<
+      int Function(
+          ffi.Pointer<ffi.Int32>, ffi.Pointer<wchar_t>, int, int, int)>();
 
   int _wsopen_dispatch(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     int _OFlag,
     int _ShFlag,
     int _PMode,
@@ -1425,13 +1534,21 @@ class DartTolk {
     );
   }
 
-  late final __wsopen_dispatch_ptr =
-      _lookup<ffi.NativeFunction<_c__wsopen_dispatch>>('_wsopen_dispatch');
-  late final _dart__wsopen_dispatch __wsopen_dispatch =
-      __wsopen_dispatch_ptr.asFunction<_dart__wsopen_dispatch>();
+  late final __wsopen_dispatchPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Int32,
+              ffi.Int32,
+              ffi.Int32,
+              ffi.Pointer<ffi.Int32>,
+              ffi.Int32)>>('_wsopen_dispatch');
+  late final __wsopen_dispatch = __wsopen_dispatchPtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, int, int, int, ffi.Pointer<ffi.Int32>, int)>();
 
   int _wopen(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     int _OpenFlag,
   ) {
     return __wopen(
@@ -1440,11 +1557,14 @@ class DartTolk {
     );
   }
 
-  late final __wopen_ptr = _lookup<ffi.NativeFunction<_c__wopen>>('_wopen');
-  late final _dart__wopen __wopen = __wopen_ptr.asFunction<_dart__wopen>();
+  late final __wopenPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Int32)>>('_wopen');
+  late final __wopen =
+      __wopenPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
   int _wsopen(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     int _OpenFlag,
     int _ShareFlag,
   ) {
@@ -1455,12 +1575,16 @@ class DartTolk {
     );
   }
 
-  late final __wsopen_ptr = _lookup<ffi.NativeFunction<_c__wsopen>>('_wsopen');
-  late final _dart__wsopen __wsopen = __wsopen_ptr.asFunction<_dart__wsopen>();
+  late final __wsopenPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Int32, ffi.Int32)>>('_wsopen');
+  late final __wsopen =
+      __wsopenPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int, int)>();
 
   int _wexecl(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _ArgList,
   ) {
     return __wexecl(
       _FileName,
@@ -1468,12 +1592,16 @@ class DartTolk {
     );
   }
 
-  late final __wexecl_ptr = _lookup<ffi.NativeFunction<_c__wexecl>>('_wexecl');
-  late final _dart__wexecl __wexecl = __wexecl_ptr.asFunction<_dart__wexecl>();
+  late final __wexeclPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wexecl');
+  late final __wexecl = __wexeclPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wexecle(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _ArgList,
   ) {
     return __wexecle(
       _FileName,
@@ -1481,14 +1609,16 @@ class DartTolk {
     );
   }
 
-  late final __wexecle_ptr =
-      _lookup<ffi.NativeFunction<_c__wexecle>>('_wexecle');
-  late final _dart__wexecle __wexecle =
-      __wexecle_ptr.asFunction<_dart__wexecle>();
+  late final __wexeclePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wexecle');
+  late final __wexecle = __wexeclePtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wexeclp(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _ArgList,
   ) {
     return __wexeclp(
       _FileName,
@@ -1496,14 +1626,16 @@ class DartTolk {
     );
   }
 
-  late final __wexeclp_ptr =
-      _lookup<ffi.NativeFunction<_c__wexeclp>>('_wexeclp');
-  late final _dart__wexeclp __wexeclp =
-      __wexeclp_ptr.asFunction<_dart__wexeclp>();
+  late final __wexeclpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wexeclp');
+  late final __wexeclp = __wexeclpPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wexeclpe(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _ArgList,
   ) {
     return __wexeclpe(
       _FileName,
@@ -1511,14 +1643,16 @@ class DartTolk {
     );
   }
 
-  late final __wexeclpe_ptr =
-      _lookup<ffi.NativeFunction<_c__wexeclpe>>('_wexeclpe');
-  late final _dart__wexeclpe __wexeclpe =
-      __wexeclpe_ptr.asFunction<_dart__wexeclpe>();
+  late final __wexeclpePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wexeclpe');
+  late final __wexeclpe = __wexeclpePtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wexecv(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _ArgList,
   ) {
     return __wexecv(
       _FileName,
@@ -1526,13 +1660,17 @@ class DartTolk {
     );
   }
 
-  late final __wexecv_ptr = _lookup<ffi.NativeFunction<_c__wexecv>>('_wexecv');
-  late final _dart__wexecv __wexecv = __wexecv_ptr.asFunction<_dart__wexecv>();
+  late final __wexecvPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('_wexecv');
+  late final __wexecv = __wexecvPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
   int _wexecve(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _ArgList,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _Env,
   ) {
     return __wexecve(
       _FileName,
@@ -1541,14 +1679,19 @@ class DartTolk {
     );
   }
 
-  late final __wexecve_ptr =
-      _lookup<ffi.NativeFunction<_c__wexecve>>('_wexecve');
-  late final _dart__wexecve __wexecve =
-      __wexecve_ptr.asFunction<_dart__wexecve>();
+  late final __wexecvePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('_wexecve');
+  late final __wexecve = __wexecvePtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>,
+          ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
   int _wexecvp(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _ArgList,
   ) {
     return __wexecvp(
       _FileName,
@@ -1556,15 +1699,17 @@ class DartTolk {
     );
   }
 
-  late final __wexecvp_ptr =
-      _lookup<ffi.NativeFunction<_c__wexecvp>>('_wexecvp');
-  late final _dart__wexecvp __wexecvp =
-      __wexecvp_ptr.asFunction<_dart__wexecvp>();
+  late final __wexecvpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('_wexecvp');
+  late final __wexecvp = __wexecvpPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
   int _wexecvpe(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _ArgList,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _Env,
   ) {
     return __wexecvpe(
       _FileName,
@@ -1573,15 +1718,20 @@ class DartTolk {
     );
   }
 
-  late final __wexecvpe_ptr =
-      _lookup<ffi.NativeFunction<_c__wexecvpe>>('_wexecvpe');
-  late final _dart__wexecvpe __wexecvpe =
-      __wexecvpe_ptr.asFunction<_dart__wexecvpe>();
+  late final __wexecvpePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('_wexecvpe');
+  late final __wexecvpe = __wexecvpePtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>,
+          ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
   int _wspawnl(
     int _Mode,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _ArgList,
   ) {
     return __wspawnl(
       _Mode,
@@ -1590,15 +1740,17 @@ class DartTolk {
     );
   }
 
-  late final __wspawnl_ptr =
-      _lookup<ffi.NativeFunction<_c__wspawnl>>('_wspawnl');
-  late final _dart__wspawnl __wspawnl =
-      __wspawnl_ptr.asFunction<_dart__wspawnl>();
+  late final __wspawnlPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Int32, ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>)>>('_wspawnl');
+  late final __wspawnl = __wspawnlPtr.asFunction<
+      int Function(int, ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wspawnle(
     int _Mode,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _ArgList,
   ) {
     return __wspawnle(
       _Mode,
@@ -1607,15 +1759,17 @@ class DartTolk {
     );
   }
 
-  late final __wspawnle_ptr =
-      _lookup<ffi.NativeFunction<_c__wspawnle>>('_wspawnle');
-  late final _dart__wspawnle __wspawnle =
-      __wspawnle_ptr.asFunction<_dart__wspawnle>();
+  late final __wspawnlePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Int32, ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>)>>('_wspawnle');
+  late final __wspawnle = __wspawnlePtr.asFunction<
+      int Function(int, ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wspawnlp(
     int _Mode,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _ArgList,
   ) {
     return __wspawnlp(
       _Mode,
@@ -1624,15 +1778,17 @@ class DartTolk {
     );
   }
 
-  late final __wspawnlp_ptr =
-      _lookup<ffi.NativeFunction<_c__wspawnlp>>('_wspawnlp');
-  late final _dart__wspawnlp __wspawnlp =
-      __wspawnlp_ptr.asFunction<_dart__wspawnlp>();
+  late final __wspawnlpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Int32, ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>)>>('_wspawnlp');
+  late final __wspawnlp = __wspawnlpPtr.asFunction<
+      int Function(int, ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wspawnlpe(
     int _Mode,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _ArgList,
   ) {
     return __wspawnlpe(
       _Mode,
@@ -1641,15 +1797,17 @@ class DartTolk {
     );
   }
 
-  late final __wspawnlpe_ptr =
-      _lookup<ffi.NativeFunction<_c__wspawnlpe>>('_wspawnlpe');
-  late final _dart__wspawnlpe __wspawnlpe =
-      __wspawnlpe_ptr.asFunction<_dart__wspawnlpe>();
+  late final __wspawnlpePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Int32, ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>)>>('_wspawnlpe');
+  late final __wspawnlpe = __wspawnlpePtr.asFunction<
+      int Function(int, ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wspawnv(
     int _Mode,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _ArgList,
   ) {
     return __wspawnv(
       _Mode,
@@ -1658,16 +1816,19 @@ class DartTolk {
     );
   }
 
-  late final __wspawnv_ptr =
-      _lookup<ffi.NativeFunction<_c__wspawnv>>('_wspawnv');
-  late final _dart__wspawnv __wspawnv =
-      __wspawnv_ptr.asFunction<_dart__wspawnv>();
+  late final __wspawnvPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Int32, ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('_wspawnv');
+  late final __wspawnv = __wspawnvPtr.asFunction<
+      int Function(
+          int, ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
   int _wspawnve(
     int _Mode,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _ArgList,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _Env,
   ) {
     return __wspawnve(
       _Mode,
@@ -1677,15 +1838,21 @@ class DartTolk {
     );
   }
 
-  late final __wspawnve_ptr =
-      _lookup<ffi.NativeFunction<_c__wspawnve>>('_wspawnve');
-  late final _dart__wspawnve __wspawnve =
-      __wspawnve_ptr.asFunction<_dart__wspawnve>();
+  late final __wspawnvePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(
+              ffi.Int32,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('_wspawnve');
+  late final __wspawnve = __wspawnvePtr.asFunction<
+      int Function(int, ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>,
+          ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
   int _wspawnvp(
     int _Mode,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _ArgList,
   ) {
     return __wspawnvp(
       _Mode,
@@ -1694,16 +1861,19 @@ class DartTolk {
     );
   }
 
-  late final __wspawnvp_ptr =
-      _lookup<ffi.NativeFunction<_c__wspawnvp>>('_wspawnvp');
-  late final _dart__wspawnvp __wspawnvp =
-      __wspawnvp_ptr.asFunction<_dart__wspawnvp>();
+  late final __wspawnvpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(ffi.Int32, ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('_wspawnvp');
+  late final __wspawnvp = __wspawnvpPtr.asFunction<
+      int Function(
+          int, ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
   int _wspawnvpe(
     int _Mode,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _ArgList,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _Env,
   ) {
     return __wspawnvpe(
       _Mode,
@@ -1713,23 +1883,30 @@ class DartTolk {
     );
   }
 
-  late final __wspawnvpe_ptr =
-      _lookup<ffi.NativeFunction<_c__wspawnvpe>>('_wspawnvpe');
-  late final _dart__wspawnvpe __wspawnvpe =
-      __wspawnvpe_ptr.asFunction<_dart__wspawnvpe>();
+  late final __wspawnvpePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.IntPtr Function(
+              ffi.Int32,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('_wspawnvpe');
+  late final __wspawnvpe = __wspawnvpePtr.asFunction<
+      int Function(int, ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>,
+          ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
   int _wsystem(
-    ffi.Pointer<ffi.Uint16> _Command,
+    ffi.Pointer<wchar_t> _Command,
   ) {
     return __wsystem(
       _Command,
     );
   }
 
-  late final __wsystem_ptr =
-      _lookup<ffi.NativeFunction<_c__wsystem>>('_wsystem');
-  late final _dart__wsystem __wsystem =
-      __wsystem_ptr.asFunction<_dart__wsystem>();
+  late final __wsystemPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<wchar_t>)>>(
+          '_wsystem');
+  late final __wsystem =
+      __wsystemPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   ffi.Pointer<FILE> __acrt_iob_func(
     int _Ix,
@@ -1739,10 +1916,11 @@ class DartTolk {
     );
   }
 
-  late final ___acrt_iob_func_ptr =
-      _lookup<ffi.NativeFunction<_c___acrt_iob_func>>('__acrt_iob_func');
-  late final _dart___acrt_iob_func ___acrt_iob_func =
-      ___acrt_iob_func_ptr.asFunction<_dart___acrt_iob_func>();
+  late final ___acrt_iob_funcPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<FILE> Function(ffi.Uint32)>>(
+          '__acrt_iob_func');
+  late final ___acrt_iob_func =
+      ___acrt_iob_funcPtr.asFunction<ffi.Pointer<FILE> Function(int)>();
 
   int fgetwc(
     ffi.Pointer<FILE> _Stream,
@@ -1752,17 +1930,17 @@ class DartTolk {
     );
   }
 
-  late final _fgetwc_ptr = _lookup<ffi.NativeFunction<_c_fgetwc>>('fgetwc');
-  late final _dart_fgetwc _fgetwc = _fgetwc_ptr.asFunction<_dart_fgetwc>();
+  late final _fgetwcPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(ffi.Pointer<FILE>)>>('fgetwc');
+  late final _fgetwc = _fgetwcPtr.asFunction<int Function(ffi.Pointer<FILE>)>();
 
   int _fgetwchar() {
     return __fgetwchar();
   }
 
-  late final __fgetwchar_ptr =
-      _lookup<ffi.NativeFunction<_c__fgetwchar>>('_fgetwchar');
-  late final _dart__fgetwchar __fgetwchar =
-      __fgetwchar_ptr.asFunction<_dart__fgetwchar>();
+  late final __fgetwcharPtr =
+      _lookup<ffi.NativeFunction<wint_t Function()>>('_fgetwchar');
+  late final __fgetwchar = __fgetwcharPtr.asFunction<int Function()>();
 
   int fputwc(
     int _Character,
@@ -1774,8 +1952,11 @@ class DartTolk {
     );
   }
 
-  late final _fputwc_ptr = _lookup<ffi.NativeFunction<_c_fputwc>>('fputwc');
-  late final _dart_fputwc _fputwc = _fputwc_ptr.asFunction<_dart_fputwc>();
+  late final _fputwcPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wchar_t, ffi.Pointer<FILE>)>>(
+          'fputwc');
+  late final _fputwc =
+      _fputwcPtr.asFunction<int Function(int, ffi.Pointer<FILE>)>();
 
   int _fputwchar(
     int _Character,
@@ -1785,10 +1966,9 @@ class DartTolk {
     );
   }
 
-  late final __fputwchar_ptr =
-      _lookup<ffi.NativeFunction<_c__fputwchar>>('_fputwchar');
-  late final _dart__fputwchar __fputwchar =
-      __fputwchar_ptr.asFunction<_dart__fputwchar>();
+  late final __fputwcharPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wchar_t)>>('_fputwchar');
+  late final __fputwchar = __fputwcharPtr.asFunction<int Function(int)>();
 
   int getwc(
     ffi.Pointer<FILE> _Stream,
@@ -1798,20 +1978,20 @@ class DartTolk {
     );
   }
 
-  late final _getwc_ptr = _lookup<ffi.NativeFunction<_c_getwc>>('getwc');
-  late final _dart_getwc _getwc = _getwc_ptr.asFunction<_dart_getwc>();
+  late final _getwcPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(ffi.Pointer<FILE>)>>('getwc');
+  late final _getwc = _getwcPtr.asFunction<int Function(ffi.Pointer<FILE>)>();
 
   int getwchar() {
     return _getwchar();
   }
 
-  late final _getwchar_ptr =
-      _lookup<ffi.NativeFunction<_c_getwchar>>('getwchar');
-  late final _dart_getwchar _getwchar =
-      _getwchar_ptr.asFunction<_dart_getwchar>();
+  late final _getwcharPtr =
+      _lookup<ffi.NativeFunction<wint_t Function()>>('getwchar');
+  late final _getwchar = _getwcharPtr.asFunction<int Function()>();
 
-  ffi.Pointer<ffi.Uint16> fgetws(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+  ffi.Pointer<wchar_t> fgetws(
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
     ffi.Pointer<FILE> _Stream,
   ) {
@@ -1822,11 +2002,16 @@ class DartTolk {
     );
   }
 
-  late final _fgetws_ptr = _lookup<ffi.NativeFunction<_c_fgetws>>('fgetws');
-  late final _dart_fgetws _fgetws = _fgetws_ptr.asFunction<_dart_fgetws>();
+  late final _fgetwsPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, ffi.Int32, ffi.Pointer<FILE>)>>('fgetws');
+  late final _fgetws = _fgetwsPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(
+          ffi.Pointer<wchar_t>, int, ffi.Pointer<FILE>)>();
 
   int fputws(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     ffi.Pointer<FILE> _Stream,
   ) {
     return _fputws(
@@ -1835,11 +2020,15 @@ class DartTolk {
     );
   }
 
-  late final _fputws_ptr = _lookup<ffi.NativeFunction<_c_fputws>>('fputws');
-  late final _dart_fputws _fputws = _fputws_ptr.asFunction<_dart_fputws>();
+  late final _fputwsPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<FILE>)>>('fputws');
+  late final _fputws = _fputwsPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<FILE>)>();
 
-  ffi.Pointer<ffi.Uint16> _getws_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+  ffi.Pointer<wchar_t> _getws_s(
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
   ) {
     return __getws_s(
@@ -1848,10 +2037,12 @@ class DartTolk {
     );
   }
 
-  late final __getws_s_ptr =
-      _lookup<ffi.NativeFunction<_c__getws_s>>('_getws_s');
-  late final _dart__getws_s __getws_s =
-      __getws_s_ptr.asFunction<_dart__getws_s>();
+  late final __getws_sPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, size_t)>>('_getws_s');
+  late final __getws_s = __getws_sPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, int)>();
 
   int putwc(
     int _Character,
@@ -1863,8 +2054,11 @@ class DartTolk {
     );
   }
 
-  late final _putwc_ptr = _lookup<ffi.NativeFunction<_c_putwc>>('putwc');
-  late final _dart_putwc _putwc = _putwc_ptr.asFunction<_dart_putwc>();
+  late final _putwcPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wchar_t, ffi.Pointer<FILE>)>>(
+          'putwc');
+  late final _putwc =
+      _putwcPtr.asFunction<int Function(int, ffi.Pointer<FILE>)>();
 
   int putwchar(
     int _Character,
@@ -1874,21 +2068,23 @@ class DartTolk {
     );
   }
 
-  late final _putwchar_ptr =
-      _lookup<ffi.NativeFunction<_c_putwchar>>('putwchar');
-  late final _dart_putwchar _putwchar =
-      _putwchar_ptr.asFunction<_dart_putwchar>();
+  late final _putwcharPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wchar_t)>>('putwchar');
+  late final _putwchar = _putwcharPtr.asFunction<int Function(int)>();
 
   int _putws(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
   ) {
     return __putws(
       _Buffer,
     );
   }
 
-  late final __putws_ptr = _lookup<ffi.NativeFunction<_c__putws>>('_putws');
-  late final _dart__putws __putws = __putws_ptr.asFunction<_dart__putws>();
+  late final __putwsPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<wchar_t>)>>(
+          '_putws');
+  late final __putws =
+      __putwsPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int ungetwc(
     int _Character,
@@ -1900,12 +2096,15 @@ class DartTolk {
     );
   }
 
-  late final _ungetwc_ptr = _lookup<ffi.NativeFunction<_c_ungetwc>>('ungetwc');
-  late final _dart_ungetwc _ungetwc = _ungetwc_ptr.asFunction<_dart_ungetwc>();
+  late final _ungetwcPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wint_t, ffi.Pointer<FILE>)>>(
+          'ungetwc');
+  late final _ungetwc =
+      _ungetwcPtr.asFunction<int Function(int, ffi.Pointer<FILE>)>();
 
   ffi.Pointer<FILE> _wfdopen(
     int _FileHandle,
-    ffi.Pointer<ffi.Uint16> _Mode,
+    ffi.Pointer<wchar_t> _Mode,
   ) {
     return __wfdopen(
       _FileHandle,
@@ -1913,14 +2112,16 @@ class DartTolk {
     );
   }
 
-  late final __wfdopen_ptr =
-      _lookup<ffi.NativeFunction<_c__wfdopen>>('_wfdopen');
-  late final _dart__wfdopen __wfdopen =
-      __wfdopen_ptr.asFunction<_dart__wfdopen>();
+  late final __wfdopenPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<FILE> Function(
+              ffi.Int32, ffi.Pointer<wchar_t>)>>('_wfdopen');
+  late final __wfdopen = __wfdopenPtr
+      .asFunction<ffi.Pointer<FILE> Function(int, ffi.Pointer<wchar_t>)>();
 
   ffi.Pointer<FILE> _wfopen(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _Mode,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _Mode,
   ) {
     return __wfopen(
       _FileName,
@@ -1928,13 +2129,17 @@ class DartTolk {
     );
   }
 
-  late final __wfopen_ptr = _lookup<ffi.NativeFunction<_c__wfopen>>('_wfopen');
-  late final _dart__wfopen __wfopen = __wfopen_ptr.asFunction<_dart__wfopen>();
+  late final __wfopenPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<FILE> Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wfopen');
+  late final __wfopen = __wfopenPtr.asFunction<
+      ffi.Pointer<FILE> Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wfopen_s(
     ffi.Pointer<ffi.Pointer<FILE>> _Stream,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _Mode,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _Mode,
   ) {
     return __wfopen_s(
       _Stream,
@@ -1943,14 +2148,17 @@ class DartTolk {
     );
   }
 
-  late final __wfopen_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wfopen_s>>('_wfopen_s');
-  late final _dart__wfopen_s __wfopen_s =
-      __wfopen_s_ptr.asFunction<_dart__wfopen_s>();
+  late final __wfopen_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<ffi.Pointer<FILE>>, ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>)>>('_wfopen_s');
+  late final __wfopen_s = __wfopen_sPtr.asFunction<
+      int Function(ffi.Pointer<ffi.Pointer<FILE>>, ffi.Pointer<wchar_t>,
+          ffi.Pointer<wchar_t>)>();
 
   ffi.Pointer<FILE> _wfreopen(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _Mode,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _Mode,
     ffi.Pointer<FILE> _OldStream,
   ) {
     return __wfreopen(
@@ -1960,15 +2168,18 @@ class DartTolk {
     );
   }
 
-  late final __wfreopen_ptr =
-      _lookup<ffi.NativeFunction<_c__wfreopen>>('_wfreopen');
-  late final _dart__wfreopen __wfreopen =
-      __wfreopen_ptr.asFunction<_dart__wfreopen>();
+  late final __wfreopenPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<FILE> Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              ffi.Pointer<FILE>)>>('_wfreopen');
+  late final __wfreopen = __wfreopenPtr.asFunction<
+      ffi.Pointer<FILE> Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, ffi.Pointer<FILE>)>();
 
   int _wfreopen_s(
     ffi.Pointer<ffi.Pointer<FILE>> _Stream,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _Mode,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _Mode,
     ffi.Pointer<FILE> _OldStream,
   ) {
     return __wfreopen_s(
@@ -1979,14 +2190,17 @@ class DartTolk {
     );
   }
 
-  late final __wfreopen_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wfreopen_s>>('_wfreopen_s');
-  late final _dart__wfreopen_s __wfreopen_s =
-      __wfreopen_s_ptr.asFunction<_dart__wfreopen_s>();
+  late final __wfreopen_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<ffi.Pointer<FILE>>, ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>, ffi.Pointer<FILE>)>>('_wfreopen_s');
+  late final __wfreopen_s = __wfreopen_sPtr.asFunction<
+      int Function(ffi.Pointer<ffi.Pointer<FILE>>, ffi.Pointer<wchar_t>,
+          ffi.Pointer<wchar_t>, ffi.Pointer<FILE>)>();
 
   ffi.Pointer<FILE> _wfsopen(
-    ffi.Pointer<ffi.Uint16> _FileName,
-    ffi.Pointer<ffi.Uint16> _Mode,
+    ffi.Pointer<wchar_t> _FileName,
+    ffi.Pointer<wchar_t> _Mode,
     int _ShFlag,
   ) {
     return __wfsopen(
@@ -1996,27 +2210,31 @@ class DartTolk {
     );
   }
 
-  late final __wfsopen_ptr =
-      _lookup<ffi.NativeFunction<_c__wfsopen>>('_wfsopen');
-  late final _dart__wfsopen __wfsopen =
-      __wfsopen_ptr.asFunction<_dart__wfsopen>();
+  late final __wfsopenPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<FILE> Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              ffi.Int32)>>('_wfsopen');
+  late final __wfsopen = __wfsopenPtr.asFunction<
+      ffi.Pointer<FILE> Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int)>();
 
   void _wperror(
-    ffi.Pointer<ffi.Uint16> _ErrorMessage,
+    ffi.Pointer<wchar_t> _ErrorMessage,
   ) {
     return __wperror(
       _ErrorMessage,
     );
   }
 
-  late final __wperror_ptr =
-      _lookup<ffi.NativeFunction<_c__wperror>>('_wperror');
-  late final _dart__wperror __wperror =
-      __wperror_ptr.asFunction<_dart__wperror>();
+  late final __wperrorPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<wchar_t>)>>(
+          '_wperror');
+  late final __wperror =
+      __wperrorPtr.asFunction<void Function(ffi.Pointer<wchar_t>)>();
 
   ffi.Pointer<FILE> _wpopen(
-    ffi.Pointer<ffi.Uint16> _Command,
-    ffi.Pointer<ffi.Uint16> _Mode,
+    ffi.Pointer<wchar_t> _Command,
+    ffi.Pointer<wchar_t> _Mode,
   ) {
     return __wpopen(
       _Command,
@@ -2024,25 +2242,30 @@ class DartTolk {
     );
   }
 
-  late final __wpopen_ptr = _lookup<ffi.NativeFunction<_c__wpopen>>('_wpopen');
-  late final _dart__wpopen __wpopen = __wpopen_ptr.asFunction<_dart__wpopen>();
+  late final __wpopenPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<FILE> Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wpopen');
+  late final __wpopen = __wpopenPtr.asFunction<
+      ffi.Pointer<FILE> Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wremove(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
   ) {
     return __wremove(
       _FileName,
     );
   }
 
-  late final __wremove_ptr =
-      _lookup<ffi.NativeFunction<_c__wremove>>('_wremove');
-  late final _dart__wremove __wremove =
-      __wremove_ptr.asFunction<_dart__wremove>();
+  late final __wremovePtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<wchar_t>)>>(
+          '_wremove');
+  late final __wremove =
+      __wremovePtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
-  ffi.Pointer<ffi.Uint16> _wtempnam(
-    ffi.Pointer<ffi.Uint16> _Directory,
-    ffi.Pointer<ffi.Uint16> _FilePrefix,
+  ffi.Pointer<wchar_t> _wtempnam(
+    ffi.Pointer<wchar_t> _Directory,
+    ffi.Pointer<wchar_t> _FilePrefix,
   ) {
     return __wtempnam(
       _Directory,
@@ -2050,13 +2273,16 @@ class DartTolk {
     );
   }
 
-  late final __wtempnam_ptr =
-      _lookup<ffi.NativeFunction<_c__wtempnam>>('_wtempnam');
-  late final _dart__wtempnam __wtempnam =
-      __wtempnam_ptr.asFunction<_dart__wtempnam>();
+  late final __wtempnamPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wtempnam');
+  late final __wtempnam = __wtempnamPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wtmpnam_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
   ) {
     return __wtmpnam_s(
@@ -2065,23 +2291,25 @@ class DartTolk {
     );
   }
 
-  late final __wtmpnam_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wtmpnam_s>>('_wtmpnam_s');
-  late final _dart__wtmpnam_s __wtmpnam_s =
-      __wtmpnam_s_ptr.asFunction<_dart__wtmpnam_s>();
+  late final __wtmpnam_sPtr = _lookup<
+          ffi.NativeFunction<errno_t Function(ffi.Pointer<wchar_t>, size_t)>>(
+      '_wtmpnam_s');
+  late final __wtmpnam_s =
+      __wtmpnam_sPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wtmpnam(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+  ffi.Pointer<wchar_t> _wtmpnam(
+    ffi.Pointer<wchar_t> _Buffer,
   ) {
     return __wtmpnam(
       _Buffer,
     );
   }
 
-  late final __wtmpnam_ptr =
-      _lookup<ffi.NativeFunction<_c__wtmpnam>>('_wtmpnam');
-  late final _dart__wtmpnam __wtmpnam =
-      __wtmpnam_ptr.asFunction<_dart__wtmpnam>();
+  late final __wtmpnamPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('_wtmpnam');
+  late final __wtmpnam = __wtmpnamPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int _fgetwc_nolock(
     ffi.Pointer<FILE> _Stream,
@@ -2091,10 +2319,11 @@ class DartTolk {
     );
   }
 
-  late final __fgetwc_nolock_ptr =
-      _lookup<ffi.NativeFunction<_c__fgetwc_nolock>>('_fgetwc_nolock');
-  late final _dart__fgetwc_nolock __fgetwc_nolock =
-      __fgetwc_nolock_ptr.asFunction<_dart__fgetwc_nolock>();
+  late final __fgetwc_nolockPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(ffi.Pointer<FILE>)>>(
+          '_fgetwc_nolock');
+  late final __fgetwc_nolock =
+      __fgetwc_nolockPtr.asFunction<int Function(ffi.Pointer<FILE>)>();
 
   int _fputwc_nolock(
     int _Character,
@@ -2106,10 +2335,11 @@ class DartTolk {
     );
   }
 
-  late final __fputwc_nolock_ptr =
-      _lookup<ffi.NativeFunction<_c__fputwc_nolock>>('_fputwc_nolock');
-  late final _dart__fputwc_nolock __fputwc_nolock =
-      __fputwc_nolock_ptr.asFunction<_dart__fputwc_nolock>();
+  late final __fputwc_nolockPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wchar_t, ffi.Pointer<FILE>)>>(
+          '_fputwc_nolock');
+  late final __fputwc_nolock =
+      __fputwc_nolockPtr.asFunction<int Function(int, ffi.Pointer<FILE>)>();
 
   int _getwc_nolock(
     ffi.Pointer<FILE> _Stream,
@@ -2119,10 +2349,11 @@ class DartTolk {
     );
   }
 
-  late final __getwc_nolock_ptr =
-      _lookup<ffi.NativeFunction<_c__getwc_nolock>>('_getwc_nolock');
-  late final _dart__getwc_nolock __getwc_nolock =
-      __getwc_nolock_ptr.asFunction<_dart__getwc_nolock>();
+  late final __getwc_nolockPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(ffi.Pointer<FILE>)>>(
+          '_getwc_nolock');
+  late final __getwc_nolock =
+      __getwc_nolockPtr.asFunction<int Function(ffi.Pointer<FILE>)>();
 
   int _putwc_nolock(
     int _Character,
@@ -2134,10 +2365,11 @@ class DartTolk {
     );
   }
 
-  late final __putwc_nolock_ptr =
-      _lookup<ffi.NativeFunction<_c__putwc_nolock>>('_putwc_nolock');
-  late final _dart__putwc_nolock __putwc_nolock =
-      __putwc_nolock_ptr.asFunction<_dart__putwc_nolock>();
+  late final __putwc_nolockPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wchar_t, ffi.Pointer<FILE>)>>(
+          '_putwc_nolock');
+  late final __putwc_nolock =
+      __putwc_nolockPtr.asFunction<int Function(int, ffi.Pointer<FILE>)>();
 
   int _ungetwc_nolock(
     int _Character,
@@ -2149,17 +2381,18 @@ class DartTolk {
     );
   }
 
-  late final __ungetwc_nolock_ptr =
-      _lookup<ffi.NativeFunction<_c__ungetwc_nolock>>('_ungetwc_nolock');
-  late final _dart__ungetwc_nolock __ungetwc_nolock =
-      __ungetwc_nolock_ptr.asFunction<_dart__ungetwc_nolock>();
+  late final __ungetwc_nolockPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(wint_t, ffi.Pointer<FILE>)>>(
+          '_ungetwc_nolock');
+  late final __ungetwc_nolock =
+      __ungetwc_nolockPtr.asFunction<int Function(int, ffi.Pointer<FILE>)>();
 
   int __stdio_common_vfwprintf(
     int _Options,
     ffi.Pointer<FILE> _Stream,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___stdio_common_vfwprintf(
       _Options,
@@ -2170,19 +2403,25 @@ class DartTolk {
     );
   }
 
-  late final ___stdio_common_vfwprintf_ptr =
-      _lookup<ffi.NativeFunction<_c___stdio_common_vfwprintf>>(
-          '__stdio_common_vfwprintf');
-  late final _dart___stdio_common_vfwprintf ___stdio_common_vfwprintf =
-      ___stdio_common_vfwprintf_ptr
-          .asFunction<_dart___stdio_common_vfwprintf>();
+  late final ___stdio_common_vfwprintfPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Uint64,
+              ffi.Pointer<FILE>,
+              ffi.Pointer<wchar_t>,
+              _locale_t,
+              va_list)>>('__stdio_common_vfwprintf');
+  late final ___stdio_common_vfwprintf =
+      ___stdio_common_vfwprintfPtr.asFunction<
+          int Function(int, ffi.Pointer<FILE>, ffi.Pointer<wchar_t>, _locale_t,
+              va_list)>();
 
   int __stdio_common_vfwprintf_s(
     int _Options,
     ffi.Pointer<FILE> _Stream,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___stdio_common_vfwprintf_s(
       _Options,
@@ -2193,19 +2432,25 @@ class DartTolk {
     );
   }
 
-  late final ___stdio_common_vfwprintf_s_ptr =
-      _lookup<ffi.NativeFunction<_c___stdio_common_vfwprintf_s>>(
-          '__stdio_common_vfwprintf_s');
-  late final _dart___stdio_common_vfwprintf_s ___stdio_common_vfwprintf_s =
-      ___stdio_common_vfwprintf_s_ptr
-          .asFunction<_dart___stdio_common_vfwprintf_s>();
+  late final ___stdio_common_vfwprintf_sPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Uint64,
+              ffi.Pointer<FILE>,
+              ffi.Pointer<wchar_t>,
+              _locale_t,
+              va_list)>>('__stdio_common_vfwprintf_s');
+  late final ___stdio_common_vfwprintf_s =
+      ___stdio_common_vfwprintf_sPtr.asFunction<
+          int Function(int, ffi.Pointer<FILE>, ffi.Pointer<wchar_t>, _locale_t,
+              va_list)>();
 
   int __stdio_common_vfwprintf_p(
     int _Options,
     ffi.Pointer<FILE> _Stream,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___stdio_common_vfwprintf_p(
       _Options,
@@ -2216,19 +2461,25 @@ class DartTolk {
     );
   }
 
-  late final ___stdio_common_vfwprintf_p_ptr =
-      _lookup<ffi.NativeFunction<_c___stdio_common_vfwprintf_p>>(
-          '__stdio_common_vfwprintf_p');
-  late final _dart___stdio_common_vfwprintf_p ___stdio_common_vfwprintf_p =
-      ___stdio_common_vfwprintf_p_ptr
-          .asFunction<_dart___stdio_common_vfwprintf_p>();
+  late final ___stdio_common_vfwprintf_pPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Uint64,
+              ffi.Pointer<FILE>,
+              ffi.Pointer<wchar_t>,
+              _locale_t,
+              va_list)>>('__stdio_common_vfwprintf_p');
+  late final ___stdio_common_vfwprintf_p =
+      ___stdio_common_vfwprintf_pPtr.asFunction<
+          int Function(int, ffi.Pointer<FILE>, ffi.Pointer<wchar_t>, _locale_t,
+              va_list)>();
 
   int __stdio_common_vfwscanf(
     int _Options,
     ffi.Pointer<FILE> _Stream,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___stdio_common_vfwscanf(
       _Options,
@@ -2239,19 +2490,25 @@ class DartTolk {
     );
   }
 
-  late final ___stdio_common_vfwscanf_ptr =
-      _lookup<ffi.NativeFunction<_c___stdio_common_vfwscanf>>(
-          '__stdio_common_vfwscanf');
-  late final _dart___stdio_common_vfwscanf ___stdio_common_vfwscanf =
-      ___stdio_common_vfwscanf_ptr.asFunction<_dart___stdio_common_vfwscanf>();
+  late final ___stdio_common_vfwscanfPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Uint64,
+              ffi.Pointer<FILE>,
+              ffi.Pointer<wchar_t>,
+              _locale_t,
+              va_list)>>('__stdio_common_vfwscanf');
+  late final ___stdio_common_vfwscanf = ___stdio_common_vfwscanfPtr.asFunction<
+      int Function(
+          int, ffi.Pointer<FILE>, ffi.Pointer<wchar_t>, _locale_t, va_list)>();
 
   int __stdio_common_vswprintf(
     int _Options,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___stdio_common_vswprintf(
       _Options,
@@ -2263,20 +2520,27 @@ class DartTolk {
     );
   }
 
-  late final ___stdio_common_vswprintf_ptr =
-      _lookup<ffi.NativeFunction<_c___stdio_common_vswprintf>>(
-          '__stdio_common_vswprintf');
-  late final _dart___stdio_common_vswprintf ___stdio_common_vswprintf =
-      ___stdio_common_vswprintf_ptr
-          .asFunction<_dart___stdio_common_vswprintf>();
+  late final ___stdio_common_vswprintfPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Uint64,
+              ffi.Pointer<wchar_t>,
+              size_t,
+              ffi.Pointer<wchar_t>,
+              _locale_t,
+              va_list)>>('__stdio_common_vswprintf');
+  late final ___stdio_common_vswprintf =
+      ___stdio_common_vswprintfPtr.asFunction<
+          int Function(int, ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>,
+              _locale_t, va_list)>();
 
   int __stdio_common_vswprintf_s(
     int _Options,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___stdio_common_vswprintf_s(
       _Options,
@@ -2288,21 +2552,28 @@ class DartTolk {
     );
   }
 
-  late final ___stdio_common_vswprintf_s_ptr =
-      _lookup<ffi.NativeFunction<_c___stdio_common_vswprintf_s>>(
-          '__stdio_common_vswprintf_s');
-  late final _dart___stdio_common_vswprintf_s ___stdio_common_vswprintf_s =
-      ___stdio_common_vswprintf_s_ptr
-          .asFunction<_dart___stdio_common_vswprintf_s>();
+  late final ___stdio_common_vswprintf_sPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Uint64,
+              ffi.Pointer<wchar_t>,
+              size_t,
+              ffi.Pointer<wchar_t>,
+              _locale_t,
+              va_list)>>('__stdio_common_vswprintf_s');
+  late final ___stdio_common_vswprintf_s =
+      ___stdio_common_vswprintf_sPtr.asFunction<
+          int Function(int, ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>,
+              _locale_t, va_list)>();
 
   int __stdio_common_vsnwprintf_s(
     int _Options,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
     int _MaxCount,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___stdio_common_vsnwprintf_s(
       _Options,
@@ -2315,20 +2586,28 @@ class DartTolk {
     );
   }
 
-  late final ___stdio_common_vsnwprintf_s_ptr =
-      _lookup<ffi.NativeFunction<_c___stdio_common_vsnwprintf_s>>(
-          '__stdio_common_vsnwprintf_s');
-  late final _dart___stdio_common_vsnwprintf_s ___stdio_common_vsnwprintf_s =
-      ___stdio_common_vsnwprintf_s_ptr
-          .asFunction<_dart___stdio_common_vsnwprintf_s>();
+  late final ___stdio_common_vsnwprintf_sPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Uint64,
+              ffi.Pointer<wchar_t>,
+              size_t,
+              size_t,
+              ffi.Pointer<wchar_t>,
+              _locale_t,
+              va_list)>>('__stdio_common_vsnwprintf_s');
+  late final ___stdio_common_vsnwprintf_s =
+      ___stdio_common_vsnwprintf_sPtr.asFunction<
+          int Function(int, ffi.Pointer<wchar_t>, int, int,
+              ffi.Pointer<wchar_t>, _locale_t, va_list)>();
 
   int __stdio_common_vswprintf_p(
     int _Options,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___stdio_common_vswprintf_p(
       _Options,
@@ -2340,20 +2619,27 @@ class DartTolk {
     );
   }
 
-  late final ___stdio_common_vswprintf_p_ptr =
-      _lookup<ffi.NativeFunction<_c___stdio_common_vswprintf_p>>(
-          '__stdio_common_vswprintf_p');
-  late final _dart___stdio_common_vswprintf_p ___stdio_common_vswprintf_p =
-      ___stdio_common_vswprintf_p_ptr
-          .asFunction<_dart___stdio_common_vswprintf_p>();
+  late final ___stdio_common_vswprintf_pPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Uint64,
+              ffi.Pointer<wchar_t>,
+              size_t,
+              ffi.Pointer<wchar_t>,
+              _locale_t,
+              va_list)>>('__stdio_common_vswprintf_p');
+  late final ___stdio_common_vswprintf_p =
+      ___stdio_common_vswprintf_pPtr.asFunction<
+          int Function(int, ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>,
+              _locale_t, va_list)>();
 
   int __stdio_common_vswscanf(
     int _Options,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
-    ffi.Pointer<ffi.Uint16> _Format,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-    ffi.Pointer<ffi.Int8> _ArgList,
+    ffi.Pointer<wchar_t> _Format,
+    _locale_t _Locale,
+    va_list _ArgList,
   ) {
     return ___stdio_common_vswscanf(
       _Options,
@@ -2365,15 +2651,22 @@ class DartTolk {
     );
   }
 
-  late final ___stdio_common_vswscanf_ptr =
-      _lookup<ffi.NativeFunction<_c___stdio_common_vswscanf>>(
-          '__stdio_common_vswscanf');
-  late final _dart___stdio_common_vswscanf ___stdio_common_vswscanf =
-      ___stdio_common_vswscanf_ptr.asFunction<_dart___stdio_common_vswscanf>();
+  late final ___stdio_common_vswscanfPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Uint64,
+              ffi.Pointer<wchar_t>,
+              size_t,
+              ffi.Pointer<wchar_t>,
+              _locale_t,
+              va_list)>>('__stdio_common_vswscanf');
+  late final ___stdio_common_vswscanf = ___stdio_common_vswscanfPtr.asFunction<
+      int Function(int, ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>,
+          _locale_t, va_list)>();
 
   int _itow_s(
     int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
     int _Radix,
   ) {
@@ -2385,12 +2678,16 @@ class DartTolk {
     );
   }
 
-  late final __itow_s_ptr = _lookup<ffi.NativeFunction<_c__itow_s>>('_itow_s');
-  late final _dart__itow_s __itow_s = __itow_s_ptr.asFunction<_dart__itow_s>();
+  late final __itow_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Int32, ffi.Pointer<wchar_t>, size_t, ffi.Int32)>>('_itow_s');
+  late final __itow_s = __itow_sPtr
+      .asFunction<int Function(int, ffi.Pointer<wchar_t>, int, int)>();
 
-  ffi.Pointer<ffi.Uint16> _itow(
+  ffi.Pointer<wchar_t> _itow(
     int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _Radix,
   ) {
     return __itow(
@@ -2400,12 +2697,16 @@ class DartTolk {
     );
   }
 
-  late final __itow_ptr = _lookup<ffi.NativeFunction<_c__itow>>('_itow');
-  late final _dart__itow __itow = __itow_ptr.asFunction<_dart__itow>();
+  late final __itowPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Int32, ffi.Pointer<wchar_t>, ffi.Int32)>>('_itow');
+  late final __itow = __itowPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(int, ffi.Pointer<wchar_t>, int)>();
 
   int _ltow_s(
     int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
     int _Radix,
   ) {
@@ -2417,12 +2718,16 @@ class DartTolk {
     );
   }
 
-  late final __ltow_s_ptr = _lookup<ffi.NativeFunction<_c__ltow_s>>('_ltow_s');
-  late final _dart__ltow_s __ltow_s = __ltow_s_ptr.asFunction<_dart__ltow_s>();
+  late final __ltow_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Int64, ffi.Pointer<wchar_t>, size_t, ffi.Int32)>>('_ltow_s');
+  late final __ltow_s = __ltow_sPtr
+      .asFunction<int Function(int, ffi.Pointer<wchar_t>, int, int)>();
 
-  ffi.Pointer<ffi.Uint16> _ltow(
+  ffi.Pointer<wchar_t> _ltow(
     int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _Radix,
   ) {
     return __ltow(
@@ -2432,12 +2737,16 @@ class DartTolk {
     );
   }
 
-  late final __ltow_ptr = _lookup<ffi.NativeFunction<_c__ltow>>('_ltow');
-  late final _dart__ltow __ltow = __ltow_ptr.asFunction<_dart__ltow>();
+  late final __ltowPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Int64, ffi.Pointer<wchar_t>, ffi.Int32)>>('_ltow');
+  late final __ltow = __ltowPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(int, ffi.Pointer<wchar_t>, int)>();
 
   int _ultow_s(
     int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
     int _Radix,
   ) {
@@ -2449,14 +2758,16 @@ class DartTolk {
     );
   }
 
-  late final __ultow_s_ptr =
-      _lookup<ffi.NativeFunction<_c__ultow_s>>('_ultow_s');
-  late final _dart__ultow_s __ultow_s =
-      __ultow_s_ptr.asFunction<_dart__ultow_s>();
+  late final __ultow_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Uint64, ffi.Pointer<wchar_t>, size_t,
+              ffi.Int32)>>('_ultow_s');
+  late final __ultow_s = __ultow_sPtr
+      .asFunction<int Function(int, ffi.Pointer<wchar_t>, int, int)>();
 
-  ffi.Pointer<ffi.Uint16> _ultow(
+  ffi.Pointer<wchar_t> _ultow(
     int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _Radix,
   ) {
     return __ultow(
@@ -2466,12 +2777,16 @@ class DartTolk {
     );
   }
 
-  late final __ultow_ptr = _lookup<ffi.NativeFunction<_c__ultow>>('_ultow');
-  late final _dart__ultow __ultow = __ultow_ptr.asFunction<_dart__ultow>();
+  late final __ultowPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Uint64, ffi.Pointer<wchar_t>, ffi.Int32)>>('_ultow');
+  late final __ultow = __ultowPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(int, ffi.Pointer<wchar_t>, int)>();
 
   double wcstod(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
   ) {
     return _wcstod(
       _String,
@@ -2479,13 +2794,18 @@ class DartTolk {
     );
   }
 
-  late final _wcstod_ptr = _lookup<ffi.NativeFunction<_c_wcstod>>('wcstod');
-  late final _dart_wcstod _wcstod = _wcstod_ptr.asFunction<_dart_wcstod>();
+  late final _wcstodPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Double Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('wcstod');
+  late final _wcstod = _wcstodPtr.asFunction<
+      double Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
   double _wcstod_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
+    _locale_t _Locale,
   ) {
     return __wcstod_l(
       _String,
@@ -2494,14 +2814,17 @@ class DartTolk {
     );
   }
 
-  late final __wcstod_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcstod_l>>('_wcstod_l');
-  late final _dart__wcstod_l __wcstod_l =
-      __wcstod_l_ptr.asFunction<_dart__wcstod_l>();
+  late final __wcstod_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Double Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>, _locale_t)>>('_wcstod_l');
+  late final __wcstod_l = __wcstod_lPtr.asFunction<
+      double Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>,
+          _locale_t)>();
 
   int wcstol(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
   ) {
     return _wcstol(
@@ -2511,14 +2834,19 @@ class DartTolk {
     );
   }
 
-  late final _wcstol_ptr = _lookup<ffi.NativeFunction<_c_wcstol>>('wcstol');
-  late final _dart_wcstol _wcstol = _wcstol_ptr.asFunction<_dart_wcstol>();
+  late final _wcstolPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int64 Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>, ffi.Int32)>>('wcstol');
+  late final _wcstol = _wcstolPtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int)>();
 
   int _wcstol_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcstol_l(
       _String,
@@ -2528,14 +2856,20 @@ class DartTolk {
     );
   }
 
-  late final __wcstol_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcstol_l>>('_wcstol_l');
-  late final _dart__wcstol_l __wcstol_l =
-      __wcstol_l_ptr.asFunction<_dart__wcstol_l>();
+  late final __wcstol_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int64 Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Int32,
+              _locale_t)>>('_wcstol_l');
+  late final __wcstol_l = __wcstol_lPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int,
+          _locale_t)>();
 
   int wcstoll(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
   ) {
     return _wcstoll(
@@ -2545,14 +2879,19 @@ class DartTolk {
     );
   }
 
-  late final _wcstoll_ptr = _lookup<ffi.NativeFunction<_c_wcstoll>>('wcstoll');
-  late final _dart_wcstoll _wcstoll = _wcstoll_ptr.asFunction<_dart_wcstoll>();
+  late final _wcstollPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int64 Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>, ffi.Int32)>>('wcstoll');
+  late final _wcstoll = _wcstollPtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int)>();
 
   int _wcstoll_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcstoll_l(
       _String,
@@ -2562,14 +2901,20 @@ class DartTolk {
     );
   }
 
-  late final __wcstoll_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcstoll_l>>('_wcstoll_l');
-  late final _dart__wcstoll_l __wcstoll_l =
-      __wcstoll_l_ptr.asFunction<_dart__wcstoll_l>();
+  late final __wcstoll_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int64 Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Int32,
+              _locale_t)>>('_wcstoll_l');
+  late final __wcstoll_l = __wcstoll_lPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int,
+          _locale_t)>();
 
   int wcstoul(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
   ) {
     return _wcstoul(
@@ -2579,14 +2924,19 @@ class DartTolk {
     );
   }
 
-  late final _wcstoul_ptr = _lookup<ffi.NativeFunction<_c_wcstoul>>('wcstoul');
-  late final _dart_wcstoul _wcstoul = _wcstoul_ptr.asFunction<_dart_wcstoul>();
+  late final _wcstoulPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Uint64 Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>, ffi.Int32)>>('wcstoul');
+  late final _wcstoul = _wcstoulPtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int)>();
 
   int _wcstoul_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcstoul_l(
       _String,
@@ -2596,14 +2946,20 @@ class DartTolk {
     );
   }
 
-  late final __wcstoul_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcstoul_l>>('_wcstoul_l');
-  late final _dart__wcstoul_l __wcstoul_l =
-      __wcstoul_l_ptr.asFunction<_dart__wcstoul_l>();
+  late final __wcstoul_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Uint64 Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Int32,
+              _locale_t)>>('_wcstoul_l');
+  late final __wcstoul_l = __wcstoul_lPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int,
+          _locale_t)>();
 
   int wcstoull(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
   ) {
     return _wcstoull(
@@ -2613,16 +2969,19 @@ class DartTolk {
     );
   }
 
-  late final _wcstoull_ptr =
-      _lookup<ffi.NativeFunction<_c_wcstoull>>('wcstoull');
-  late final _dart_wcstoull _wcstoull =
-      _wcstoull_ptr.asFunction<_dart_wcstoull>();
+  late final _wcstoullPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Uint64 Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>, ffi.Int32)>>('wcstoull');
+  late final _wcstoull = _wcstoullPtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int)>();
 
   int _wcstoull_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcstoull_l(
       _String,
@@ -2632,14 +2991,20 @@ class DartTolk {
     );
   }
 
-  late final __wcstoull_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcstoull_l>>('_wcstoull_l');
-  late final _dart__wcstoull_l __wcstoull_l =
-      __wcstoull_l_ptr.asFunction<_dart__wcstoull_l>();
+  late final __wcstoull_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Uint64 Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Int32,
+              _locale_t)>>('_wcstoull_l');
+  late final __wcstoull_l = __wcstoull_lPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int,
+          _locale_t)>();
 
   double wcstof(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
   ) {
     return _wcstof(
       _String,
@@ -2647,13 +3012,18 @@ class DartTolk {
     );
   }
 
-  late final _wcstof_ptr = _lookup<ffi.NativeFunction<_c_wcstof>>('wcstof');
-  late final _dart_wcstof _wcstof = _wcstof_ptr.asFunction<_dart_wcstof>();
+  late final _wcstofPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Float Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('wcstof');
+  late final _wcstof = _wcstofPtr.asFunction<
+      double Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
   double _wcstof_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
+    _locale_t _Locale,
   ) {
     return __wcstof_l(
       _String,
@@ -2662,25 +3032,31 @@ class DartTolk {
     );
   }
 
-  late final __wcstof_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcstof_l>>('_wcstof_l');
-  late final _dart__wcstof_l __wcstof_l =
-      __wcstof_l_ptr.asFunction<_dart__wcstof_l>();
+  late final __wcstof_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Float Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>, _locale_t)>>('_wcstof_l');
+  late final __wcstof_l = __wcstof_lPtr.asFunction<
+      double Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>,
+          _locale_t)>();
 
   double _wtof(
-    ffi.Pointer<ffi.Uint16> _String,
+    ffi.Pointer<wchar_t> _String,
   ) {
     return __wtof(
       _String,
     );
   }
 
-  late final __wtof_ptr = _lookup<ffi.NativeFunction<_c__wtof>>('_wtof');
-  late final _dart__wtof __wtof = __wtof_ptr.asFunction<_dart__wtof>();
+  late final __wtofPtr =
+      _lookup<ffi.NativeFunction<ffi.Double Function(ffi.Pointer<wchar_t>)>>(
+          '_wtof');
+  late final __wtof =
+      __wtofPtr.asFunction<double Function(ffi.Pointer<wchar_t>)>();
 
   double _wtof_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    ffi.Pointer<wchar_t> _String,
+    _locale_t _Locale,
   ) {
     return __wtof_l(
       _String,
@@ -2688,23 +3064,29 @@ class DartTolk {
     );
   }
 
-  late final __wtof_l_ptr = _lookup<ffi.NativeFunction<_c__wtof_l>>('_wtof_l');
-  late final _dart__wtof_l __wtof_l = __wtof_l_ptr.asFunction<_dart__wtof_l>();
+  late final __wtof_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Double Function(ffi.Pointer<wchar_t>, _locale_t)>>('_wtof_l');
+  late final __wtof_l = __wtof_lPtr
+      .asFunction<double Function(ffi.Pointer<wchar_t>, _locale_t)>();
 
   int _wtoi(
-    ffi.Pointer<ffi.Uint16> _String,
+    ffi.Pointer<wchar_t> _String,
   ) {
     return __wtoi(
       _String,
     );
   }
 
-  late final __wtoi_ptr = _lookup<ffi.NativeFunction<_c__wtoi>>('_wtoi');
-  late final _dart__wtoi __wtoi = __wtoi_ptr.asFunction<_dart__wtoi>();
+  late final __wtoiPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<wchar_t>)>>(
+          '_wtoi');
+  late final __wtoi =
+      __wtoiPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int _wtoi_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    ffi.Pointer<wchar_t> _String,
+    _locale_t _Locale,
   ) {
     return __wtoi_l(
       _String,
@@ -2712,23 +3094,29 @@ class DartTolk {
     );
   }
 
-  late final __wtoi_l_ptr = _lookup<ffi.NativeFunction<_c__wtoi_l>>('_wtoi_l');
-  late final _dart__wtoi_l __wtoi_l = __wtoi_l_ptr.asFunction<_dart__wtoi_l>();
+  late final __wtoi_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, _locale_t)>>('_wtoi_l');
+  late final __wtoi_l =
+      __wtoi_lPtr.asFunction<int Function(ffi.Pointer<wchar_t>, _locale_t)>();
 
   int _wtol(
-    ffi.Pointer<ffi.Uint16> _String,
+    ffi.Pointer<wchar_t> _String,
   ) {
     return __wtol(
       _String,
     );
   }
 
-  late final __wtol_ptr = _lookup<ffi.NativeFunction<_c__wtol>>('_wtol');
-  late final _dart__wtol __wtol = __wtol_ptr.asFunction<_dart__wtol>();
+  late final __wtolPtr =
+      _lookup<ffi.NativeFunction<ffi.Int64 Function(ffi.Pointer<wchar_t>)>>(
+          '_wtol');
+  late final __wtol =
+      __wtolPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int _wtol_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    ffi.Pointer<wchar_t> _String,
+    _locale_t _Locale,
   ) {
     return __wtol_l(
       _String,
@@ -2736,23 +3124,29 @@ class DartTolk {
     );
   }
 
-  late final __wtol_l_ptr = _lookup<ffi.NativeFunction<_c__wtol_l>>('_wtol_l');
-  late final _dart__wtol_l __wtol_l = __wtol_l_ptr.asFunction<_dart__wtol_l>();
+  late final __wtol_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int64 Function(ffi.Pointer<wchar_t>, _locale_t)>>('_wtol_l');
+  late final __wtol_l =
+      __wtol_lPtr.asFunction<int Function(ffi.Pointer<wchar_t>, _locale_t)>();
 
   int _wtoll(
-    ffi.Pointer<ffi.Uint16> _String,
+    ffi.Pointer<wchar_t> _String,
   ) {
     return __wtoll(
       _String,
     );
   }
 
-  late final __wtoll_ptr = _lookup<ffi.NativeFunction<_c__wtoll>>('_wtoll');
-  late final _dart__wtoll __wtoll = __wtoll_ptr.asFunction<_dart__wtoll>();
+  late final __wtollPtr =
+      _lookup<ffi.NativeFunction<ffi.Int64 Function(ffi.Pointer<wchar_t>)>>(
+          '_wtoll');
+  late final __wtoll =
+      __wtollPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int _wtoll_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    ffi.Pointer<wchar_t> _String,
+    _locale_t _Locale,
   ) {
     return __wtoll_l(
       _String,
@@ -2760,14 +3154,15 @@ class DartTolk {
     );
   }
 
-  late final __wtoll_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wtoll_l>>('_wtoll_l');
-  late final _dart__wtoll_l __wtoll_l =
-      __wtoll_l_ptr.asFunction<_dart__wtoll_l>();
+  late final __wtoll_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int64 Function(ffi.Pointer<wchar_t>, _locale_t)>>('_wtoll_l');
+  late final __wtoll_l =
+      __wtoll_lPtr.asFunction<int Function(ffi.Pointer<wchar_t>, _locale_t)>();
 
   int _i64tow_s(
     int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
     int _Radix,
   ) {
@@ -2779,14 +3174,16 @@ class DartTolk {
     );
   }
 
-  late final __i64tow_s_ptr =
-      _lookup<ffi.NativeFunction<_c__i64tow_s>>('_i64tow_s');
-  late final _dart__i64tow_s __i64tow_s =
-      __i64tow_s_ptr.asFunction<_dart__i64tow_s>();
+  late final __i64tow_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Int64, ffi.Pointer<wchar_t>, size_t,
+              ffi.Int32)>>('_i64tow_s');
+  late final __i64tow_s = __i64tow_sPtr
+      .asFunction<int Function(int, ffi.Pointer<wchar_t>, int, int)>();
 
-  ffi.Pointer<ffi.Uint16> _i64tow(
+  ffi.Pointer<wchar_t> _i64tow(
     int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _Radix,
   ) {
     return __i64tow(
@@ -2796,12 +3193,16 @@ class DartTolk {
     );
   }
 
-  late final __i64tow_ptr = _lookup<ffi.NativeFunction<_c__i64tow>>('_i64tow');
-  late final _dart__i64tow __i64tow = __i64tow_ptr.asFunction<_dart__i64tow>();
+  late final __i64towPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Int64, ffi.Pointer<wchar_t>, ffi.Int32)>>('_i64tow');
+  late final __i64tow = __i64towPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(int, ffi.Pointer<wchar_t>, int)>();
 
   int _ui64tow_s(
     int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
     int _Radix,
   ) {
@@ -2813,14 +3214,16 @@ class DartTolk {
     );
   }
 
-  late final __ui64tow_s_ptr =
-      _lookup<ffi.NativeFunction<_c__ui64tow_s>>('_ui64tow_s');
-  late final _dart__ui64tow_s __ui64tow_s =
-      __ui64tow_s_ptr.asFunction<_dart__ui64tow_s>();
+  late final __ui64tow_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Uint64, ffi.Pointer<wchar_t>, size_t,
+              ffi.Int32)>>('_ui64tow_s');
+  late final __ui64tow_s = __ui64tow_sPtr
+      .asFunction<int Function(int, ffi.Pointer<wchar_t>, int, int)>();
 
-  ffi.Pointer<ffi.Uint16> _ui64tow(
+  ffi.Pointer<wchar_t> _ui64tow(
     int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _Radix,
   ) {
     return __ui64tow(
@@ -2830,25 +3233,30 @@ class DartTolk {
     );
   }
 
-  late final __ui64tow_ptr =
-      _lookup<ffi.NativeFunction<_c__ui64tow>>('_ui64tow');
-  late final _dart__ui64tow __ui64tow =
-      __ui64tow_ptr.asFunction<_dart__ui64tow>();
+  late final __ui64towPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Uint64, ffi.Pointer<wchar_t>, ffi.Int32)>>('_ui64tow');
+  late final __ui64tow = __ui64towPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(int, ffi.Pointer<wchar_t>, int)>();
 
   int _wtoi64(
-    ffi.Pointer<ffi.Uint16> _String,
+    ffi.Pointer<wchar_t> _String,
   ) {
     return __wtoi64(
       _String,
     );
   }
 
-  late final __wtoi64_ptr = _lookup<ffi.NativeFunction<_c__wtoi64>>('_wtoi64');
-  late final _dart__wtoi64 __wtoi64 = __wtoi64_ptr.asFunction<_dart__wtoi64>();
+  late final __wtoi64Ptr =
+      _lookup<ffi.NativeFunction<ffi.Int64 Function(ffi.Pointer<wchar_t>)>>(
+          '_wtoi64');
+  late final __wtoi64 =
+      __wtoi64Ptr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int _wtoi64_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    ffi.Pointer<wchar_t> _String,
+    _locale_t _Locale,
   ) {
     return __wtoi64_l(
       _String,
@@ -2856,14 +3264,15 @@ class DartTolk {
     );
   }
 
-  late final __wtoi64_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wtoi64_l>>('_wtoi64_l');
-  late final _dart__wtoi64_l __wtoi64_l =
-      __wtoi64_l_ptr.asFunction<_dart__wtoi64_l>();
+  late final __wtoi64_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int64 Function(ffi.Pointer<wchar_t>, _locale_t)>>('_wtoi64_l');
+  late final __wtoi64_l =
+      __wtoi64_lPtr.asFunction<int Function(ffi.Pointer<wchar_t>, _locale_t)>();
 
   int _wcstoi64(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
   ) {
     return __wcstoi64(
@@ -2873,16 +3282,19 @@ class DartTolk {
     );
   }
 
-  late final __wcstoi64_ptr =
-      _lookup<ffi.NativeFunction<_c__wcstoi64>>('_wcstoi64');
-  late final _dart__wcstoi64 __wcstoi64 =
-      __wcstoi64_ptr.asFunction<_dart__wcstoi64>();
+  late final __wcstoi64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int64 Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>, ffi.Int32)>>('_wcstoi64');
+  late final __wcstoi64 = __wcstoi64Ptr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int)>();
 
   int _wcstoi64_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcstoi64_l(
       _String,
@@ -2892,14 +3304,20 @@ class DartTolk {
     );
   }
 
-  late final __wcstoi64_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcstoi64_l>>('_wcstoi64_l');
-  late final _dart__wcstoi64_l __wcstoi64_l =
-      __wcstoi64_l_ptr.asFunction<_dart__wcstoi64_l>();
+  late final __wcstoi64_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int64 Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Int32,
+              _locale_t)>>('_wcstoi64_l');
+  late final __wcstoi64_l = __wcstoi64_lPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int,
+          _locale_t)>();
 
   int _wcstoui64(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
   ) {
     return __wcstoui64(
@@ -2909,16 +3327,19 @@ class DartTolk {
     );
   }
 
-  late final __wcstoui64_ptr =
-      _lookup<ffi.NativeFunction<_c__wcstoui64>>('_wcstoui64');
-  late final _dart__wcstoui64 __wcstoui64 =
-      __wcstoui64_ptr.asFunction<_dart__wcstoui64>();
+  late final __wcstoui64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Uint64 Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>, ffi.Int32)>>('_wcstoui64');
+  late final __wcstoui64 = __wcstoui64Ptr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int)>();
 
   int _wcstoui64_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _EndPtr,
     int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcstoui64_l(
       _String,
@@ -2928,14 +3349,20 @@ class DartTolk {
     );
   }
 
-  late final __wcstoui64_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcstoui64_l>>('_wcstoui64_l');
-  late final _dart__wcstoui64_l __wcstoui64_l =
-      __wcstoui64_l_ptr.asFunction<_dart__wcstoui64_l>();
+  late final __wcstoui64_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Uint64 Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Int32,
+              _locale_t)>>('_wcstoui64_l');
+  late final __wcstoui64_l = __wcstoui64_lPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<wchar_t>>, int,
+          _locale_t)>();
 
-  ffi.Pointer<ffi.Uint16> _wfullpath(
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    ffi.Pointer<ffi.Uint16> _Path,
+  ffi.Pointer<wchar_t> _wfullpath(
+    ffi.Pointer<wchar_t> _Buffer,
+    ffi.Pointer<wchar_t> _Path,
     int _BufferCount,
   ) {
     return __wfullpath(
@@ -2945,18 +3372,21 @@ class DartTolk {
     );
   }
 
-  late final __wfullpath_ptr =
-      _lookup<ffi.NativeFunction<_c__wfullpath>>('_wfullpath');
-  late final _dart__wfullpath __wfullpath =
-      __wfullpath_ptr.asFunction<_dart__wfullpath>();
+  late final __wfullpathPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>, size_t)>>('_wfullpath');
+  late final __wfullpath = __wfullpathPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int)>();
 
   int _wmakepath_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
-    ffi.Pointer<ffi.Uint16> _Drive,
-    ffi.Pointer<ffi.Uint16> _Dir,
-    ffi.Pointer<ffi.Uint16> _Filename,
-    ffi.Pointer<ffi.Uint16> _Ext,
+    ffi.Pointer<wchar_t> _Drive,
+    ffi.Pointer<wchar_t> _Dir,
+    ffi.Pointer<wchar_t> _Filename,
+    ffi.Pointer<wchar_t> _Ext,
   ) {
     return __wmakepath_s(
       _Buffer,
@@ -2968,17 +3398,25 @@ class DartTolk {
     );
   }
 
-  late final __wmakepath_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wmakepath_s>>('_wmakepath_s');
-  late final _dart__wmakepath_s __wmakepath_s =
-      __wmakepath_s_ptr.asFunction<_dart__wmakepath_s>();
+  late final __wmakepath_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>,
+              size_t,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>)>>('_wmakepath_s');
+  late final __wmakepath_s = __wmakepath_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>,
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   void _wmakepath(
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    ffi.Pointer<ffi.Uint16> _Drive,
-    ffi.Pointer<ffi.Uint16> _Dir,
-    ffi.Pointer<ffi.Uint16> _Filename,
-    ffi.Pointer<ffi.Uint16> _Ext,
+    ffi.Pointer<wchar_t> _Buffer,
+    ffi.Pointer<wchar_t> _Drive,
+    ffi.Pointer<wchar_t> _Dir,
+    ffi.Pointer<wchar_t> _Filename,
+    ffi.Pointer<wchar_t> _Ext,
   ) {
     return __wmakepath(
       _Buffer,
@@ -2989,17 +3427,24 @@ class DartTolk {
     );
   }
 
-  late final __wmakepath_ptr =
-      _lookup<ffi.NativeFunction<_c__wmakepath>>('_wmakepath');
-  late final _dart__wmakepath __wmakepath =
-      __wmakepath_ptr.asFunction<_dart__wmakepath>();
+  late final __wmakepathPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>)>>('_wmakepath');
+  late final __wmakepath = __wmakepathPtr.asFunction<
+      void Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   void _wsplitpath(
-    ffi.Pointer<ffi.Uint16> _FullPath,
-    ffi.Pointer<ffi.Uint16> _Drive,
-    ffi.Pointer<ffi.Uint16> _Dir,
-    ffi.Pointer<ffi.Uint16> _Filename,
-    ffi.Pointer<ffi.Uint16> _Ext,
+    ffi.Pointer<wchar_t> _FullPath,
+    ffi.Pointer<wchar_t> _Drive,
+    ffi.Pointer<wchar_t> _Dir,
+    ffi.Pointer<wchar_t> _Filename,
+    ffi.Pointer<wchar_t> _Ext,
   ) {
     return __wsplitpath(
       _FullPath,
@@ -3010,20 +3455,27 @@ class DartTolk {
     );
   }
 
-  late final __wsplitpath_ptr =
-      _lookup<ffi.NativeFunction<_c__wsplitpath>>('_wsplitpath');
-  late final _dart__wsplitpath __wsplitpath =
-      __wsplitpath_ptr.asFunction<_dart__wsplitpath>();
+  late final __wsplitpathPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>)>>('_wsplitpath');
+  late final __wsplitpath = __wsplitpathPtr.asFunction<
+      void Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wsplitpath_s(
-    ffi.Pointer<ffi.Uint16> _FullPath,
-    ffi.Pointer<ffi.Uint16> _Drive,
+    ffi.Pointer<wchar_t> _FullPath,
+    ffi.Pointer<wchar_t> _Drive,
     int _DriveCount,
-    ffi.Pointer<ffi.Uint16> _Dir,
+    ffi.Pointer<wchar_t> _Dir,
     int _DirCount,
-    ffi.Pointer<ffi.Uint16> _Filename,
+    ffi.Pointer<wchar_t> _Filename,
     int _FilenameCount,
-    ffi.Pointer<ffi.Uint16> _Ext,
+    ffi.Pointer<wchar_t> _Ext,
     int _ExtCount,
   ) {
     return __wsplitpath_s(
@@ -3039,15 +3491,34 @@ class DartTolk {
     );
   }
 
-  late final __wsplitpath_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wsplitpath_s>>('_wsplitpath_s');
-  late final _dart__wsplitpath_s __wsplitpath_s =
-      __wsplitpath_s_ptr.asFunction<_dart__wsplitpath_s>();
+  late final __wsplitpath_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              size_t,
+              ffi.Pointer<wchar_t>,
+              size_t,
+              ffi.Pointer<wchar_t>,
+              size_t,
+              ffi.Pointer<wchar_t>,
+              size_t)>>('_wsplitpath_s');
+  late final __wsplitpath_s = __wsplitpath_sPtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>,
+          ffi.Pointer<wchar_t>,
+          int,
+          ffi.Pointer<wchar_t>,
+          int,
+          ffi.Pointer<wchar_t>,
+          int,
+          ffi.Pointer<wchar_t>,
+          int)>();
 
   int _wdupenv_s(
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Buffer,
-    ffi.Pointer<ffi.Uint64> _BufferCount,
-    ffi.Pointer<ffi.Uint16> _VarName,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _Buffer,
+    ffi.Pointer<size_t> _BufferCount,
+    ffi.Pointer<wchar_t> _VarName,
   ) {
     return __wdupenv_s(
       _Buffer,
@@ -3056,29 +3527,33 @@ class DartTolk {
     );
   }
 
-  late final __wdupenv_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wdupenv_s>>('_wdupenv_s');
-  late final _dart__wdupenv_s __wdupenv_s =
-      __wdupenv_s_ptr.asFunction<_dart__wdupenv_s>();
+  late final __wdupenv_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<ffi.Pointer<wchar_t>>,
+              ffi.Pointer<size_t>, ffi.Pointer<wchar_t>)>>('_wdupenv_s');
+  late final __wdupenv_s = __wdupenv_sPtr.asFunction<
+      int Function(ffi.Pointer<ffi.Pointer<wchar_t>>, ffi.Pointer<size_t>,
+          ffi.Pointer<wchar_t>)>();
 
-  ffi.Pointer<ffi.Uint16> _wgetenv(
-    ffi.Pointer<ffi.Uint16> _VarName,
+  ffi.Pointer<wchar_t> _wgetenv(
+    ffi.Pointer<wchar_t> _VarName,
   ) {
     return __wgetenv(
       _VarName,
     );
   }
 
-  late final __wgetenv_ptr =
-      _lookup<ffi.NativeFunction<_c__wgetenv>>('_wgetenv');
-  late final _dart__wgetenv __wgetenv =
-      __wgetenv_ptr.asFunction<_dart__wgetenv>();
+  late final __wgetenvPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('_wgetenv');
+  late final __wgetenv = __wgetenvPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int _wgetenv_s(
-    ffi.Pointer<ffi.Uint64> _RequiredCount,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<size_t> _RequiredCount,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
-    ffi.Pointer<ffi.Uint16> _VarName,
+    ffi.Pointer<wchar_t> _VarName,
   ) {
     return __wgetenv_s(
       _RequiredCount,
@@ -3088,27 +3563,31 @@ class DartTolk {
     );
   }
 
-  late final __wgetenv_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wgetenv_s>>('_wgetenv_s');
-  late final _dart__wgetenv_s __wgetenv_s =
-      __wgetenv_s_ptr.asFunction<_dart__wgetenv_s>();
+  late final __wgetenv_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<size_t>, ffi.Pointer<wchar_t>, size_t,
+              ffi.Pointer<wchar_t>)>>('_wgetenv_s');
+  late final __wgetenv_s = __wgetenv_sPtr.asFunction<
+      int Function(ffi.Pointer<size_t>, ffi.Pointer<wchar_t>, int,
+          ffi.Pointer<wchar_t>)>();
 
   int _wputenv(
-    ffi.Pointer<ffi.Uint16> _EnvString,
+    ffi.Pointer<wchar_t> _EnvString,
   ) {
     return __wputenv(
       _EnvString,
     );
   }
 
-  late final __wputenv_ptr =
-      _lookup<ffi.NativeFunction<_c__wputenv>>('_wputenv');
-  late final _dart__wputenv __wputenv =
-      __wputenv_ptr.asFunction<_dart__wputenv>();
+  late final __wputenvPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<wchar_t>)>>(
+          '_wputenv');
+  late final __wputenv =
+      __wputenvPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int _wputenv_s(
-    ffi.Pointer<ffi.Uint16> _Name,
-    ffi.Pointer<ffi.Uint16> _Value,
+    ffi.Pointer<wchar_t> _Name,
+    ffi.Pointer<wchar_t> _Value,
   ) {
     return __wputenv_s(
       _Name,
@@ -3116,15 +3595,17 @@ class DartTolk {
     );
   }
 
-  late final __wputenv_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wputenv_s>>('_wputenv_s');
-  late final _dart__wputenv_s __wputenv_s =
-      __wputenv_s_ptr.asFunction<_dart__wputenv_s>();
+  late final __wputenv_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wputenv_s');
+  late final __wputenv_s = __wputenv_sPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wsearchenv_s(
-    ffi.Pointer<ffi.Uint16> _Filename,
-    ffi.Pointer<ffi.Uint16> _VarName,
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Filename,
+    ffi.Pointer<wchar_t> _VarName,
+    ffi.Pointer<wchar_t> _Buffer,
     int _BufferCount,
   ) {
     return __wsearchenv_s(
@@ -3135,15 +3616,18 @@ class DartTolk {
     );
   }
 
-  late final __wsearchenv_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wsearchenv_s>>('_wsearchenv_s');
-  late final _dart__wsearchenv_s __wsearchenv_s =
-      __wsearchenv_s_ptr.asFunction<_dart__wsearchenv_s>();
+  late final __wsearchenv_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>, size_t)>>('_wsearchenv_s');
+  late final __wsearchenv_s = __wsearchenv_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+          ffi.Pointer<wchar_t>, int)>();
 
   void _wsearchenv(
-    ffi.Pointer<ffi.Uint16> _Filename,
-    ffi.Pointer<ffi.Uint16> _VarName,
-    ffi.Pointer<ffi.Uint16> _ResultPath,
+    ffi.Pointer<wchar_t> _Filename,
+    ffi.Pointer<wchar_t> _VarName,
+    ffi.Pointer<wchar_t> _ResultPath,
   ) {
     return __wsearchenv(
       _Filename,
@@ -3152,15 +3636,18 @@ class DartTolk {
     );
   }
 
-  late final __wsearchenv_ptr =
-      _lookup<ffi.NativeFunction<_c__wsearchenv>>('_wsearchenv');
-  late final _dart__wsearchenv __wsearchenv =
-      __wsearchenv_ptr.asFunction<_dart__wsearchenv>();
+  late final __wsearchenvPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>)>>('_wsearchenv');
+  late final __wsearchenv = __wsearchenvPtr.asFunction<
+      void Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int wcscat_s(
-    ffi.Pointer<ffi.Uint16> _Destination,
+    ffi.Pointer<wchar_t> _Destination,
     int _SizeInWords,
-    ffi.Pointer<ffi.Uint16> _Source,
+    ffi.Pointer<wchar_t> _Source,
   ) {
     return _wcscat_s(
       _Destination,
@@ -3169,15 +3656,17 @@ class DartTolk {
     );
   }
 
-  late final _wcscat_s_ptr =
-      _lookup<ffi.NativeFunction<_c_wcscat_s>>('wcscat_s');
-  late final _dart_wcscat_s _wcscat_s =
-      _wcscat_s_ptr.asFunction<_dart_wcscat_s>();
+  late final _wcscat_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, rsize_t,
+              ffi.Pointer<wchar_t>)>>('wcscat_s');
+  late final _wcscat_s = _wcscat_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>)>();
 
   int wcscpy_s(
-    ffi.Pointer<ffi.Uint16> _Destination,
+    ffi.Pointer<wchar_t> _Destination,
     int _SizeInWords,
-    ffi.Pointer<ffi.Uint16> _Source,
+    ffi.Pointer<wchar_t> _Source,
   ) {
     return _wcscpy_s(
       _Destination,
@@ -3186,15 +3675,17 @@ class DartTolk {
     );
   }
 
-  late final _wcscpy_s_ptr =
-      _lookup<ffi.NativeFunction<_c_wcscpy_s>>('wcscpy_s');
-  late final _dart_wcscpy_s _wcscpy_s =
-      _wcscpy_s_ptr.asFunction<_dart_wcscpy_s>();
+  late final _wcscpy_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, rsize_t,
+              ffi.Pointer<wchar_t>)>>('wcscpy_s');
+  late final _wcscpy_s = _wcscpy_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>)>();
 
   int wcsncat_s(
-    ffi.Pointer<ffi.Uint16> _Destination,
+    ffi.Pointer<wchar_t> _Destination,
     int _SizeInWords,
-    ffi.Pointer<ffi.Uint16> _Source,
+    ffi.Pointer<wchar_t> _Source,
     int _MaxCount,
   ) {
     return _wcsncat_s(
@@ -3205,15 +3696,17 @@ class DartTolk {
     );
   }
 
-  late final _wcsncat_s_ptr =
-      _lookup<ffi.NativeFunction<_c_wcsncat_s>>('wcsncat_s');
-  late final _dart_wcsncat_s _wcsncat_s =
-      _wcsncat_s_ptr.asFunction<_dart_wcsncat_s>();
+  late final _wcsncat_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, rsize_t, ffi.Pointer<wchar_t>,
+              rsize_t)>>('wcsncat_s');
+  late final _wcsncat_s = _wcsncat_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>, int)>();
 
   int wcsncpy_s(
-    ffi.Pointer<ffi.Uint16> _Destination,
+    ffi.Pointer<wchar_t> _Destination,
     int _SizeInWords,
-    ffi.Pointer<ffi.Uint16> _Source,
+    ffi.Pointer<wchar_t> _Source,
     int _MaxCount,
   ) {
     return _wcsncpy_s(
@@ -3224,15 +3717,17 @@ class DartTolk {
     );
   }
 
-  late final _wcsncpy_s_ptr =
-      _lookup<ffi.NativeFunction<_c_wcsncpy_s>>('wcsncpy_s');
-  late final _dart_wcsncpy_s _wcsncpy_s =
-      _wcsncpy_s_ptr.asFunction<_dart_wcsncpy_s>();
+  late final _wcsncpy_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, rsize_t, ffi.Pointer<wchar_t>,
+              rsize_t)>>('wcsncpy_s');
+  late final _wcsncpy_s = _wcsncpy_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> wcstok_s(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Uint16> _Delimiter,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Context,
+  ffi.Pointer<wchar_t> wcstok_s(
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<wchar_t> _Delimiter,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _Context,
   ) {
     return _wcstok_s(
       _String,
@@ -3241,25 +3736,33 @@ class DartTolk {
     );
   }
 
-  late final _wcstok_s_ptr =
-      _lookup<ffi.NativeFunction<_c_wcstok_s>>('wcstok_s');
-  late final _dart_wcstok_s _wcstok_s =
-      _wcstok_s_ptr.asFunction<_dart_wcstok_s>();
+  late final _wcstok_sPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('wcstok_s');
+  late final _wcstok_s = _wcstok_sPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+          ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
-  ffi.Pointer<ffi.Uint16> _wcsdup(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> _wcsdup(
+    ffi.Pointer<wchar_t> _String,
   ) {
     return __wcsdup(
       _String,
     );
   }
 
-  late final __wcsdup_ptr = _lookup<ffi.NativeFunction<_c__wcsdup>>('_wcsdup');
-  late final _dart__wcsdup __wcsdup = __wcsdup_ptr.asFunction<_dart__wcsdup>();
+  late final __wcsdupPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('_wcsdup');
+  late final __wcsdup = __wcsdupPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
-  ffi.Pointer<ffi.Uint16> wcscat(
-    ffi.Pointer<ffi.Uint16> _Destination,
-    ffi.Pointer<ffi.Uint16> _Source,
+  ffi.Pointer<wchar_t> wcscat(
+    ffi.Pointer<wchar_t> _Destination,
+    ffi.Pointer<wchar_t> _Source,
   ) {
     return _wcscat(
       _Destination,
@@ -3267,12 +3770,17 @@ class DartTolk {
     );
   }
 
-  late final _wcscat_ptr = _lookup<ffi.NativeFunction<_c_wcscat>>('wcscat');
-  late final _dart_wcscat _wcscat = _wcscat_ptr.asFunction<_dart_wcscat>();
+  late final _wcscatPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('wcscat');
+  late final _wcscat = _wcscatPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int wcscmp(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
   ) {
     return _wcscmp(
       _String1,
@@ -3280,12 +3788,16 @@ class DartTolk {
     );
   }
 
-  late final _wcscmp_ptr = _lookup<ffi.NativeFunction<_c_wcscmp>>('wcscmp');
-  late final _dart_wcscmp _wcscmp = _wcscmp_ptr.asFunction<_dart_wcscmp>();
+  late final _wcscmpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('wcscmp');
+  late final _wcscmp = _wcscmpPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
-  ffi.Pointer<ffi.Uint16> wcscpy(
-    ffi.Pointer<ffi.Uint16> _Destination,
-    ffi.Pointer<ffi.Uint16> _Source,
+  ffi.Pointer<wchar_t> wcscpy(
+    ffi.Pointer<wchar_t> _Destination,
+    ffi.Pointer<wchar_t> _Source,
   ) {
     return _wcscpy(
       _Destination,
@@ -3293,12 +3805,17 @@ class DartTolk {
     );
   }
 
-  late final _wcscpy_ptr = _lookup<ffi.NativeFunction<_c_wcscpy>>('wcscpy');
-  late final _dart_wcscpy _wcscpy = _wcscpy_ptr.asFunction<_dart_wcscpy>();
+  late final _wcscpyPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('wcscpy');
+  late final _wcscpy = _wcscpyPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int wcscspn(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Uint16> _Control,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<wchar_t> _Control,
   ) {
     return _wcscspn(
       _String,
@@ -3306,22 +3823,29 @@ class DartTolk {
     );
   }
 
-  late final _wcscspn_ptr = _lookup<ffi.NativeFunction<_c_wcscspn>>('wcscspn');
-  late final _dart_wcscspn _wcscspn = _wcscspn_ptr.asFunction<_dart_wcscspn>();
+  late final _wcscspnPtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('wcscspn');
+  late final _wcscspn = _wcscspnPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int wcslen(
-    ffi.Pointer<ffi.Uint16> _String,
+    ffi.Pointer<wchar_t> _String,
   ) {
     return _wcslen(
       _String,
     );
   }
 
-  late final _wcslen_ptr = _lookup<ffi.NativeFunction<_c_wcslen>>('wcslen');
-  late final _dart_wcslen _wcslen = _wcslen_ptr.asFunction<_dart_wcslen>();
+  late final _wcslenPtr =
+      _lookup<ffi.NativeFunction<ffi.Uint64 Function(ffi.Pointer<wchar_t>)>>(
+          'wcslen');
+  late final _wcslen =
+      _wcslenPtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   int wcsnlen(
-    ffi.Pointer<ffi.Uint16> _Source,
+    ffi.Pointer<wchar_t> _Source,
     int _MaxCount,
   ) {
     return _wcsnlen(
@@ -3330,12 +3854,15 @@ class DartTolk {
     );
   }
 
-  late final _wcsnlen_ptr = _lookup<ffi.NativeFunction<_c_wcsnlen>>('wcsnlen');
-  late final _dart_wcsnlen _wcsnlen = _wcsnlen_ptr.asFunction<_dart_wcsnlen>();
+  late final _wcsnlenPtr = _lookup<
+          ffi.NativeFunction<size_t Function(ffi.Pointer<wchar_t>, size_t)>>(
+      'wcsnlen');
+  late final _wcsnlen =
+      _wcsnlenPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> wcsncat(
-    ffi.Pointer<ffi.Uint16> _Destination,
-    ffi.Pointer<ffi.Uint16> _Source,
+  ffi.Pointer<wchar_t> wcsncat(
+    ffi.Pointer<wchar_t> _Destination,
+    ffi.Pointer<wchar_t> _Source,
     int _Count,
   ) {
     return _wcsncat(
@@ -3345,12 +3872,17 @@ class DartTolk {
     );
   }
 
-  late final _wcsncat_ptr = _lookup<ffi.NativeFunction<_c_wcsncat>>('wcsncat');
-  late final _dart_wcsncat _wcsncat = _wcsncat_ptr.asFunction<_dart_wcsncat>();
+  late final _wcsncatPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, size_t)>>('wcsncat');
+  late final _wcsncat = _wcsncatPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int)>();
 
   int wcsncmp(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
     int _MaxCount,
   ) {
     return _wcsncmp(
@@ -3360,12 +3892,16 @@ class DartTolk {
     );
   }
 
-  late final _wcsncmp_ptr = _lookup<ffi.NativeFunction<_c_wcsncmp>>('wcsncmp');
-  late final _dart_wcsncmp _wcsncmp = _wcsncmp_ptr.asFunction<_dart_wcsncmp>();
+  late final _wcsncmpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, size_t)>>('wcsncmp');
+  late final _wcsncmp = _wcsncmpPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> wcsncpy(
-    ffi.Pointer<ffi.Uint16> _Destination,
-    ffi.Pointer<ffi.Uint16> _Source,
+  ffi.Pointer<wchar_t> wcsncpy(
+    ffi.Pointer<wchar_t> _Destination,
+    ffi.Pointer<wchar_t> _Source,
     int _Count,
   ) {
     return _wcsncpy(
@@ -3375,12 +3911,17 @@ class DartTolk {
     );
   }
 
-  late final _wcsncpy_ptr = _lookup<ffi.NativeFunction<_c_wcsncpy>>('wcsncpy');
-  late final _dart_wcsncpy _wcsncpy = _wcsncpy_ptr.asFunction<_dart_wcsncpy>();
+  late final _wcsncpyPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, size_t)>>('wcsncpy');
+  late final _wcsncpy = _wcsncpyPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> wcspbrk(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Uint16> _Control,
+  ffi.Pointer<wchar_t> wcspbrk(
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<wchar_t> _Control,
   ) {
     return _wcspbrk(
       _String,
@@ -3388,12 +3929,17 @@ class DartTolk {
     );
   }
 
-  late final _wcspbrk_ptr = _lookup<ffi.NativeFunction<_c_wcspbrk>>('wcspbrk');
-  late final _dart_wcspbrk _wcspbrk = _wcspbrk_ptr.asFunction<_dart_wcspbrk>();
+  late final _wcspbrkPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('wcspbrk');
+  late final _wcspbrk = _wcspbrkPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int wcsspn(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Uint16> _Control,
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<wchar_t> _Control,
   ) {
     return _wcsspn(
       _String,
@@ -3401,13 +3947,17 @@ class DartTolk {
     );
   }
 
-  late final _wcsspn_ptr = _lookup<ffi.NativeFunction<_c_wcsspn>>('wcsspn');
-  late final _dart_wcsspn _wcsspn = _wcsspn_ptr.asFunction<_dart_wcsspn>();
+  late final _wcsspnPtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('wcsspn');
+  late final _wcsspn = _wcsspnPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
-  ffi.Pointer<ffi.Uint16> wcstok(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Uint16> _Delimiter,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Context,
+  ffi.Pointer<wchar_t> wcstok(
+    ffi.Pointer<wchar_t> _String,
+    ffi.Pointer<wchar_t> _Delimiter,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _Context,
   ) {
     return _wcstok(
       _String,
@@ -3416,56 +3966,67 @@ class DartTolk {
     );
   }
 
-  late final _wcstok_ptr = _lookup<ffi.NativeFunction<_c_wcstok>>('wcstok');
-  late final _dart_wcstok _wcstok = _wcstok_ptr.asFunction<_dart_wcstok>();
+  late final _wcstokPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>)>>('wcstok');
+  late final _wcstok = _wcstokPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+          ffi.Pointer<ffi.Pointer<wchar_t>>)>();
 
-  ffi.Pointer<ffi.Uint16> _wcserror(
+  ffi.Pointer<wchar_t> _wcserror(
     int _ErrorNumber,
   ) {
-    return __wcserror_1(
+    return __wcserror1(
       _ErrorNumber,
     );
   }
 
-  late final __wcserror_ptr =
-      _lookup<ffi.NativeFunction<_c__wcserror>>('_wcserror');
-  late final _dart__wcserror __wcserror_1 =
-      __wcserror_ptr.asFunction<_dart__wcserror>();
+  late final __wcserrorPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wchar_t> Function(ffi.Int32)>>(
+          '_wcserror');
+  late final __wcserror1 =
+      __wcserrorPtr.asFunction<ffi.Pointer<wchar_t> Function(int)>();
 
   int _wcserror_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _SizeInWords,
     int _ErrorNumber,
   ) {
-    return __wcserror_s_1(
+    return __wcserror_s1(
       _Buffer,
       _SizeInWords,
       _ErrorNumber,
     );
   }
 
-  late final __wcserror_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wcserror_s>>('_wcserror_s');
-  late final _dart__wcserror_s __wcserror_s_1 =
-      __wcserror_s_ptr.asFunction<_dart__wcserror_s>();
+  late final __wcserror_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>, size_t, ffi.Int32)>>('_wcserror_s');
+  late final __wcserror_s1 = __wcserror_sPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, int, int)>();
 
-  ffi.Pointer<ffi.Uint16> __wcserror(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> __wcserror(
+    ffi.Pointer<wchar_t> _String,
   ) {
     return ___wcserror(
       _String,
     );
   }
 
-  late final ___wcserror_ptr =
-      _lookup<ffi.NativeFunction<_c___wcserror>>('__wcserror');
-  late final _dart___wcserror ___wcserror =
-      ___wcserror_ptr.asFunction<_dart___wcserror>();
+  late final ___wcserrorPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('__wcserror');
+  late final ___wcserror = ___wcserrorPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int __wcserror_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _SizeInWords,
-    ffi.Pointer<ffi.Uint16> _ErrorMessage,
+    ffi.Pointer<wchar_t> _ErrorMessage,
   ) {
     return ___wcserror_s(
       _Buffer,
@@ -3474,14 +4035,16 @@ class DartTolk {
     );
   }
 
-  late final ___wcserror_s_ptr =
-      _lookup<ffi.NativeFunction<_c___wcserror_s>>('__wcserror_s');
-  late final _dart___wcserror_s ___wcserror_s =
-      ___wcserror_s_ptr.asFunction<_dart___wcserror_s>();
+  late final ___wcserror_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, size_t,
+              ffi.Pointer<wchar_t>)>>('__wcserror_s');
+  late final ___wcserror_s = ___wcserror_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>)>();
 
   int _wcsicmp(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
   ) {
     return __wcsicmp(
       _String1,
@@ -3489,15 +4052,17 @@ class DartTolk {
     );
   }
 
-  late final __wcsicmp_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsicmp>>('_wcsicmp');
-  late final _dart__wcsicmp __wcsicmp =
-      __wcsicmp_ptr.asFunction<_dart__wcsicmp>();
+  late final __wcsicmpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wcsicmp');
+  late final __wcsicmp = __wcsicmpPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wcsicmp_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
+    _locale_t _Locale,
   ) {
     return __wcsicmp_l(
       _String1,
@@ -3506,14 +4071,16 @@ class DartTolk {
     );
   }
 
-  late final __wcsicmp_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsicmp_l>>('_wcsicmp_l');
-  late final _dart__wcsicmp_l __wcsicmp_l =
-      __wcsicmp_l_ptr.asFunction<_dart__wcsicmp_l>();
+  late final __wcsicmp_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              _locale_t)>>('_wcsicmp_l');
+  late final __wcsicmp_l = __wcsicmp_lPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, _locale_t)>();
 
   int _wcsnicmp(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
     int _MaxCount,
   ) {
     return __wcsnicmp(
@@ -3523,16 +4090,18 @@ class DartTolk {
     );
   }
 
-  late final __wcsnicmp_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsnicmp>>('_wcsnicmp');
-  late final _dart__wcsnicmp __wcsnicmp =
-      __wcsnicmp_ptr.asFunction<_dart__wcsnicmp>();
+  late final __wcsnicmpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              size_t)>>('_wcsnicmp');
+  late final __wcsnicmp = __wcsnicmpPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int)>();
 
   int _wcsnicmp_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
     int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcsnicmp_l(
       _String1,
@@ -3542,13 +4111,16 @@ class DartTolk {
     );
   }
 
-  late final __wcsnicmp_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsnicmp_l>>('_wcsnicmp_l');
-  late final _dart__wcsnicmp_l __wcsnicmp_l =
-      __wcsnicmp_l_ptr.asFunction<_dart__wcsnicmp_l>();
+  late final __wcsnicmp_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, size_t,
+              _locale_t)>>('_wcsnicmp_l');
+  late final __wcsnicmp_l = __wcsnicmp_lPtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int, _locale_t)>();
 
   int _wcsnset_s(
-    ffi.Pointer<ffi.Uint16> _Destination,
+    ffi.Pointer<wchar_t> _Destination,
     int _SizeInWords,
     int _Value,
     int _MaxCount,
@@ -3561,13 +4133,15 @@ class DartTolk {
     );
   }
 
-  late final __wcsnset_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsnset_s>>('_wcsnset_s');
-  late final _dart__wcsnset_s __wcsnset_s =
-      __wcsnset_s_ptr.asFunction<_dart__wcsnset_s>();
+  late final __wcsnset_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>, size_t, wchar_t, size_t)>>('_wcsnset_s');
+  late final __wcsnset_s = __wcsnset_sPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, int, int, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wcsnset(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> _wcsnset(
+    ffi.Pointer<wchar_t> _String,
     int _Value,
     int _MaxCount,
   ) {
@@ -3578,24 +4152,29 @@ class DartTolk {
     );
   }
 
-  late final __wcsnset_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsnset>>('_wcsnset');
-  late final _dart__wcsnset __wcsnset =
-      __wcsnset_ptr.asFunction<_dart__wcsnset>();
+  late final __wcsnsetPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, wchar_t, size_t)>>('_wcsnset');
+  late final __wcsnset = __wcsnsetPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, int, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wcsrev(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> _wcsrev(
+    ffi.Pointer<wchar_t> _String,
   ) {
     return __wcsrev(
       _String,
     );
   }
 
-  late final __wcsrev_ptr = _lookup<ffi.NativeFunction<_c__wcsrev>>('_wcsrev');
-  late final _dart__wcsrev __wcsrev = __wcsrev_ptr.asFunction<_dart__wcsrev>();
+  late final __wcsrevPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('_wcsrev');
+  late final __wcsrev = __wcsrevPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int _wcsset_s(
-    ffi.Pointer<ffi.Uint16> _Destination,
+    ffi.Pointer<wchar_t> _Destination,
     int _SizeInWords,
     int _Value,
   ) {
@@ -3606,13 +4185,15 @@ class DartTolk {
     );
   }
 
-  late final __wcsset_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsset_s>>('_wcsset_s');
-  late final _dart__wcsset_s __wcsset_s =
-      __wcsset_s_ptr.asFunction<_dart__wcsset_s>();
+  late final __wcsset_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>, size_t, wchar_t)>>('_wcsset_s');
+  late final __wcsset_s =
+      __wcsset_sPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wcsset(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> _wcsset(
+    ffi.Pointer<wchar_t> _String,
     int _Value,
   ) {
     return __wcsset(
@@ -3621,11 +4202,15 @@ class DartTolk {
     );
   }
 
-  late final __wcsset_ptr = _lookup<ffi.NativeFunction<_c__wcsset>>('_wcsset');
-  late final _dart__wcsset __wcsset = __wcsset_ptr.asFunction<_dart__wcsset>();
+  late final __wcssetPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, wchar_t)>>('_wcsset');
+  late final __wcsset = __wcssetPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, int)>();
 
   int _wcslwr_s(
-    ffi.Pointer<ffi.Uint16> _String,
+    ffi.Pointer<wchar_t> _String,
     int _SizeInWords,
   ) {
     return __wcslwr_s(
@@ -3634,26 +4219,30 @@ class DartTolk {
     );
   }
 
-  late final __wcslwr_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wcslwr_s>>('_wcslwr_s');
-  late final _dart__wcslwr_s __wcslwr_s =
-      __wcslwr_s_ptr.asFunction<_dart__wcslwr_s>();
+  late final __wcslwr_sPtr = _lookup<
+          ffi.NativeFunction<errno_t Function(ffi.Pointer<wchar_t>, size_t)>>(
+      '_wcslwr_s');
+  late final __wcslwr_s =
+      __wcslwr_sPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wcslwr(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> _wcslwr(
+    ffi.Pointer<wchar_t> _String,
   ) {
     return __wcslwr(
       _String,
     );
   }
 
-  late final __wcslwr_ptr = _lookup<ffi.NativeFunction<_c__wcslwr>>('_wcslwr');
-  late final _dart__wcslwr __wcslwr = __wcslwr_ptr.asFunction<_dart__wcslwr>();
+  late final __wcslwrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('_wcslwr');
+  late final __wcslwr = __wcslwrPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int _wcslwr_s_l(
-    ffi.Pointer<ffi.Uint16> _String,
+    ffi.Pointer<wchar_t> _String,
     int _SizeInWords,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcslwr_s_l(
       _String,
@@ -3662,14 +4251,16 @@ class DartTolk {
     );
   }
 
-  late final __wcslwr_s_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcslwr_s_l>>('_wcslwr_s_l');
-  late final _dart__wcslwr_s_l __wcslwr_s_l =
-      __wcslwr_s_l_ptr.asFunction<_dart__wcslwr_s_l>();
+  late final __wcslwr_s_lPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>, size_t, _locale_t)>>('_wcslwr_s_l');
+  late final __wcslwr_s_l = __wcslwr_s_lPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, int, _locale_t)>();
 
-  ffi.Pointer<ffi.Uint16> _wcslwr_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+  ffi.Pointer<wchar_t> _wcslwr_l(
+    ffi.Pointer<wchar_t> _String,
+    _locale_t _Locale,
   ) {
     return __wcslwr_l(
       _String,
@@ -3677,13 +4268,15 @@ class DartTolk {
     );
   }
 
-  late final __wcslwr_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcslwr_l>>('_wcslwr_l');
-  late final _dart__wcslwr_l __wcslwr_l =
-      __wcslwr_l_ptr.asFunction<_dart__wcslwr_l>();
+  late final __wcslwr_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, _locale_t)>>('_wcslwr_l');
+  late final __wcslwr_l = __wcslwr_lPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, _locale_t)>();
 
   int _wcsupr_s(
-    ffi.Pointer<ffi.Uint16> _String,
+    ffi.Pointer<wchar_t> _String,
     int _Size,
   ) {
     return __wcsupr_s(
@@ -3692,26 +4285,30 @@ class DartTolk {
     );
   }
 
-  late final __wcsupr_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsupr_s>>('_wcsupr_s');
-  late final _dart__wcsupr_s __wcsupr_s =
-      __wcsupr_s_ptr.asFunction<_dart__wcsupr_s>();
+  late final __wcsupr_sPtr = _lookup<
+          ffi.NativeFunction<errno_t Function(ffi.Pointer<wchar_t>, size_t)>>(
+      '_wcsupr_s');
+  late final __wcsupr_s =
+      __wcsupr_sPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wcsupr(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> _wcsupr(
+    ffi.Pointer<wchar_t> _String,
   ) {
     return __wcsupr(
       _String,
     );
   }
 
-  late final __wcsupr_ptr = _lookup<ffi.NativeFunction<_c__wcsupr>>('_wcsupr');
-  late final _dart__wcsupr __wcsupr = __wcsupr_ptr.asFunction<_dart__wcsupr>();
+  late final __wcsuprPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('_wcsupr');
+  late final __wcsupr = __wcsuprPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int _wcsupr_s_l(
-    ffi.Pointer<ffi.Uint16> _String,
+    ffi.Pointer<wchar_t> _String,
     int _Size,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcsupr_s_l(
       _String,
@@ -3720,14 +4317,16 @@ class DartTolk {
     );
   }
 
-  late final __wcsupr_s_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsupr_s_l>>('_wcsupr_s_l');
-  late final _dart__wcsupr_s_l __wcsupr_s_l =
-      __wcsupr_s_l_ptr.asFunction<_dart__wcsupr_s_l>();
+  late final __wcsupr_s_lPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>, size_t, _locale_t)>>('_wcsupr_s_l');
+  late final __wcsupr_s_l = __wcsupr_s_lPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, int, _locale_t)>();
 
-  ffi.Pointer<ffi.Uint16> _wcsupr_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+  ffi.Pointer<wchar_t> _wcsupr_l(
+    ffi.Pointer<wchar_t> _String,
+    _locale_t _Locale,
   ) {
     return __wcsupr_l(
       _String,
@@ -3735,14 +4334,16 @@ class DartTolk {
     );
   }
 
-  late final __wcsupr_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsupr_l>>('_wcsupr_l');
-  late final _dart__wcsupr_l __wcsupr_l =
-      __wcsupr_l_ptr.asFunction<_dart__wcsupr_l>();
+  late final __wcsupr_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, _locale_t)>>('_wcsupr_l');
+  late final __wcsupr_l = __wcsupr_lPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, _locale_t)>();
 
   int wcsxfrm(
-    ffi.Pointer<ffi.Uint16> _Destination,
-    ffi.Pointer<ffi.Uint16> _Source,
+    ffi.Pointer<wchar_t> _Destination,
+    ffi.Pointer<wchar_t> _Source,
     int _MaxCount,
   ) {
     return _wcsxfrm(
@@ -3752,14 +4353,18 @@ class DartTolk {
     );
   }
 
-  late final _wcsxfrm_ptr = _lookup<ffi.NativeFunction<_c_wcsxfrm>>('wcsxfrm');
-  late final _dart_wcsxfrm _wcsxfrm = _wcsxfrm_ptr.asFunction<_dart_wcsxfrm>();
+  late final _wcsxfrmPtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, size_t)>>('wcsxfrm');
+  late final _wcsxfrm = _wcsxfrmPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int)>();
 
   int _wcsxfrm_l(
-    ffi.Pointer<ffi.Uint16> _Destination,
-    ffi.Pointer<ffi.Uint16> _Source,
+    ffi.Pointer<wchar_t> _Destination,
+    ffi.Pointer<wchar_t> _Source,
     int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcsxfrm_l(
       _Destination,
@@ -3769,14 +4374,17 @@ class DartTolk {
     );
   }
 
-  late final __wcsxfrm_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsxfrm_l>>('_wcsxfrm_l');
-  late final _dart__wcsxfrm_l __wcsxfrm_l =
-      __wcsxfrm_l_ptr.asFunction<_dart__wcsxfrm_l>();
+  late final __wcsxfrm_lPtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, size_t,
+              _locale_t)>>('_wcsxfrm_l');
+  late final __wcsxfrm_l = __wcsxfrm_lPtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int, _locale_t)>();
 
   int wcscoll(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
   ) {
     return _wcscoll(
       _String1,
@@ -3784,13 +4392,17 @@ class DartTolk {
     );
   }
 
-  late final _wcscoll_ptr = _lookup<ffi.NativeFunction<_c_wcscoll>>('wcscoll');
-  late final _dart_wcscoll _wcscoll = _wcscoll_ptr.asFunction<_dart_wcscoll>();
+  late final _wcscollPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('wcscoll');
+  late final _wcscoll = _wcscollPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wcscoll_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
+    _locale_t _Locale,
   ) {
     return __wcscoll_l(
       _String1,
@@ -3799,14 +4411,16 @@ class DartTolk {
     );
   }
 
-  late final __wcscoll_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcscoll_l>>('_wcscoll_l');
-  late final _dart__wcscoll_l __wcscoll_l =
-      __wcscoll_l_ptr.asFunction<_dart__wcscoll_l>();
+  late final __wcscoll_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              _locale_t)>>('_wcscoll_l');
+  late final __wcscoll_l = __wcscoll_lPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, _locale_t)>();
 
   int _wcsicoll(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
   ) {
     return __wcsicoll(
       _String1,
@@ -3814,15 +4428,17 @@ class DartTolk {
     );
   }
 
-  late final __wcsicoll_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsicoll>>('_wcsicoll');
-  late final _dart__wcsicoll __wcsicoll =
-      __wcsicoll_ptr.asFunction<_dart__wcsicoll>();
+  late final __wcsicollPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('_wcsicoll');
+  late final __wcsicoll = __wcsicollPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int _wcsicoll_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
+    _locale_t _Locale,
   ) {
     return __wcsicoll_l(
       _String1,
@@ -3831,14 +4447,16 @@ class DartTolk {
     );
   }
 
-  late final __wcsicoll_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsicoll_l>>('_wcsicoll_l');
-  late final _dart__wcsicoll_l __wcsicoll_l =
-      __wcsicoll_l_ptr.asFunction<_dart__wcsicoll_l>();
+  late final __wcsicoll_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              _locale_t)>>('_wcsicoll_l');
+  late final __wcsicoll_l = __wcsicoll_lPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, _locale_t)>();
 
   int _wcsncoll(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
     int _MaxCount,
   ) {
     return __wcsncoll(
@@ -3848,16 +4466,18 @@ class DartTolk {
     );
   }
 
-  late final __wcsncoll_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsncoll>>('_wcsncoll');
-  late final _dart__wcsncoll __wcsncoll =
-      __wcsncoll_ptr.asFunction<_dart__wcsncoll>();
+  late final __wcsncollPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              size_t)>>('_wcsncoll');
+  late final __wcsncoll = __wcsncollPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int)>();
 
   int _wcsncoll_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
     int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcsncoll_l(
       _String1,
@@ -3867,14 +4487,17 @@ class DartTolk {
     );
   }
 
-  late final __wcsncoll_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsncoll_l>>('_wcsncoll_l');
-  late final _dart__wcsncoll_l __wcsncoll_l =
-      __wcsncoll_l_ptr.asFunction<_dart__wcsncoll_l>();
+  late final __wcsncoll_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, size_t,
+              _locale_t)>>('_wcsncoll_l');
+  late final __wcsncoll_l = __wcsncoll_lPtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int, _locale_t)>();
 
   int _wcsnicoll(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
     int _MaxCount,
   ) {
     return __wcsnicoll(
@@ -3884,16 +4507,18 @@ class DartTolk {
     );
   }
 
-  late final __wcsnicoll_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsnicoll>>('_wcsnicoll');
-  late final _dart__wcsnicoll __wcsnicoll =
-      __wcsnicoll_ptr.asFunction<_dart__wcsnicoll>();
+  late final __wcsnicollPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              size_t)>>('_wcsnicoll');
+  late final __wcsnicoll = __wcsnicollPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int)>();
 
   int _wcsnicoll_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
     int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcsnicoll_l(
       _String1,
@@ -3903,131 +4528,160 @@ class DartTolk {
     );
   }
 
-  late final __wcsnicoll_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsnicoll_l>>('_wcsnicoll_l');
-  late final _dart__wcsnicoll_l __wcsnicoll_l =
-      __wcsnicoll_l_ptr.asFunction<_dart__wcsnicoll_l>();
+  late final __wcsnicoll_lPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, size_t,
+              _locale_t)>>('_wcsnicoll_l');
+  late final __wcsnicoll_l = __wcsnicoll_lPtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int, _locale_t)>();
 
-  ffi.Pointer<ffi.Uint16> wcsdup(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> wcsdup(
+    ffi.Pointer<wchar_t> _String,
   ) {
-    return _wcsdup_1(
+    return _wcsdup1(
       _String,
     );
   }
 
-  late final _wcsdup_ptr = _lookup<ffi.NativeFunction<_c_wcsdup>>('wcsdup');
-  late final _dart_wcsdup _wcsdup_1 = _wcsdup_ptr.asFunction<_dart_wcsdup>();
+  late final _wcsdupPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('wcsdup');
+  late final _wcsdup1 = _wcsdupPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int wcsicmp(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
   ) {
-    return _wcsicmp_1(
+    return _wcsicmp1(
       _String1,
       _String2,
     );
   }
 
-  late final _wcsicmp_ptr = _lookup<ffi.NativeFunction<_c_wcsicmp>>('wcsicmp');
-  late final _dart_wcsicmp _wcsicmp_1 =
-      _wcsicmp_ptr.asFunction<_dart_wcsicmp>();
+  late final _wcsicmpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('wcsicmp');
+  late final _wcsicmp1 = _wcsicmpPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
   int wcsnicmp(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
     int _MaxCount,
   ) {
-    return _wcsnicmp_1(
+    return _wcsnicmp1(
       _String1,
       _String2,
       _MaxCount,
     );
   }
 
-  late final _wcsnicmp_ptr =
-      _lookup<ffi.NativeFunction<_c_wcsnicmp>>('wcsnicmp');
-  late final _dart_wcsnicmp _wcsnicmp_1 =
-      _wcsnicmp_ptr.asFunction<_dart_wcsnicmp>();
+  late final _wcsnicmpPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, size_t)>>('wcsnicmp');
+  late final _wcsnicmp1 = _wcsnicmpPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> wcsnset(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> wcsnset(
+    ffi.Pointer<wchar_t> _String,
     int _Value,
     int _MaxCount,
   ) {
-    return _wcsnset_1(
+    return _wcsnset1(
       _String,
       _Value,
       _MaxCount,
     );
   }
 
-  late final _wcsnset_ptr = _lookup<ffi.NativeFunction<_c_wcsnset>>('wcsnset');
-  late final _dart_wcsnset _wcsnset_1 =
-      _wcsnset_ptr.asFunction<_dart_wcsnset>();
+  late final _wcsnsetPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, wchar_t, size_t)>>('wcsnset');
+  late final _wcsnset1 = _wcsnsetPtr.asFunction<
+      ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, int, int)>();
 
-  ffi.Pointer<ffi.Uint16> wcsrev(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> wcsrev(
+    ffi.Pointer<wchar_t> _String,
   ) {
-    return _wcsrev_1(
+    return _wcsrev1(
       _String,
     );
   }
 
-  late final _wcsrev_ptr = _lookup<ffi.NativeFunction<_c_wcsrev>>('wcsrev');
-  late final _dart_wcsrev _wcsrev_1 = _wcsrev_ptr.asFunction<_dart_wcsrev>();
+  late final _wcsrevPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('wcsrev');
+  late final _wcsrev1 = _wcsrevPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
-  ffi.Pointer<ffi.Uint16> wcsset(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> wcsset(
+    ffi.Pointer<wchar_t> _String,
     int _Value,
   ) {
-    return _wcsset_1(
+    return _wcsset1(
       _String,
       _Value,
     );
   }
 
-  late final _wcsset_ptr = _lookup<ffi.NativeFunction<_c_wcsset>>('wcsset');
-  late final _dart_wcsset _wcsset_1 = _wcsset_ptr.asFunction<_dart_wcsset>();
+  late final _wcssetPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Pointer<wchar_t>, wchar_t)>>('wcsset');
+  late final _wcsset1 = _wcssetPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> wcslwr(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> wcslwr(
+    ffi.Pointer<wchar_t> _String,
   ) {
-    return _wcslwr_1(
+    return _wcslwr1(
       _String,
     );
   }
 
-  late final _wcslwr_ptr = _lookup<ffi.NativeFunction<_c_wcslwr>>('wcslwr');
-  late final _dart_wcslwr _wcslwr_1 = _wcslwr_ptr.asFunction<_dart_wcslwr>();
+  late final _wcslwrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('wcslwr');
+  late final _wcslwr1 = _wcslwrPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
-  ffi.Pointer<ffi.Uint16> wcsupr(
-    ffi.Pointer<ffi.Uint16> _String,
+  ffi.Pointer<wchar_t> wcsupr(
+    ffi.Pointer<wchar_t> _String,
   ) {
-    return _wcsupr_1(
+    return _wcsupr1(
       _String,
     );
   }
 
-  late final _wcsupr_ptr = _lookup<ffi.NativeFunction<_c_wcsupr>>('wcsupr');
-  late final _dart_wcsupr _wcsupr_1 = _wcsupr_ptr.asFunction<_dart_wcsupr>();
+  late final _wcsuprPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('wcsupr');
+  late final _wcsupr1 = _wcsuprPtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int wcsicoll(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
+    ffi.Pointer<wchar_t> _String1,
+    ffi.Pointer<wchar_t> _String2,
   ) {
-    return _wcsicoll_1(
+    return _wcsicoll1(
       _String1,
       _String2,
     );
   }
 
-  late final _wcsicoll_ptr =
-      _lookup<ffi.NativeFunction<_c_wcsicoll>>('wcsicoll');
-  late final _dart_wcsicoll _wcsicoll_1 =
-      _wcsicoll_ptr.asFunction<_dart_wcsicoll>();
+  late final _wcsicollPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>>('wcsicoll');
+  late final _wcsicoll1 = _wcsicollPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>)>();
 
-  ffi.Pointer<ffi.Uint16> _wasctime(
+  ffi.Pointer<wchar_t> _wasctime(
     ffi.Pointer<tm> _Tm,
   ) {
     return __wasctime(
@@ -4035,13 +4689,14 @@ class DartTolk {
     );
   }
 
-  late final __wasctime_ptr =
-      _lookup<ffi.NativeFunction<_c__wasctime>>('_wasctime');
-  late final _dart__wasctime __wasctime =
-      __wasctime_ptr.asFunction<_dart__wasctime>();
+  late final __wasctimePtr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<tm>)>>(
+      '_wasctime');
+  late final __wasctime = __wasctimePtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<tm>)>();
 
   int _wasctime_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _SizeInWords,
     ffi.Pointer<tm> _Tm,
   ) {
@@ -4052,15 +4707,17 @@ class DartTolk {
     );
   }
 
-  late final __wasctime_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wasctime_s>>('_wasctime_s');
-  late final _dart__wasctime_s __wasctime_s =
-      __wasctime_s_ptr.asFunction<_dart__wasctime_s>();
+  late final __wasctime_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<wchar_t>, size_t, ffi.Pointer<tm>)>>('_wasctime_s');
+  late final __wasctime_s = __wasctime_sPtr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<tm>)>();
 
   int wcsftime(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _SizeInWords,
-    ffi.Pointer<ffi.Uint16> _Format,
+    ffi.Pointer<wchar_t> _Format,
     ffi.Pointer<tm> _Tm,
   ) {
     return _wcsftime(
@@ -4071,17 +4728,20 @@ class DartTolk {
     );
   }
 
-  late final _wcsftime_ptr =
-      _lookup<ffi.NativeFunction<_c_wcsftime>>('wcsftime');
-  late final _dart_wcsftime _wcsftime =
-      _wcsftime_ptr.asFunction<_dart_wcsftime>();
+  late final _wcsftimePtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(ffi.Pointer<wchar_t>, size_t, ffi.Pointer<wchar_t>,
+              ffi.Pointer<tm>)>>('wcsftime');
+  late final _wcsftime = _wcsftimePtr.asFunction<
+      int Function(
+          ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>, ffi.Pointer<tm>)>();
 
   int _wcsftime_l(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _SizeInWords,
-    ffi.Pointer<ffi.Uint16> _Format,
+    ffi.Pointer<wchar_t> _Format,
     ffi.Pointer<tm> _Tm,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
+    _locale_t _Locale,
   ) {
     return __wcsftime_l(
       _Buffer,
@@ -4092,28 +4752,32 @@ class DartTolk {
     );
   }
 
-  late final __wcsftime_l_ptr =
-      _lookup<ffi.NativeFunction<_c__wcsftime_l>>('_wcsftime_l');
-  late final _dart__wcsftime_l __wcsftime_l =
-      __wcsftime_l_ptr.asFunction<_dart__wcsftime_l>();
+  late final __wcsftime_lPtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(ffi.Pointer<wchar_t>, size_t, ffi.Pointer<wchar_t>,
+              ffi.Pointer<tm>, _locale_t)>>('_wcsftime_l');
+  late final __wcsftime_l = __wcsftime_lPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>,
+          ffi.Pointer<tm>, _locale_t)>();
 
-  ffi.Pointer<ffi.Uint16> _wctime32(
-    ffi.Pointer<ffi.Int64> _Time,
+  ffi.Pointer<wchar_t> _wctime32(
+    ffi.Pointer<__time32_t> _Time,
   ) {
     return __wctime32(
       _Time,
     );
   }
 
-  late final __wctime32_ptr =
-      _lookup<ffi.NativeFunction<_c__wctime32>>('_wctime32');
-  late final _dart__wctime32 __wctime32 =
-      __wctime32_ptr.asFunction<_dart__wctime32>();
+  late final __wctime32Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<__time32_t>)>>('_wctime32');
+  late final __wctime32 = __wctime32Ptr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<__time32_t>)>();
 
   int _wctime32_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _SizeInWords,
-    ffi.Pointer<ffi.Int64> _Time,
+    ffi.Pointer<__time32_t> _Time,
   ) {
     return __wctime32_s(
       _Buffer,
@@ -4122,28 +4786,31 @@ class DartTolk {
     );
   }
 
-  late final __wctime32_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wctime32_s>>('_wctime32_s');
-  late final _dart__wctime32_s __wctime32_s =
-      __wctime32_s_ptr.asFunction<_dart__wctime32_s>();
+  late final __wctime32_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, size_t,
+              ffi.Pointer<__time32_t>)>>('_wctime32_s');
+  late final __wctime32_s = __wctime32_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<__time32_t>)>();
 
-  ffi.Pointer<ffi.Uint16> _wctime64(
-    ffi.Pointer<ffi.Int64> _Time,
+  ffi.Pointer<wchar_t> _wctime64(
+    ffi.Pointer<__time64_t> _Time,
   ) {
     return __wctime64(
       _Time,
     );
   }
 
-  late final __wctime64_ptr =
-      _lookup<ffi.NativeFunction<_c__wctime64>>('_wctime64');
-  late final _dart__wctime64 __wctime64 =
-      __wctime64_ptr.asFunction<_dart__wctime64>();
+  late final __wctime64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<__time64_t>)>>('_wctime64');
+  late final __wctime64 = __wctime64Ptr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<__time64_t>)>();
 
   int _wctime64_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _SizeInWords,
-    ffi.Pointer<ffi.Int64> _Time,
+    ffi.Pointer<__time64_t> _Time,
   ) {
     return __wctime64_s(
       _Buffer,
@@ -4152,13 +4819,15 @@ class DartTolk {
     );
   }
 
-  late final __wctime64_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wctime64_s>>('_wctime64_s');
-  late final _dart__wctime64_s __wctime64_s =
-      __wctime64_s_ptr.asFunction<_dart__wctime64_s>();
+  late final __wctime64_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, size_t,
+              ffi.Pointer<__time64_t>)>>('_wctime64_s');
+  late final __wctime64_s = __wctime64_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<__time64_t>)>();
 
   int _wstrdate_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _SizeInWords,
   ) {
     return __wstrdate_s(
@@ -4167,26 +4836,28 @@ class DartTolk {
     );
   }
 
-  late final __wstrdate_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wstrdate_s>>('_wstrdate_s');
-  late final _dart__wstrdate_s __wstrdate_s =
-      __wstrdate_s_ptr.asFunction<_dart__wstrdate_s>();
+  late final __wstrdate_sPtr = _lookup<
+          ffi.NativeFunction<errno_t Function(ffi.Pointer<wchar_t>, size_t)>>(
+      '_wstrdate_s');
+  late final __wstrdate_s =
+      __wstrdate_sPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wstrdate(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+  ffi.Pointer<wchar_t> _wstrdate(
+    ffi.Pointer<wchar_t> _Buffer,
   ) {
     return __wstrdate(
       _Buffer,
     );
   }
 
-  late final __wstrdate_ptr =
-      _lookup<ffi.NativeFunction<_c__wstrdate>>('_wstrdate');
-  late final _dart__wstrdate __wstrdate =
-      __wstrdate_ptr.asFunction<_dart__wstrdate>();
+  late final __wstrdatePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('_wstrdate');
+  late final __wstrdate = __wstrdatePtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int _wstrtime_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+    ffi.Pointer<wchar_t> _Buffer,
     int _SizeInWords,
   ) {
     return __wstrtime_s(
@@ -4195,23 +4866,25 @@ class DartTolk {
     );
   }
 
-  late final __wstrtime_s_ptr =
-      _lookup<ffi.NativeFunction<_c__wstrtime_s>>('_wstrtime_s');
-  late final _dart__wstrtime_s __wstrtime_s =
-      __wstrtime_s_ptr.asFunction<_dart__wstrtime_s>();
+  late final __wstrtime_sPtr = _lookup<
+          ffi.NativeFunction<errno_t Function(ffi.Pointer<wchar_t>, size_t)>>(
+      '_wstrtime_s');
+  late final __wstrtime_s =
+      __wstrtime_sPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
-  ffi.Pointer<ffi.Uint16> _wstrtime(
-    ffi.Pointer<ffi.Uint16> _Buffer,
+  ffi.Pointer<wchar_t> _wstrtime(
+    ffi.Pointer<wchar_t> _Buffer,
   ) {
     return __wstrtime(
       _Buffer,
     );
   }
 
-  late final __wstrtime_ptr =
-      _lookup<ffi.NativeFunction<_c__wstrtime>>('_wstrtime');
-  late final _dart__wstrtime __wstrtime =
-      __wstrtime_ptr.asFunction<_dart__wstrtime>();
+  late final __wstrtimePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>>('_wstrtime');
+  late final __wstrtime = __wstrtimePtr
+      .asFunction<ffi.Pointer<wchar_t> Function(ffi.Pointer<wchar_t>)>();
 
   int _fstat32(
     int _FileHandle,
@@ -4223,10 +4896,11 @@ class DartTolk {
     );
   }
 
-  late final __fstat32_ptr =
-      _lookup<ffi.NativeFunction<_c__fstat32>>('_fstat32');
-  late final _dart__fstat32 __fstat32 =
-      __fstat32_ptr.asFunction<_dart__fstat32>();
+  late final __fstat32Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Int32, ffi.Pointer<_stat32>)>>('_fstat32');
+  late final __fstat32 =
+      __fstat32Ptr.asFunction<int Function(int, ffi.Pointer<_stat32>)>();
 
   int _fstat32i64(
     int _FileHandle,
@@ -4238,10 +4912,12 @@ class DartTolk {
     );
   }
 
-  late final __fstat32i64_ptr =
-      _lookup<ffi.NativeFunction<_c__fstat32i64>>('_fstat32i64');
-  late final _dart__fstat32i64 __fstat32i64 =
-      __fstat32i64_ptr.asFunction<_dart__fstat32i64>();
+  late final __fstat32i64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Int32, ffi.Pointer<_stat32i64>)>>('_fstat32i64');
+  late final __fstat32i64 =
+      __fstat32i64Ptr.asFunction<int Function(int, ffi.Pointer<_stat32i64>)>();
 
   int _fstat64i32(
     int _FileHandle,
@@ -4253,10 +4929,12 @@ class DartTolk {
     );
   }
 
-  late final __fstat64i32_ptr =
-      _lookup<ffi.NativeFunction<_c__fstat64i32>>('_fstat64i32');
-  late final _dart__fstat64i32 __fstat64i32 =
-      __fstat64i32_ptr.asFunction<_dart__fstat64i32>();
+  late final __fstat64i32Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Int32, ffi.Pointer<_stat64i32>)>>('_fstat64i32');
+  late final __fstat64i32 =
+      __fstat64i32Ptr.asFunction<int Function(int, ffi.Pointer<_stat64i32>)>();
 
   int _fstat64(
     int _FileHandle,
@@ -4268,73 +4946,82 @@ class DartTolk {
     );
   }
 
-  late final __fstat64_ptr =
-      _lookup<ffi.NativeFunction<_c__fstat64>>('_fstat64');
-  late final _dart__fstat64 __fstat64 =
-      __fstat64_ptr.asFunction<_dart__fstat64>();
+  late final __fstat64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(ffi.Int32, ffi.Pointer<_stat64>)>>('_fstat64');
+  late final __fstat64 =
+      __fstat64Ptr.asFunction<int Function(int, ffi.Pointer<_stat64>)>();
 
-  int _stat32_1(
+  int _stat321(
     ffi.Pointer<ffi.Int8> _FileName,
     ffi.Pointer<_stat32> _Stat,
   ) {
-    return __stat32_1(
+    return __stat321(
       _FileName,
       _Stat,
     );
   }
 
-  late final __stat32_1_ptr =
-      _lookup<ffi.NativeFunction<_c__stat32_1>>('_stat32');
-  late final _dart__stat32_1 __stat32_1 =
-      __stat32_1_ptr.asFunction<_dart__stat32_1>();
+  late final __stat321Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<ffi.Int8>, ffi.Pointer<_stat32>)>>('_stat32');
+  late final __stat321 = __stat321Ptr
+      .asFunction<int Function(ffi.Pointer<ffi.Int8>, ffi.Pointer<_stat32>)>();
 
-  int _stat32i64_1(
+  int _stat32i641(
     ffi.Pointer<ffi.Int8> _FileName,
     ffi.Pointer<_stat32i64> _Stat,
   ) {
-    return __stat32i64_1(
+    return __stat32i641(
       _FileName,
       _Stat,
     );
   }
 
-  late final __stat32i64_1_ptr =
-      _lookup<ffi.NativeFunction<_c__stat32i64_1>>('_stat32i64');
-  late final _dart__stat32i64_1 __stat32i64_1 =
-      __stat32i64_1_ptr.asFunction<_dart__stat32i64_1>();
+  late final __stat32i641Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<ffi.Int8>, ffi.Pointer<_stat32i64>)>>('_stat32i64');
+  late final __stat32i641 = __stat32i641Ptr.asFunction<
+      int Function(ffi.Pointer<ffi.Int8>, ffi.Pointer<_stat32i64>)>();
 
-  int _stat64i32_1(
+  int _stat64i321(
     ffi.Pointer<ffi.Int8> _FileName,
     ffi.Pointer<_stat64i32> _Stat,
   ) {
-    return __stat64i32_1(
+    return __stat64i321(
       _FileName,
       _Stat,
     );
   }
 
-  late final __stat64i32_1_ptr =
-      _lookup<ffi.NativeFunction<_c__stat64i32_1>>('_stat64i32');
-  late final _dart__stat64i32_1 __stat64i32_1 =
-      __stat64i32_1_ptr.asFunction<_dart__stat64i32_1>();
+  late final __stat64i321Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<ffi.Int8>, ffi.Pointer<_stat64i32>)>>('_stat64i32');
+  late final __stat64i321 = __stat64i321Ptr.asFunction<
+      int Function(ffi.Pointer<ffi.Int8>, ffi.Pointer<_stat64i32>)>();
 
-  int _stat64_1(
+  int _stat641(
     ffi.Pointer<ffi.Int8> _FileName,
     ffi.Pointer<_stat64> _Stat,
   ) {
-    return __stat64_1(
+    return __stat641(
       _FileName,
       _Stat,
     );
   }
 
-  late final __stat64_1_ptr =
-      _lookup<ffi.NativeFunction<_c__stat64_1>>('_stat64');
-  late final _dart__stat64_1 __stat64_1 =
-      __stat64_1_ptr.asFunction<_dart__stat64_1>();
+  late final __stat641Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<ffi.Int8>, ffi.Pointer<_stat64>)>>('_stat64');
+  late final __stat641 = __stat641Ptr
+      .asFunction<int Function(ffi.Pointer<ffi.Int8>, ffi.Pointer<_stat64>)>();
 
   int _wstat32(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     ffi.Pointer<_stat32> _Stat,
   ) {
     return __wstat32(
@@ -4343,13 +5030,15 @@ class DartTolk {
     );
   }
 
-  late final __wstat32_ptr =
-      _lookup<ffi.NativeFunction<_c__wstat32>>('_wstat32');
-  late final _dart__wstat32 __wstat32 =
-      __wstat32_ptr.asFunction<_dart__wstat32>();
+  late final __wstat32Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<_stat32>)>>('_wstat32');
+  late final __wstat32 = __wstat32Ptr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<_stat32>)>();
 
   int _wstat32i64(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     ffi.Pointer<_stat32i64> _Stat,
   ) {
     return __wstat32i64(
@@ -4358,13 +5047,15 @@ class DartTolk {
     );
   }
 
-  late final __wstat32i64_ptr =
-      _lookup<ffi.NativeFunction<_c__wstat32i64>>('_wstat32i64');
-  late final _dart__wstat32i64 __wstat32i64 =
-      __wstat32i64_ptr.asFunction<_dart__wstat32i64>();
+  late final __wstat32i64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<_stat32i64>)>>('_wstat32i64');
+  late final __wstat32i64 = __wstat32i64Ptr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<_stat32i64>)>();
 
   int _wstat64i32(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     ffi.Pointer<_stat64i32> _Stat,
   ) {
     return __wstat64i32(
@@ -4373,13 +5064,15 @@ class DartTolk {
     );
   }
 
-  late final __wstat64i32_ptr =
-      _lookup<ffi.NativeFunction<_c__wstat64i32>>('_wstat64i32');
-  late final _dart__wstat64i32 __wstat64i32 =
-      __wstat64i32_ptr.asFunction<_dart__wstat64i32>();
+  late final __wstat64i32Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<_stat64i32>)>>('_wstat64i32');
+  late final __wstat64i32 = __wstat64i32Ptr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<_stat64i32>)>();
 
   int _wstat64(
-    ffi.Pointer<ffi.Uint16> _FileName,
+    ffi.Pointer<wchar_t> _FileName,
     ffi.Pointer<_stat64> _Stat,
   ) {
     return __wstat64(
@@ -4388,14 +5081,16 @@ class DartTolk {
     );
   }
 
-  late final __wstat64_ptr =
-      _lookup<ffi.NativeFunction<_c__wstat64>>('_wstat64');
-  late final _dart__wstat64 __wstat64 =
-      __wstat64_ptr.asFunction<_dart__wstat64>();
+  late final __wstat64Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              ffi.Pointer<wchar_t>, ffi.Pointer<_stat64>)>>('_wstat64');
+  late final __wstat64 = __wstat64Ptr
+      .asFunction<int Function(ffi.Pointer<wchar_t>, ffi.Pointer<_stat64>)>();
 
-  ffi.Pointer<ffi.Uint16> _wsetlocale(
+  ffi.Pointer<wchar_t> _wsetlocale(
     int _Category,
-    ffi.Pointer<ffi.Uint16> _Locale,
+    ffi.Pointer<wchar_t> _Locale,
   ) {
     return __wsetlocale(
       _Category,
@@ -4403,14 +5098,16 @@ class DartTolk {
     );
   }
 
-  late final __wsetlocale_ptr =
-      _lookup<ffi.NativeFunction<_c__wsetlocale>>('_wsetlocale');
-  late final _dart__wsetlocale __wsetlocale =
-      __wsetlocale_ptr.asFunction<_dart__wsetlocale>();
+  late final __wsetlocalePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wchar_t> Function(
+              ffi.Int32, ffi.Pointer<wchar_t>)>>('_wsetlocale');
+  late final __wsetlocale = __wsetlocalePtr
+      .asFunction<ffi.Pointer<wchar_t> Function(int, ffi.Pointer<wchar_t>)>();
 
-  ffi.Pointer<__crt_locale_pointers> _wcreate_locale(
+  _locale_t _wcreate_locale(
     int _Category,
-    ffi.Pointer<ffi.Uint16> _Locale,
+    ffi.Pointer<wchar_t> _Locale,
   ) {
     return __wcreate_locale(
       _Category,
@@ -4418,10 +5115,12 @@ class DartTolk {
     );
   }
 
-  late final __wcreate_locale_ptr =
-      _lookup<ffi.NativeFunction<_c__wcreate_locale>>('_wcreate_locale');
-  late final _dart__wcreate_locale __wcreate_locale =
-      __wcreate_locale_ptr.asFunction<_dart__wcreate_locale>();
+  late final __wcreate_localePtr = _lookup<
+      ffi.NativeFunction<
+          _locale_t Function(
+              ffi.Int32, ffi.Pointer<wchar_t>)>>('_wcreate_locale');
+  late final __wcreate_locale = __wcreate_localePtr
+      .asFunction<_locale_t Function(int, ffi.Pointer<wchar_t>)>();
 
   int btowc(
     int _Ch,
@@ -4431,13 +5130,14 @@ class DartTolk {
     );
   }
 
-  late final _btowc_ptr = _lookup<ffi.NativeFunction<_c_btowc>>('btowc');
-  late final _dart_btowc _btowc = _btowc_ptr.asFunction<_dart_btowc>();
+  late final _btowcPtr =
+      _lookup<ffi.NativeFunction<wint_t Function(ffi.Int32)>>('btowc');
+  late final _btowc = _btowcPtr.asFunction<int Function(int)>();
 
   int mbrlen(
     ffi.Pointer<ffi.Int8> _Ch,
     int _SizeInBytes,
-    ffi.Pointer<_Mbstatet> _State,
+    ffi.Pointer<mbstate_t> _State,
   ) {
     return _mbrlen(
       _Ch,
@@ -4446,14 +5146,18 @@ class DartTolk {
     );
   }
 
-  late final _mbrlen_ptr = _lookup<ffi.NativeFunction<_c_mbrlen>>('mbrlen');
-  late final _dart_mbrlen _mbrlen = _mbrlen_ptr.asFunction<_dart_mbrlen>();
+  late final _mbrlenPtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(ffi.Pointer<ffi.Int8>, size_t,
+              ffi.Pointer<mbstate_t>)>>('mbrlen');
+  late final _mbrlen = _mbrlenPtr.asFunction<
+      int Function(ffi.Pointer<ffi.Int8>, int, ffi.Pointer<mbstate_t>)>();
 
   int mbrtowc(
-    ffi.Pointer<ffi.Uint16> _DstCh,
+    ffi.Pointer<wchar_t> _DstCh,
     ffi.Pointer<ffi.Int8> _SrcCh,
     int _SizeInBytes,
-    ffi.Pointer<_Mbstatet> _State,
+    ffi.Pointer<mbstate_t> _State,
   ) {
     return _mbrtowc(
       _DstCh,
@@ -4463,16 +5167,21 @@ class DartTolk {
     );
   }
 
-  late final _mbrtowc_ptr = _lookup<ffi.NativeFunction<_c_mbrtowc>>('mbrtowc');
-  late final _dart_mbrtowc _mbrtowc = _mbrtowc_ptr.asFunction<_dart_mbrtowc>();
+  late final _mbrtowcPtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Int8>, size_t,
+              ffi.Pointer<mbstate_t>)>>('mbrtowc');
+  late final _mbrtowc = _mbrtowcPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Int8>, int,
+          ffi.Pointer<mbstate_t>)>();
 
   int mbsrtowcs_s(
-    ffi.Pointer<ffi.Uint64> _Retval,
-    ffi.Pointer<ffi.Uint16> _Dst,
+    ffi.Pointer<size_t> _Retval,
+    ffi.Pointer<wchar_t> _Dst,
     int _Size,
     ffi.Pointer<ffi.Pointer<ffi.Int8>> _PSrc,
     int _N,
-    ffi.Pointer<_Mbstatet> _State,
+    ffi.Pointer<mbstate_t> _State,
   ) {
     return _mbsrtowcs_s(
       _Retval,
@@ -4484,16 +5193,24 @@ class DartTolk {
     );
   }
 
-  late final _mbsrtowcs_s_ptr =
-      _lookup<ffi.NativeFunction<_c_mbsrtowcs_s>>('mbsrtowcs_s');
-  late final _dart_mbsrtowcs_s _mbsrtowcs_s =
-      _mbsrtowcs_s_ptr.asFunction<_dart_mbsrtowcs_s>();
+  late final _mbsrtowcs_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<size_t>,
+              ffi.Pointer<wchar_t>,
+              size_t,
+              ffi.Pointer<ffi.Pointer<ffi.Int8>>,
+              size_t,
+              ffi.Pointer<mbstate_t>)>>('mbsrtowcs_s');
+  late final _mbsrtowcs_s = _mbsrtowcs_sPtr.asFunction<
+      int Function(ffi.Pointer<size_t>, ffi.Pointer<wchar_t>, int,
+          ffi.Pointer<ffi.Pointer<ffi.Int8>>, int, ffi.Pointer<mbstate_t>)>();
 
   int mbsrtowcs(
-    ffi.Pointer<ffi.Uint16> _Dest,
+    ffi.Pointer<wchar_t> _Dest,
     ffi.Pointer<ffi.Pointer<ffi.Int8>> _PSrc,
     int _Count,
-    ffi.Pointer<_Mbstatet> _State,
+    ffi.Pointer<mbstate_t> _State,
   ) {
     return _mbsrtowcs(
       _Dest,
@@ -4503,17 +5220,23 @@ class DartTolk {
     );
   }
 
-  late final _mbsrtowcs_ptr =
-      _lookup<ffi.NativeFunction<_c_mbsrtowcs>>('mbsrtowcs');
-  late final _dart_mbsrtowcs _mbsrtowcs =
-      _mbsrtowcs_ptr.asFunction<_dart_mbsrtowcs>();
+  late final _mbsrtowcsPtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(
+              ffi.Pointer<wchar_t>,
+              ffi.Pointer<ffi.Pointer<ffi.Int8>>,
+              size_t,
+              ffi.Pointer<mbstate_t>)>>('mbsrtowcs');
+  late final _mbsrtowcs = _mbsrtowcsPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, ffi.Pointer<ffi.Pointer<ffi.Int8>>,
+          int, ffi.Pointer<mbstate_t>)>();
 
   int wcrtomb_s(
-    ffi.Pointer<ffi.Uint64> _Retval,
+    ffi.Pointer<size_t> _Retval,
     ffi.Pointer<ffi.Int8> _Dst,
     int _SizeInBytes,
     int _Ch,
-    ffi.Pointer<_Mbstatet> _State,
+    ffi.Pointer<mbstate_t> _State,
   ) {
     return _wcrtomb_s(
       _Retval,
@@ -4524,15 +5247,18 @@ class DartTolk {
     );
   }
 
-  late final _wcrtomb_s_ptr =
-      _lookup<ffi.NativeFunction<_c_wcrtomb_s>>('wcrtomb_s');
-  late final _dart_wcrtomb_s _wcrtomb_s =
-      _wcrtomb_s_ptr.asFunction<_dart_wcrtomb_s>();
+  late final _wcrtomb_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<size_t>, ffi.Pointer<ffi.Int8>, size_t,
+              wchar_t, ffi.Pointer<mbstate_t>)>>('wcrtomb_s');
+  late final _wcrtomb_s = _wcrtomb_sPtr.asFunction<
+      int Function(ffi.Pointer<size_t>, ffi.Pointer<ffi.Int8>, int, int,
+          ffi.Pointer<mbstate_t>)>();
 
   int wcrtomb(
     ffi.Pointer<ffi.Int8> _Dest,
     int _Source,
-    ffi.Pointer<_Mbstatet> _State,
+    ffi.Pointer<mbstate_t> _State,
   ) {
     return _wcrtomb(
       _Dest,
@@ -4541,16 +5267,20 @@ class DartTolk {
     );
   }
 
-  late final _wcrtomb_ptr = _lookup<ffi.NativeFunction<_c_wcrtomb>>('wcrtomb');
-  late final _dart_wcrtomb _wcrtomb = _wcrtomb_ptr.asFunction<_dart_wcrtomb>();
+  late final _wcrtombPtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(ffi.Pointer<ffi.Int8>, wchar_t,
+              ffi.Pointer<mbstate_t>)>>('wcrtomb');
+  late final _wcrtomb = _wcrtombPtr.asFunction<
+      int Function(ffi.Pointer<ffi.Int8>, int, ffi.Pointer<mbstate_t>)>();
 
   int wcsrtombs_s(
-    ffi.Pointer<ffi.Uint64> _Retval,
+    ffi.Pointer<size_t> _Retval,
     ffi.Pointer<ffi.Int8> _Dst,
     int _SizeInBytes,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Src,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _Src,
     int _Size,
-    ffi.Pointer<_Mbstatet> _State,
+    ffi.Pointer<mbstate_t> _State,
   ) {
     return _wcsrtombs_s(
       _Retval,
@@ -4562,16 +5292,24 @@ class DartTolk {
     );
   }
 
-  late final _wcsrtombs_s_ptr =
-      _lookup<ffi.NativeFunction<_c_wcsrtombs_s>>('wcsrtombs_s');
-  late final _dart_wcsrtombs_s _wcsrtombs_s =
-      _wcsrtombs_s_ptr.asFunction<_dart_wcsrtombs_s>();
+  late final _wcsrtombs_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(
+              ffi.Pointer<size_t>,
+              ffi.Pointer<ffi.Int8>,
+              size_t,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              size_t,
+              ffi.Pointer<mbstate_t>)>>('wcsrtombs_s');
+  late final _wcsrtombs_s = _wcsrtombs_sPtr.asFunction<
+      int Function(ffi.Pointer<size_t>, ffi.Pointer<ffi.Int8>, int,
+          ffi.Pointer<ffi.Pointer<wchar_t>>, int, ffi.Pointer<mbstate_t>)>();
 
   int wcsrtombs(
     ffi.Pointer<ffi.Int8> _Dest,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _PSource,
+    ffi.Pointer<ffi.Pointer<wchar_t>> _PSource,
     int _Count,
-    ffi.Pointer<_Mbstatet> _State,
+    ffi.Pointer<mbstate_t> _State,
   ) {
     return _wcsrtombs(
       _Dest,
@@ -4581,10 +5319,16 @@ class DartTolk {
     );
   }
 
-  late final _wcsrtombs_ptr =
-      _lookup<ffi.NativeFunction<_c_wcsrtombs>>('wcsrtombs');
-  late final _dart_wcsrtombs _wcsrtombs =
-      _wcsrtombs_ptr.asFunction<_dart_wcsrtombs>();
+  late final _wcsrtombsPtr = _lookup<
+      ffi.NativeFunction<
+          size_t Function(
+              ffi.Pointer<ffi.Int8>,
+              ffi.Pointer<ffi.Pointer<wchar_t>>,
+              size_t,
+              ffi.Pointer<mbstate_t>)>>('wcsrtombs');
+  late final _wcsrtombs = _wcsrtombsPtr.asFunction<
+      int Function(ffi.Pointer<ffi.Int8>, ffi.Pointer<ffi.Pointer<wchar_t>>,
+          int, ffi.Pointer<mbstate_t>)>();
 
   int wctob(
     int _WCh,
@@ -4594,13 +5338,14 @@ class DartTolk {
     );
   }
 
-  late final _wctob_ptr = _lookup<ffi.NativeFunction<_c_wctob>>('wctob');
-  late final _dart_wctob _wctob = _wctob_ptr.asFunction<_dart_wctob>();
+  late final _wctobPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(wint_t)>>('wctob');
+  late final _wctob = _wctobPtr.asFunction<int Function(int)>();
 
   int wmemcpy_s(
-    ffi.Pointer<ffi.Uint16> _S1,
+    ffi.Pointer<wchar_t> _S1,
     int _N1,
-    ffi.Pointer<ffi.Uint16> _S2,
+    ffi.Pointer<wchar_t> _S2,
     int _N,
   ) {
     return _wmemcpy_s(
@@ -4611,15 +5356,17 @@ class DartTolk {
     );
   }
 
-  late final _wmemcpy_s_ptr =
-      _lookup<ffi.NativeFunction<_c_wmemcpy_s>>('wmemcpy_s');
-  late final _dart_wmemcpy_s _wmemcpy_s =
-      _wmemcpy_s_ptr.asFunction<_dart_wmemcpy_s>();
+  late final _wmemcpy_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, rsize_t, ffi.Pointer<wchar_t>,
+              rsize_t)>>('wmemcpy_s');
+  late final _wmemcpy_s = _wmemcpy_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>, int)>();
 
   int wmemmove_s(
-    ffi.Pointer<ffi.Uint16> _S1,
+    ffi.Pointer<wchar_t> _S1,
     int _N1,
-    ffi.Pointer<ffi.Uint16> _S2,
+    ffi.Pointer<wchar_t> _S2,
     int _N,
   ) {
     return _wmemmove_s(
@@ -4630,10 +5377,12 @@ class DartTolk {
     );
   }
 
-  late final _wmemmove_s_ptr =
-      _lookup<ffi.NativeFunction<_c_wmemmove_s>>('wmemmove_s');
-  late final _dart_wmemmove_s _wmemmove_s =
-      _wmemmove_s_ptr.asFunction<_dart_wmemmove_s>();
+  late final _wmemmove_sPtr = _lookup<
+      ffi.NativeFunction<
+          errno_t Function(ffi.Pointer<wchar_t>, rsize_t, ffi.Pointer<wchar_t>,
+              rsize_t)>>('wmemmove_s');
+  late final _wmemmove_s = _wmemmove_sPtr.asFunction<
+      int Function(ffi.Pointer<wchar_t>, int, ffi.Pointer<wchar_t>, int)>();
 
   /// Name:         Tolk_Load
   /// Description:  Initializes Tolk by loading and initializing the screen reader drivers and setting the current screen reader driver, provided at least one of the supported screen readers is active. Also initializes COM if it has not already been initialized on the calling thread. Calling this function more than once will only initialize COM. You should call this function before using the functions below. Use Tolk_IsLoaded to determine if Tolk has been initialized.
@@ -4643,10 +5392,9 @@ class DartTolk {
     return _Tolk_Load();
   }
 
-  late final _Tolk_Load_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_Load>>('Tolk_Load');
-  late final _dart_Tolk_Load _Tolk_Load =
-      _Tolk_Load_ptr.asFunction<_dart_Tolk_Load>();
+  late final _Tolk_LoadPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>('Tolk_Load');
+  late final _Tolk_Load = _Tolk_LoadPtr.asFunction<void Function()>();
 
   /// Name:         Tolk_IsLoaded
   /// Description:  Tests if Tolk has been initialized.
@@ -4656,10 +5404,9 @@ class DartTolk {
     return _Tolk_IsLoaded() != 0;
   }
 
-  late final _Tolk_IsLoaded_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_IsLoaded>>('Tolk_IsLoaded');
-  late final _dart_Tolk_IsLoaded _Tolk_IsLoaded =
-      _Tolk_IsLoaded_ptr.asFunction<_dart_Tolk_IsLoaded>();
+  late final _Tolk_IsLoadedPtr =
+      _lookup<ffi.NativeFunction<ffi.Uint8 Function()>>('Tolk_IsLoaded');
+  late final _Tolk_IsLoaded = _Tolk_IsLoadedPtr.asFunction<int Function()>();
 
   /// Name:         Tolk_Unload
   /// Description:  Finalizes Tolk by finalizing and unloading the screen reader drivers and clearing the current screen reader driver, provided one was set. Also uninitializes COM on the calling thread. Calling this function more than once will only uninitialize COM. You should not use the functions below if this function has been called.
@@ -4669,10 +5416,9 @@ class DartTolk {
     return _Tolk_Unload();
   }
 
-  late final _Tolk_Unload_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_Unload>>('Tolk_Unload');
-  late final _dart_Tolk_Unload _Tolk_Unload =
-      _Tolk_Unload_ptr.asFunction<_dart_Tolk_Unload>();
+  late final _Tolk_UnloadPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>('Tolk_Unload');
+  late final _Tolk_Unload = _Tolk_UnloadPtr.asFunction<void Function()>();
 
   /// Name:         Tolk_TrySAPI
   /// Description:  Sets if Microsoft Speech API (SAPI) should be used in the screen reader auto-detection process. The default is not to include SAPI. The SAPI driver will use the system default synthesizer, voice and soundcard. This function triggers the screen reader detection process if needed. For best performance, you should call this function before calling Tolk_Load.
@@ -4686,10 +5432,9 @@ class DartTolk {
     );
   }
 
-  late final _Tolk_TrySAPI_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_TrySAPI>>('Tolk_TrySAPI');
-  late final _dart_Tolk_TrySAPI _Tolk_TrySAPI =
-      _Tolk_TrySAPI_ptr.asFunction<_dart_Tolk_TrySAPI>();
+  late final _Tolk_TrySAPIPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Uint8)>>('Tolk_TrySAPI');
+  late final _Tolk_TrySAPI = _Tolk_TrySAPIPtr.asFunction<void Function(int)>();
 
   /// Name:         Tolk_PreferSAPI
   /// Description:  If auto-detection for SAPI has been turned on through Tolk_TrySAPI, sets if SAPI should be placed first (true) or last (false) in the screen reader detection list. Putting it last is the default and is good for using SAPI as a fallback option. Putting it first is good for ensuring SAPI is used even when a screen reader is running, but keep in mind screen readers will still be tried if SAPI is unavailable. This function triggers the screen reader detection process if needed. For best performance, you should call this function before calling Tolk_Load.
@@ -4703,24 +5448,25 @@ class DartTolk {
     );
   }
 
-  late final _Tolk_PreferSAPI_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_PreferSAPI>>('Tolk_PreferSAPI');
-  late final _dart_Tolk_PreferSAPI _Tolk_PreferSAPI =
-      _Tolk_PreferSAPI_ptr.asFunction<_dart_Tolk_PreferSAPI>();
+  late final _Tolk_PreferSAPIPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Uint8)>>(
+          'Tolk_PreferSAPI');
+  late final _Tolk_PreferSAPI =
+      _Tolk_PreferSAPIPtr.asFunction<void Function(int)>();
 
   /// Name:         Tolk_DetectScreenReader
   /// Description:  Returns the common name for the currently active screen reader driver, if one is set. If none is set, tries to detect the currently active screen reader before looking up the name. If no screen reader is active, NULL is returned. Note that the drivers hard-code the common name, it is not requested from the screen reader itself. You should call Tolk_Load once before using this function.
   /// Parameters:   None.
   /// Returns:      A Unicode string representation of the common name on success, NULL otherwise.
-  ffi.Pointer<ffi.Uint16> Tolk_DetectScreenReader() {
+  ffi.Pointer<wchar_t> Tolk_DetectScreenReader() {
     return _Tolk_DetectScreenReader();
   }
 
-  late final _Tolk_DetectScreenReader_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_DetectScreenReader>>(
+  late final _Tolk_DetectScreenReaderPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wchar_t> Function()>>(
           'Tolk_DetectScreenReader');
-  late final _dart_Tolk_DetectScreenReader _Tolk_DetectScreenReader =
-      _Tolk_DetectScreenReader_ptr.asFunction<_dart_Tolk_DetectScreenReader>();
+  late final _Tolk_DetectScreenReader =
+      _Tolk_DetectScreenReaderPtr.asFunction<ffi.Pointer<wchar_t> Function()>();
 
   /// Name:         Tolk_HasSpeech
   /// Description:  Tests if the current screen reader driver supports speech output, if one is set. If none is set, tries to detect the currently active screen reader before testing for speech support. You should call Tolk_Load once before using this function.
@@ -4730,10 +5476,9 @@ class DartTolk {
     return _Tolk_HasSpeech() != 0;
   }
 
-  late final _Tolk_HasSpeech_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_HasSpeech>>('Tolk_HasSpeech');
-  late final _dart_Tolk_HasSpeech _Tolk_HasSpeech =
-      _Tolk_HasSpeech_ptr.asFunction<_dart_Tolk_HasSpeech>();
+  late final _Tolk_HasSpeechPtr =
+      _lookup<ffi.NativeFunction<ffi.Uint8 Function()>>('Tolk_HasSpeech');
+  late final _Tolk_HasSpeech = _Tolk_HasSpeechPtr.asFunction<int Function()>();
 
   /// Name:         Tolk_HasBraille
   /// Description:  Tests if the current screen reader driver supports braille output, if one is set. If none is set, tries to detect the currently active screen reader before testing for braille support. You should call Tolk_Load once before using this function.
@@ -4743,13 +5488,13 @@ class DartTolk {
     return _Tolk_HasBraille() != 0;
   }
 
-  late final _Tolk_HasBraille_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_HasBraille>>('Tolk_HasBraille');
-  late final _dart_Tolk_HasBraille _Tolk_HasBraille =
-      _Tolk_HasBraille_ptr.asFunction<_dart_Tolk_HasBraille>();
+  late final _Tolk_HasBraillePtr =
+      _lookup<ffi.NativeFunction<ffi.Uint8 Function()>>('Tolk_HasBraille');
+  late final _Tolk_HasBraille =
+      _Tolk_HasBraillePtr.asFunction<int Function()>();
 
   bool Tolk_Output(
-    ffi.Pointer<ffi.Uint16> str,
+    ffi.Pointer<wchar_t> str,
     bool interrupt,
   ) {
     return _Tolk_Output(
@@ -4759,13 +5504,14 @@ class DartTolk {
         0;
   }
 
-  late final _Tolk_Output_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_Output>>('Tolk_Output');
-  late final _dart_Tolk_Output _Tolk_Output =
-      _Tolk_Output_ptr.asFunction<_dart_Tolk_Output>();
+  late final _Tolk_OutputPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Uint8 Function(ffi.Pointer<wchar_t>, ffi.Uint8)>>('Tolk_Output');
+  late final _Tolk_Output =
+      _Tolk_OutputPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
   bool Tolk_Speak(
-    ffi.Pointer<ffi.Uint16> str,
+    ffi.Pointer<wchar_t> str,
     bool interrupt,
   ) {
     return _Tolk_Speak(
@@ -4775,17 +5521,18 @@ class DartTolk {
         0;
   }
 
-  late final _Tolk_Speak_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_Speak>>('Tolk_Speak');
-  late final _dart_Tolk_Speak _Tolk_Speak =
-      _Tolk_Speak_ptr.asFunction<_dart_Tolk_Speak>();
+  late final _Tolk_SpeakPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Uint8 Function(ffi.Pointer<wchar_t>, ffi.Uint8)>>('Tolk_Speak');
+  late final _Tolk_Speak =
+      _Tolk_SpeakPtr.asFunction<int Function(ffi.Pointer<wchar_t>, int)>();
 
   /// Name:         Tolk_Braille
   /// Description:  Brailles text through the current screen reader driver, if one is set and supports braille output. If none is set or if it encountered an error, tries to detect the currently active screen reader before brailling the given text. Use this function only if you specifically need to braille text through the current screen reader without also speaking it. Not all screen reader drivers may support this functionality. Therefore, use Tolk_Output whenever possible. You should call Tolk_Load once before using this function.
   /// Parameters:   str: text to braille.
   /// Returns:      true on success, false otherwise.
   bool Tolk_Braille(
-    ffi.Pointer<ffi.Uint16> str,
+    ffi.Pointer<wchar_t> str,
   ) {
     return _Tolk_Braille(
           str,
@@ -4793,10 +5540,11 @@ class DartTolk {
         0;
   }
 
-  late final _Tolk_Braille_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_Braille>>('Tolk_Braille');
-  late final _dart_Tolk_Braille _Tolk_Braille =
-      _Tolk_Braille_ptr.asFunction<_dart_Tolk_Braille>();
+  late final _Tolk_BraillePtr =
+      _lookup<ffi.NativeFunction<ffi.Uint8 Function(ffi.Pointer<wchar_t>)>>(
+          'Tolk_Braille');
+  late final _Tolk_Braille =
+      _Tolk_BraillePtr.asFunction<int Function(ffi.Pointer<wchar_t>)>();
 
   /// Name:         Tolk_IsSpeaking
   /// Description:  Tests if the screen reader associated with the current screen reader driver is speaking, if one is set and supports querying for status information. If none is set, tries to detect the currently active screen reader before testing if it is speaking. You should call Tolk_Load once before using this function.
@@ -4806,10 +5554,10 @@ class DartTolk {
     return _Tolk_IsSpeaking() != 0;
   }
 
-  late final _Tolk_IsSpeaking_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_IsSpeaking>>('Tolk_IsSpeaking');
-  late final _dart_Tolk_IsSpeaking _Tolk_IsSpeaking =
-      _Tolk_IsSpeaking_ptr.asFunction<_dart_Tolk_IsSpeaking>();
+  late final _Tolk_IsSpeakingPtr =
+      _lookup<ffi.NativeFunction<ffi.Uint8 Function()>>('Tolk_IsSpeaking');
+  late final _Tolk_IsSpeaking =
+      _Tolk_IsSpeakingPtr.asFunction<int Function()>();
 
   /// Name:         Tolk_Silence
   /// Description:  Silences the screen reader associated with the current screen reader driver, if one is set and supports speech output. If none is set or if it encountered an error, tries to detect the currently active screen reader before silencing it. You should call Tolk_Load once before using this function.
@@ -4819,11 +5567,14 @@ class DartTolk {
     return _Tolk_Silence() != 0;
   }
 
-  late final _Tolk_Silence_ptr =
-      _lookup<ffi.NativeFunction<_c_Tolk_Silence>>('Tolk_Silence');
-  late final _dart_Tolk_Silence _Tolk_Silence =
-      _Tolk_Silence_ptr.asFunction<_dart_Tolk_Silence>();
+  late final _Tolk_SilencePtr =
+      _lookup<ffi.NativeFunction<ffi.Uint8 Function()>>('Tolk_Silence');
+  late final _Tolk_Silence = _Tolk_SilencePtr.asFunction<int Function()>();
 }
+
+typedef va_list = ffi.Pointer<ffi.Int8>;
+typedef uintptr_t = ffi.Uint64;
+typedef wchar_t = ffi.Uint16;
 
 class __crt_locale_data_public extends ffi.Struct {
   external ffi.Pointer<ffi.Uint16> _locale_pctype;
@@ -4835,15 +5586,15 @@ class __crt_locale_data_public extends ffi.Struct {
   external int _locale_lc_codepage;
 }
 
-class __crt_locale_data extends ffi.Opaque {}
-
-class __crt_multibyte_data extends ffi.Opaque {}
-
 class __crt_locale_pointers extends ffi.Struct {
   external ffi.Pointer<__crt_locale_data> locinfo;
 
   external ffi.Pointer<__crt_multibyte_data> mbcinfo;
 }
+
+class __crt_locale_data extends ffi.Opaque {}
+
+class __crt_multibyte_data extends ffi.Opaque {}
 
 class _Mbstatet extends ffi.Struct {
   @ffi.Uint64()
@@ -4856,17 +5607,103 @@ class _Mbstatet extends ffi.Struct {
   external int _State;
 }
 
-class _wfinddata32_t extends ffi.Opaque {}
+typedef errno_t = ffi.Int32;
+typedef size_t = ffi.Uint64;
+typedef wint_t = ffi.Uint16;
+typedef _locale_t = ffi.Pointer<__crt_locale_pointers>;
+typedef wctype_t = ffi.Uint16;
 
-class _wfinddata32i64_t extends ffi.Opaque {}
+class _wfinddata32_t extends ffi.Struct {
+  @ffi.Uint32()
+  external int attrib;
 
-class _wfinddata64i32_t extends ffi.Opaque {}
+  @__time32_t()
+  external int time_create;
 
-class _wfinddata64_t extends ffi.Opaque {}
+  @__time32_t()
+  external int time_access;
 
-class FILE extends ffi.Struct {
+  @__time32_t()
+  external int time_write;
+
+  @_fsize_t()
+  external int size;
+
+  @ffi.Array.multi([260])
+  external ffi.Array<wchar_t> name;
+}
+
+typedef __time32_t = ffi.Int64;
+typedef _fsize_t = ffi.Uint64;
+
+class _wfinddata32i64_t extends ffi.Struct {
+  @ffi.Uint32()
+  external int attrib;
+
+  @__time32_t()
+  external int time_create;
+
+  @__time32_t()
+  external int time_access;
+
+  @__time32_t()
+  external int time_write;
+
+  @ffi.Int64()
+  external int size;
+
+  @ffi.Array.multi([260])
+  external ffi.Array<wchar_t> name;
+}
+
+class _wfinddata64i32_t extends ffi.Struct {
+  @ffi.Uint32()
+  external int attrib;
+
+  @__time64_t()
+  external int time_create;
+
+  @__time64_t()
+  external int time_access;
+
+  @__time64_t()
+  external int time_write;
+
+  @_fsize_t()
+  external int size;
+
+  @ffi.Array.multi([260])
+  external ffi.Array<wchar_t> name;
+}
+
+typedef __time64_t = ffi.Int64;
+
+class _wfinddata64_t extends ffi.Struct {
+  @ffi.Uint32()
+  external int attrib;
+
+  @__time64_t()
+  external int time_create;
+
+  @__time64_t()
+  external int time_access;
+
+  @__time64_t()
+  external int time_write;
+
+  @ffi.Int64()
+  external int size;
+
+  @ffi.Array.multi([260])
+  external ffi.Array<wchar_t> name;
+}
+
+class _iobuf extends ffi.Struct {
   external ffi.Pointer<ffi.Void> _Placeholder;
 }
+
+typedef FILE = _iobuf;
+typedef rsize_t = size_t;
 
 class tm extends ffi.Struct {
   @ffi.Int32()
@@ -4898,10 +5735,10 @@ class tm extends ffi.Struct {
 }
 
 class _stat32 extends ffi.Struct {
-  @ffi.Uint32()
+  @_dev_t()
   external int st_dev;
 
-  @ffi.Uint16()
+  @_ino_t()
   external int st_ino;
 
   @ffi.Uint16()
@@ -4916,27 +5753,31 @@ class _stat32 extends ffi.Struct {
   @ffi.Int16()
   external int st_gid;
 
-  @ffi.Uint32()
+  @_dev_t()
   external int st_rdev;
 
-  @ffi.Int64()
+  @_off_t()
   external int st_size;
 
-  @ffi.Int64()
+  @__time32_t()
   external int st_atime;
 
-  @ffi.Int64()
+  @__time32_t()
   external int st_mtime;
 
-  @ffi.Int64()
+  @__time32_t()
   external int st_ctime;
 }
 
+typedef _dev_t = ffi.Uint32;
+typedef _ino_t = ffi.Uint16;
+typedef _off_t = ffi.Int64;
+
 class _stat32i64 extends ffi.Struct {
-  @ffi.Uint32()
+  @_dev_t()
   external int st_dev;
 
-  @ffi.Uint16()
+  @_ino_t()
   external int st_ino;
 
   @ffi.Uint16()
@@ -4951,27 +5792,27 @@ class _stat32i64 extends ffi.Struct {
   @ffi.Int16()
   external int st_gid;
 
-  @ffi.Uint32()
+  @_dev_t()
   external int st_rdev;
 
   @ffi.Int64()
   external int st_size;
 
-  @ffi.Int64()
+  @__time32_t()
   external int st_atime;
 
-  @ffi.Int64()
+  @__time32_t()
   external int st_mtime;
 
-  @ffi.Int64()
+  @__time32_t()
   external int st_ctime;
 }
 
 class _stat64i32 extends ffi.Struct {
-  @ffi.Uint32()
+  @_dev_t()
   external int st_dev;
 
-  @ffi.Uint16()
+  @_ino_t()
   external int st_ino;
 
   @ffi.Uint16()
@@ -4986,27 +5827,27 @@ class _stat64i32 extends ffi.Struct {
   @ffi.Int16()
   external int st_gid;
 
-  @ffi.Uint32()
+  @_dev_t()
   external int st_rdev;
 
-  @ffi.Int64()
+  @_off_t()
   external int st_size;
 
-  @ffi.Int64()
+  @__time64_t()
   external int st_atime;
 
-  @ffi.Int64()
+  @__time64_t()
   external int st_mtime;
 
-  @ffi.Int64()
+  @__time64_t()
   external int st_ctime;
 }
 
 class _stat64 extends ffi.Struct {
-  @ffi.Uint32()
+  @_dev_t()
   external int st_dev;
 
-  @ffi.Uint16()
+  @_ino_t()
   external int st_ino;
 
   @ffi.Uint16()
@@ -5021,27 +5862,27 @@ class _stat64 extends ffi.Struct {
   @ffi.Int16()
   external int st_gid;
 
-  @ffi.Uint32()
+  @_dev_t()
   external int st_rdev;
 
   @ffi.Int64()
   external int st_size;
 
-  @ffi.Int64()
+  @__time64_t()
   external int st_atime;
 
-  @ffi.Int64()
+  @__time64_t()
   external int st_mtime;
 
-  @ffi.Int64()
+  @__time64_t()
   external int st_ctime;
 }
 
 class stat extends ffi.Struct {
-  @ffi.Uint32()
+  @_dev_t()
   external int st_dev;
 
-  @ffi.Uint16()
+  @_ino_t()
   external int st_ino;
 
   @ffi.Uint16()
@@ -5056,3328 +5897,29 @@ class stat extends ffi.Struct {
   @ffi.Int16()
   external int st_gid;
 
-  @ffi.Uint32()
+  @_dev_t()
   external int st_rdev;
 
-  @ffi.Int64()
+  @_off_t()
   external int st_size;
 
-  @ffi.Int64()
+  @time_t()
   external int st_atime;
 
-  @ffi.Int64()
+  @time_t()
   external int st_mtime;
 
-  @ffi.Int64()
+  @time_t()
   external int st_ctime;
 }
 
-const int false_1 = 0;
+typedef time_t = __time64_t;
+typedef mbstate_t = _Mbstatet;
 
-const int true_1 = 1;
+const int false1 = 0;
+
+const int true1 = 1;
 
 const int __null = 0;
 
 const int _WCHAR_T_DEFINED = 1;
-
-typedef _c___va_start = ffi.Void Function(
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
-);
-
-typedef _dart___va_start = void Function(
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
-);
-
-typedef _c___security_init_cookie = ffi.Void Function();
-
-typedef _dart___security_init_cookie = void Function();
-
-typedef _c___security_check_cookie = ffi.Void Function(
-  ffi.Uint64 _StackCookie,
-);
-
-typedef _dart___security_check_cookie = void Function(
-  int _StackCookie,
-);
-
-typedef _c___report_gsfailure = ffi.Void Function(
-  ffi.Uint64 _StackCookie,
-);
-
-typedef _dart___report_gsfailure = void Function(
-  int _StackCookie,
-);
-
-typedef _c__invalid_parameter_noinfo = ffi.Void Function();
-
-typedef _dart__invalid_parameter_noinfo = void Function();
-
-typedef _c__invalid_parameter_noinfo_noreturn = ffi.Void Function();
-
-typedef _dart__invalid_parameter_noinfo_noreturn = void Function();
-
-typedef _c__invoke_watson = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> _Expression,
-  ffi.Pointer<ffi.Uint16> _FunctionName,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Uint32 _LineNo,
-  ffi.Uint64 _Reserved,
-);
-
-typedef _dart__invoke_watson = void Function(
-  ffi.Pointer<ffi.Uint16> _Expression,
-  ffi.Pointer<ffi.Uint16> _FunctionName,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  int _LineNo,
-  int _Reserved,
-);
-
-typedef _c__errno = ffi.Pointer<ffi.Int32> Function();
-
-typedef _dart__errno = ffi.Pointer<ffi.Int32> Function();
-
-typedef _c__set_errno = ffi.Int32 Function(
-  ffi.Int32 _Value,
-);
-
-typedef _dart__set_errno = int Function(
-  int _Value,
-);
-
-typedef _c__get_errno = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int32> _Value,
-);
-
-typedef _dart__get_errno = int Function(
-  ffi.Pointer<ffi.Int32> _Value,
-);
-
-typedef _c___doserrno = ffi.Pointer<ffi.Uint64> Function();
-
-typedef _dart___doserrno = ffi.Pointer<ffi.Uint64> Function();
-
-typedef _c__set_doserrno = ffi.Int32 Function(
-  ffi.Uint64 _Value,
-);
-
-typedef _dart__set_doserrno = int Function(
-  int _Value,
-);
-
-typedef _c__get_doserrno = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint64> _Value,
-);
-
-typedef _dart__get_doserrno = int Function(
-  ffi.Pointer<ffi.Uint64> _Value,
-);
-
-typedef _c_memchr = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Buf,
-  ffi.Int32 _Val,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart_memchr = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Buf,
-  int _Val,
-  int _MaxCount,
-);
-
-typedef _c_memcmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Void> _Buf1,
-  ffi.Pointer<ffi.Void> _Buf2,
-  ffi.Uint64 _Size,
-);
-
-typedef _dart_memcmp = int Function(
-  ffi.Pointer<ffi.Void> _Buf1,
-  ffi.Pointer<ffi.Void> _Buf2,
-  int _Size,
-);
-
-typedef _c_memcpy = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Dst,
-  ffi.Pointer<ffi.Void> _Src,
-  ffi.Uint64 _Size,
-);
-
-typedef _dart_memcpy = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Dst,
-  ffi.Pointer<ffi.Void> _Src,
-  int _Size,
-);
-
-typedef _c_memmove = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Dst,
-  ffi.Pointer<ffi.Void> _Src,
-  ffi.Uint64 _Size,
-);
-
-typedef _dart_memmove = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Dst,
-  ffi.Pointer<ffi.Void> _Src,
-  int _Size,
-);
-
-typedef _c_memset = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Dst,
-  ffi.Int32 _Val,
-  ffi.Uint64 _Size,
-);
-
-typedef _dart_memset = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Dst,
-  int _Val,
-  int _Size,
-);
-
-typedef _c_strchr = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Str,
-  ffi.Int32 _Val,
-);
-
-typedef _dart_strchr = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Str,
-  int _Val,
-);
-
-typedef _c_strrchr = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Str,
-  ffi.Int32 _Ch,
-);
-
-typedef _dart_strrchr = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Str,
-  int _Ch,
-);
-
-typedef _c_strstr = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Str,
-  ffi.Pointer<ffi.Int8> _SubStr,
-);
-
-typedef _dart_strstr = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Str,
-  ffi.Pointer<ffi.Int8> _SubStr,
-);
-
-typedef _c_wcschr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Str,
-  ffi.Uint16 _Ch,
-);
-
-typedef _dart_wcschr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Str,
-  int _Ch,
-);
-
-typedef _c_wcsrchr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Str,
-  ffi.Uint16 _Ch,
-);
-
-typedef _dart_wcsrchr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Str,
-  int _Ch,
-);
-
-typedef _c_wcsstr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Str,
-  ffi.Pointer<ffi.Uint16> _SubStr,
-);
-
-typedef _dart_wcsstr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Str,
-  ffi.Pointer<ffi.Uint16> _SubStr,
-);
-
-typedef _c__cgetws_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Pointer<ffi.Uint64> _SizeRead,
-);
-
-typedef _dart__cgetws_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<ffi.Uint64> _SizeRead,
-);
-
-typedef _c__cputws = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-);
-
-typedef _dart__cputws = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-);
-
-typedef _c__getwch = ffi.Uint16 Function();
-
-typedef _dart__getwch = int Function();
-
-typedef _c__getwche = ffi.Uint16 Function();
-
-typedef _dart__getwche = int Function();
-
-typedef _c__putwch = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-);
-
-typedef _dart__putwch = int Function(
-  int _Character,
-);
-
-typedef _c__ungetwch = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-);
-
-typedef _dart__ungetwch = int Function(
-  int _Character,
-);
-
-typedef _c__getwch_nolock = ffi.Uint16 Function();
-
-typedef _dart__getwch_nolock = int Function();
-
-typedef _c__getwche_nolock = ffi.Uint16 Function();
-
-typedef _dart__getwche_nolock = int Function();
-
-typedef _c__putwch_nolock = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-);
-
-typedef _dart__putwch_nolock = int Function(
-  int _Character,
-);
-
-typedef _c__ungetwch_nolock = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-);
-
-typedef _dart__ungetwch_nolock = int Function(
-  int _Character,
-);
-
-typedef _c___conio_common_vcwprintf = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___conio_common_vcwprintf = int Function(
-  int _Options,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___conio_common_vcwprintf_s = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___conio_common_vcwprintf_s = int Function(
-  int _Options,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___conio_common_vcwprintf_p = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___conio_common_vcwprintf_p = int Function(
-  int _Options,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___conio_common_vcwscanf = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___conio_common_vcwscanf = int Function(
-  int _Options,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___pctype_func = ffi.Pointer<ffi.Uint16> Function();
-
-typedef _dart___pctype_func = ffi.Pointer<ffi.Uint16> Function();
-
-typedef _c___pwctype_func = ffi.Pointer<ffi.Uint16> Function();
-
-typedef _dart___pwctype_func = ffi.Pointer<ffi.Uint16> Function();
-
-typedef _c_iswalnum = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswalnum = int Function(
-  int _C,
-);
-
-typedef _c_iswalpha = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswalpha = int Function(
-  int _C,
-);
-
-typedef _c_iswascii = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswascii = int Function(
-  int _C,
-);
-
-typedef _c_iswblank = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswblank = int Function(
-  int _C,
-);
-
-typedef _c_iswcntrl = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswcntrl = int Function(
-  int _C,
-);
-
-typedef _c_iswdigit = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswdigit = int Function(
-  int _C,
-);
-
-typedef _c_iswgraph = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswgraph = int Function(
-  int _C,
-);
-
-typedef _c_iswlower = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswlower = int Function(
-  int _C,
-);
-
-typedef _c_iswprint = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswprint = int Function(
-  int _C,
-);
-
-typedef _c_iswpunct = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswpunct = int Function(
-  int _C,
-);
-
-typedef _c_iswspace = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswspace = int Function(
-  int _C,
-);
-
-typedef _c_iswupper = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswupper = int Function(
-  int _C,
-);
-
-typedef _c_iswxdigit = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_iswxdigit = int Function(
-  int _C,
-);
-
-typedef _c___iswcsymf = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart___iswcsymf = int Function(
-  int _C,
-);
-
-typedef _c___iswcsym = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart___iswcsym = int Function(
-  int _C,
-);
-
-typedef _c__iswalnum_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswalnum_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswalpha_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswalpha_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswblank_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswblank_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswcntrl_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswcntrl_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswdigit_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswdigit_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswgraph_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswgraph_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswlower_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswlower_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswprint_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswprint_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswpunct_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswpunct_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswspace_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswspace_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswupper_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswupper_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswxdigit_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswxdigit_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswcsymf_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswcsymf_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswcsym_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswcsym_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_towupper = ffi.Uint16 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_towupper = int Function(
-  int _C,
-);
-
-typedef _c_towlower = ffi.Uint16 Function(
-  ffi.Uint16 _C,
-);
-
-typedef _dart_towlower = int Function(
-  int _C,
-);
-
-typedef _c_iswctype = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Uint16 _Type,
-);
-
-typedef _dart_iswctype = int Function(
-  int _C,
-  int _Type,
-);
-
-typedef _c__towupper_l = ffi.Uint16 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__towupper_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__towlower_l = ffi.Uint16 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__towlower_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__iswctype_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Uint16 _Type,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__iswctype_l = int Function(
-  int _C,
-  int _Type,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_isleadbyte = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
-
-typedef _dart_isleadbyte = int Function(
-  int _C,
-);
-
-typedef _c__isleadbyte_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__isleadbyte_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_is_wctype = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Uint16 _Type,
-);
-
-typedef _dart_is_wctype = int Function(
-  int _C,
-  int _Type,
-);
-
-typedef _c__wgetcwd = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _DstBuf,
-  ffi.Int32 _SizeInWords,
-);
-
-typedef _dart__wgetcwd = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _DstBuf,
-  int _SizeInWords,
-);
-
-typedef _c__wgetdcwd = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Int32 _Drive,
-  ffi.Pointer<ffi.Uint16> _DstBuf,
-  ffi.Int32 _SizeInWords,
-);
-
-typedef _dart__wgetdcwd = ffi.Pointer<ffi.Uint16> Function(
-  int _Drive,
-  ffi.Pointer<ffi.Uint16> _DstBuf,
-  int _SizeInWords,
-);
-
-typedef _c__wchdir = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Path,
-);
-
-typedef _dart__wchdir = int Function(
-  ffi.Pointer<ffi.Uint16> _Path,
-);
-
-typedef _c__wmkdir = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Path,
-);
-
-typedef _dart__wmkdir = int Function(
-  ffi.Pointer<ffi.Uint16> _Path,
-);
-
-typedef _c__wrmdir = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Path,
-);
-
-typedef _dart__wrmdir = int Function(
-  ffi.Pointer<ffi.Uint16> _Path,
-);
-
-typedef _c__waccess = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Int32 _AccessMode,
-);
-
-typedef _dart__waccess = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  int _AccessMode,
-);
-
-typedef _c__waccess_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Int32 _AccessMode,
-);
-
-typedef _dart__waccess_s = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  int _AccessMode,
-);
-
-typedef _c__wchmod = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Int32 _Mode,
-);
-
-typedef _dart__wchmod = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  int _Mode,
-);
-
-typedef _c__wcreat = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Int32 _PermissionMode,
-);
-
-typedef _dart__wcreat = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  int _PermissionMode,
-);
-
-typedef _c__wfindfirst32 = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_wfinddata32_t> _FindData,
-);
-
-typedef _dart__wfindfirst32 = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_wfinddata32_t> _FindData,
-);
-
-typedef _c__wfindnext32 = ffi.Int32 Function(
-  ffi.IntPtr _FindHandle,
-  ffi.Pointer<_wfinddata32_t> _FindData,
-);
-
-typedef _dart__wfindnext32 = int Function(
-  int _FindHandle,
-  ffi.Pointer<_wfinddata32_t> _FindData,
-);
-
-typedef _c__wunlink = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-);
-
-typedef _dart__wunlink = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-);
-
-typedef _c__wrename = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _OldFileName,
-  ffi.Pointer<ffi.Uint16> _NewFileName,
-);
-
-typedef _dart__wrename = int Function(
-  ffi.Pointer<ffi.Uint16> _OldFileName,
-  ffi.Pointer<ffi.Uint16> _NewFileName,
-);
-
-typedef _c__wmktemp_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _TemplateName,
-  ffi.Uint64 _SizeInWords,
-);
-
-typedef _dart__wmktemp_s = int Function(
-  ffi.Pointer<ffi.Uint16> _TemplateName,
-  int _SizeInWords,
-);
-
-typedef _c__wmktemp = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _TemplateName,
-);
-
-typedef _dart__wmktemp = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _TemplateName,
-);
-
-typedef _c__wfindfirst32i64 = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_wfinddata32i64_t> _FindData,
-);
-
-typedef _dart__wfindfirst32i64 = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_wfinddata32i64_t> _FindData,
-);
-
-typedef _c__wfindfirst64i32 = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_wfinddata64i32_t> _FindData,
-);
-
-typedef _dart__wfindfirst64i32 = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_wfinddata64i32_t> _FindData,
-);
-
-typedef _c__wfindfirst64 = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_wfinddata64_t> _FindData,
-);
-
-typedef _dart__wfindfirst64 = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_wfinddata64_t> _FindData,
-);
-
-typedef _c__wfindnext32i64 = ffi.Int32 Function(
-  ffi.IntPtr _FindHandle,
-  ffi.Pointer<_wfinddata32i64_t> _FindData,
-);
-
-typedef _dart__wfindnext32i64 = int Function(
-  int _FindHandle,
-  ffi.Pointer<_wfinddata32i64_t> _FindData,
-);
-
-typedef _c__wfindnext64i32 = ffi.Int32 Function(
-  ffi.IntPtr _FindHandle,
-  ffi.Pointer<_wfinddata64i32_t> _FindData,
-);
-
-typedef _dart__wfindnext64i32 = int Function(
-  int _FindHandle,
-  ffi.Pointer<_wfinddata64i32_t> _FindData,
-);
-
-typedef _c__wfindnext64 = ffi.Int32 Function(
-  ffi.IntPtr _FindHandle,
-  ffi.Pointer<_wfinddata64_t> _FindData,
-);
-
-typedef _dart__wfindnext64 = int Function(
-  int _FindHandle,
-  ffi.Pointer<_wfinddata64_t> _FindData,
-);
-
-typedef _c__wsopen_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int32> _FileHandle,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Int32 _OpenFlag,
-  ffi.Int32 _ShareFlag,
-  ffi.Int32 _PermissionFlag,
-);
-
-typedef _dart__wsopen_s = int Function(
-  ffi.Pointer<ffi.Int32> _FileHandle,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  int _OpenFlag,
-  int _ShareFlag,
-  int _PermissionFlag,
-);
-
-typedef _c__wsopen_dispatch = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Int32 _OFlag,
-  ffi.Int32 _ShFlag,
-  ffi.Int32 _PMode,
-  ffi.Pointer<ffi.Int32> _PFileHandle,
-  ffi.Int32 _BSecure,
-);
-
-typedef _dart__wsopen_dispatch = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  int _OFlag,
-  int _ShFlag,
-  int _PMode,
-  ffi.Pointer<ffi.Int32> _PFileHandle,
-  int _BSecure,
-);
-
-typedef _c__wopen = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Int32 _OpenFlag,
-);
-
-typedef _dart__wopen = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  int _OpenFlag,
-);
-
-typedef _c__wsopen = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Int32 _OpenFlag,
-  ffi.Int32 _ShareFlag,
-);
-
-typedef _dart__wsopen = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  int _OpenFlag,
-  int _ShareFlag,
-);
-
-typedef _c__wexecl = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _dart__wexecl = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _c__wexecle = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _dart__wexecle = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _c__wexeclp = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _dart__wexeclp = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _c__wexeclpe = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _dart__wexeclpe = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _c__wexecv = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-);
-
-typedef _dart__wexecv = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-);
-
-typedef _c__wexecve = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
-);
-
-typedef _dart__wexecve = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
-);
-
-typedef _c__wexecvp = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-);
-
-typedef _dart__wexecvp = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-);
-
-typedef _c__wexecvpe = ffi.IntPtr Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
-);
-
-typedef _dart__wexecvpe = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
-);
-
-typedef _c__wspawnl = ffi.IntPtr Function(
-  ffi.Int32 _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _dart__wspawnl = int Function(
-  int _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _c__wspawnle = ffi.IntPtr Function(
-  ffi.Int32 _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _dart__wspawnle = int Function(
-  int _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _c__wspawnlp = ffi.IntPtr Function(
-  ffi.Int32 _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _dart__wspawnlp = int Function(
-  int _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _c__wspawnlpe = ffi.IntPtr Function(
-  ffi.Int32 _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _dart__wspawnlpe = int Function(
-  int _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _ArgList,
-);
-
-typedef _c__wspawnv = ffi.IntPtr Function(
-  ffi.Int32 _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-);
-
-typedef _dart__wspawnv = int Function(
-  int _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-);
-
-typedef _c__wspawnve = ffi.IntPtr Function(
-  ffi.Int32 _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
-);
-
-typedef _dart__wspawnve = int Function(
-  int _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
-);
-
-typedef _c__wspawnvp = ffi.IntPtr Function(
-  ffi.Int32 _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-);
-
-typedef _dart__wspawnvp = int Function(
-  int _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-);
-
-typedef _c__wspawnvpe = ffi.IntPtr Function(
-  ffi.Int32 _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
-);
-
-typedef _dart__wspawnvpe = int Function(
-  int _Mode,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _ArgList,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Env,
-);
-
-typedef _c__wsystem = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Command,
-);
-
-typedef _dart__wsystem = int Function(
-  ffi.Pointer<ffi.Uint16> _Command,
-);
-
-typedef _c___acrt_iob_func = ffi.Pointer<FILE> Function(
-  ffi.Uint32 _Ix,
-);
-
-typedef _dart___acrt_iob_func = ffi.Pointer<FILE> Function(
-  int _Ix,
-);
-
-typedef _c_fgetwc = ffi.Uint16 Function(
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart_fgetwc = int Function(
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c__fgetwchar = ffi.Uint16 Function();
-
-typedef _dart__fgetwchar = int Function();
-
-typedef _c_fputwc = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart_fputwc = int Function(
-  int _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c__fputwchar = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-);
-
-typedef _dart__fputwchar = int Function(
-  int _Character,
-);
-
-typedef _c_getwc = ffi.Uint16 Function(
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart_getwc = int Function(
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c_getwchar = ffi.Uint16 Function();
-
-typedef _dart_getwchar = int Function();
-
-typedef _c_fgetws = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _BufferCount,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart_fgetws = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c_fputws = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart_fputws = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c__getws_s = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-);
-
-typedef _dart__getws_s = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-);
-
-typedef _c_putwc = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart_putwc = int Function(
-  int _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c_putwchar = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-);
-
-typedef _dart_putwchar = int Function(
-  int _Character,
-);
-
-typedef _c__putws = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-);
-
-typedef _dart__putws = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-);
-
-typedef _c_ungetwc = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart_ungetwc = int Function(
-  int _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c__wfdopen = ffi.Pointer<FILE> Function(
-  ffi.Int32 _FileHandle,
-  ffi.Pointer<ffi.Uint16> _Mode,
-);
-
-typedef _dart__wfdopen = ffi.Pointer<FILE> Function(
-  int _FileHandle,
-  ffi.Pointer<ffi.Uint16> _Mode,
-);
-
-typedef _c__wfopen = ffi.Pointer<FILE> Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _Mode,
-);
-
-typedef _dart__wfopen = ffi.Pointer<FILE> Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _Mode,
-);
-
-typedef _c__wfopen_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Pointer<FILE>> _Stream,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _Mode,
-);
-
-typedef _dart__wfopen_s = int Function(
-  ffi.Pointer<ffi.Pointer<FILE>> _Stream,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _Mode,
-);
-
-typedef _c__wfreopen = ffi.Pointer<FILE> Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _Mode,
-  ffi.Pointer<FILE> _OldStream,
-);
-
-typedef _dart__wfreopen = ffi.Pointer<FILE> Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _Mode,
-  ffi.Pointer<FILE> _OldStream,
-);
-
-typedef _c__wfreopen_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Pointer<FILE>> _Stream,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _Mode,
-  ffi.Pointer<FILE> _OldStream,
-);
-
-typedef _dart__wfreopen_s = int Function(
-  ffi.Pointer<ffi.Pointer<FILE>> _Stream,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _Mode,
-  ffi.Pointer<FILE> _OldStream,
-);
-
-typedef _c__wfsopen = ffi.Pointer<FILE> Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _Mode,
-  ffi.Int32 _ShFlag,
-);
-
-typedef _dart__wfsopen = ffi.Pointer<FILE> Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<ffi.Uint16> _Mode,
-  int _ShFlag,
-);
-
-typedef _c__wperror = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> _ErrorMessage,
-);
-
-typedef _dart__wperror = void Function(
-  ffi.Pointer<ffi.Uint16> _ErrorMessage,
-);
-
-typedef _c__wpopen = ffi.Pointer<FILE> Function(
-  ffi.Pointer<ffi.Uint16> _Command,
-  ffi.Pointer<ffi.Uint16> _Mode,
-);
-
-typedef _dart__wpopen = ffi.Pointer<FILE> Function(
-  ffi.Pointer<ffi.Uint16> _Command,
-  ffi.Pointer<ffi.Uint16> _Mode,
-);
-
-typedef _c__wremove = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-);
-
-typedef _dart__wremove = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-);
-
-typedef _c__wtempnam = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Directory,
-  ffi.Pointer<ffi.Uint16> _FilePrefix,
-);
-
-typedef _dart__wtempnam = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Directory,
-  ffi.Pointer<ffi.Uint16> _FilePrefix,
-);
-
-typedef _c__wtmpnam_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-);
-
-typedef _dart__wtmpnam_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-);
-
-typedef _c__wtmpnam = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-);
-
-typedef _dart__wtmpnam = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-);
-
-typedef _c__fgetwc_nolock = ffi.Uint16 Function(
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart__fgetwc_nolock = int Function(
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c__fputwc_nolock = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart__fputwc_nolock = int Function(
-  int _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c__getwc_nolock = ffi.Uint16 Function(
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart__getwc_nolock = int Function(
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c__putwc_nolock = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart__putwc_nolock = int Function(
-  int _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c__ungetwc_nolock = ffi.Uint16 Function(
-  ffi.Uint16 _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _dart__ungetwc_nolock = int Function(
-  int _Character,
-  ffi.Pointer<FILE> _Stream,
-);
-
-typedef _c___stdio_common_vfwprintf = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<FILE> _Stream,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___stdio_common_vfwprintf = int Function(
-  int _Options,
-  ffi.Pointer<FILE> _Stream,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___stdio_common_vfwprintf_s = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<FILE> _Stream,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___stdio_common_vfwprintf_s = int Function(
-  int _Options,
-  ffi.Pointer<FILE> _Stream,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___stdio_common_vfwprintf_p = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<FILE> _Stream,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___stdio_common_vfwprintf_p = int Function(
-  int _Options,
-  ffi.Pointer<FILE> _Stream,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___stdio_common_vfwscanf = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<FILE> _Stream,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___stdio_common_vfwscanf = int Function(
-  int _Options,
-  ffi.Pointer<FILE> _Stream,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___stdio_common_vswprintf = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___stdio_common_vswprintf = int Function(
-  int _Options,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___stdio_common_vswprintf_s = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___stdio_common_vswprintf_s = int Function(
-  int _Options,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___stdio_common_vsnwprintf_s = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___stdio_common_vsnwprintf_s = int Function(
-  int _Options,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _MaxCount,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___stdio_common_vswprintf_p = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___stdio_common_vswprintf_p = int Function(
-  int _Options,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c___stdio_common_vswscanf = ffi.Int32 Function(
-  ffi.Uint64 _Options,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _dart___stdio_common_vswscanf = int Function(
-  int _Options,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-  ffi.Pointer<ffi.Int8> _ArgList,
-);
-
-typedef _c__itow_s = ffi.Int32 Function(
-  ffi.Int32 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__itow_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
-
-typedef _c__itow = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Int32 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__itow = ffi.Pointer<ffi.Uint16> Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _Radix,
-);
-
-typedef _c__ltow_s = ffi.Int32 Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__ltow_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
-
-typedef _c__ltow = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__ltow = ffi.Pointer<ffi.Uint16> Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _Radix,
-);
-
-typedef _c__ultow_s = ffi.Int32 Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__ultow_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
-
-typedef _c__ultow = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__ultow = ffi.Pointer<ffi.Uint16> Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _Radix,
-);
-
-typedef _c_wcstod = ffi.Double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-);
-
-typedef _dart_wcstod = double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-);
-
-typedef _c__wcstod_l = ffi.Double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstod_l = double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_wcstol = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart_wcstol = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-);
-
-typedef _c__wcstol_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstol_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_wcstoll = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart_wcstoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-);
-
-typedef _c__wcstoll_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_wcstoul = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart_wcstoul = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-);
-
-typedef _c__wcstoul_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstoul_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_wcstoull = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart_wcstoull = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-);
-
-typedef _c__wcstoull_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstoull_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_wcstof = ffi.Float Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-);
-
-typedef _dart_wcstof = double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-);
-
-typedef _c__wcstof_l = ffi.Float Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstof_l = double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wtof = ffi.Double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wtof = double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wtof_l = ffi.Double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wtof_l = double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wtoi = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wtoi = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wtoi_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wtoi_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wtol = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wtol = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wtol_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wtol_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wtoll = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wtoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wtoll_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wtoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__i64tow_s = ffi.Int32 Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__i64tow_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
-
-typedef _c__i64tow = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__i64tow = ffi.Pointer<ffi.Uint16> Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _Radix,
-);
-
-typedef _c__ui64tow_s = ffi.Int32 Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__ui64tow_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
-
-typedef _c__ui64tow = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__ui64tow = ffi.Pointer<ffi.Uint16> Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _Radix,
-);
-
-typedef _c__wtoi64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wtoi64 = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wtoi64_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wtoi64_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcstoi64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__wcstoi64 = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-);
-
-typedef _c__wcstoi64_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstoi64_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcstoui64 = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__wcstoui64 = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-);
-
-typedef _c__wcstoui64_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstoui64_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wfullpath = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Pointer<ffi.Uint16> _Path,
-  ffi.Uint64 _BufferCount,
-);
-
-typedef _dart__wfullpath = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Pointer<ffi.Uint16> _Path,
-  int _BufferCount,
-);
-
-typedef _c__wmakepath_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _dart__wmakepath_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _c__wmakepath = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _dart__wmakepath = void Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _c__wsplitpath = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> _FullPath,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _dart__wsplitpath = void Function(
-  ffi.Pointer<ffi.Uint16> _FullPath,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _c__wsplitpath_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FullPath,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Uint64 _DriveCount,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Uint64 _DirCount,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Uint64 _FilenameCount,
-  ffi.Pointer<ffi.Uint16> _Ext,
-  ffi.Uint64 _ExtCount,
-);
-
-typedef _dart__wsplitpath_s = int Function(
-  ffi.Pointer<ffi.Uint16> _FullPath,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  int _DriveCount,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  int _DirCount,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  int _FilenameCount,
-  ffi.Pointer<ffi.Uint16> _Ext,
-  int _ExtCount,
-);
-
-typedef _c__wdupenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Buffer,
-  ffi.Pointer<ffi.Uint64> _BufferCount,
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _dart__wdupenv_s = int Function(
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Buffer,
-  ffi.Pointer<ffi.Uint64> _BufferCount,
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _c__wgetenv = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _dart__wgetenv = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _c__wgetenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint64> _RequiredCount,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _dart__wgetenv_s = int Function(
-  ffi.Pointer<ffi.Uint64> _RequiredCount,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _c__wputenv = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _EnvString,
-);
-
-typedef _dart__wputenv = int Function(
-  ffi.Pointer<ffi.Uint16> _EnvString,
-);
-
-typedef _c__wputenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Name,
-  ffi.Pointer<ffi.Uint16> _Value,
-);
-
-typedef _dart__wputenv_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Name,
-  ffi.Pointer<ffi.Uint16> _Value,
-);
-
-typedef _c__wsearchenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _VarName,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-);
-
-typedef _dart__wsearchenv_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _VarName,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-);
-
-typedef _c__wsearchenv = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _VarName,
-  ffi.Pointer<ffi.Uint16> _ResultPath,
-);
-
-typedef _dart__wsearchenv = void Function(
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _VarName,
-  ffi.Pointer<ffi.Uint16> _ResultPath,
-);
-
-typedef _c_wcscat_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Source,
-);
-
-typedef _dart_wcscat_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Source,
-);
-
-typedef _c_wcscpy_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Source,
-);
-
-typedef _dart_wcscpy_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Source,
-);
-
-typedef _c_wcsncat_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Source,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart_wcsncat_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Source,
-  int _MaxCount,
-);
-
-typedef _c_wcsncpy_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Source,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart_wcsncpy_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Source,
-  int _MaxCount,
-);
-
-typedef _c_wcstok_s = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Delimiter,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Context,
-);
-
-typedef _dart_wcstok_s = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Delimiter,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Context,
-);
-
-typedef _c__wcsdup = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wcsdup = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c_wcscat = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-);
-
-typedef _dart_wcscat = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-);
-
-typedef _c_wcscmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _dart_wcscmp = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _c_wcscpy = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-);
-
-typedef _dart_wcscpy = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-);
-
-typedef _c_wcscspn = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Control,
-);
-
-typedef _dart_wcscspn = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Control,
-);
-
-typedef _c_wcslen = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart_wcslen = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c_wcsnlen = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _Source,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart_wcsnlen = int Function(
-  ffi.Pointer<ffi.Uint16> _Source,
-  int _MaxCount,
-);
-
-typedef _c_wcsncat = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-  ffi.Uint64 _Count,
-);
-
-typedef _dart_wcsncat = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-  int _Count,
-);
-
-typedef _c_wcsncmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart_wcsncmp = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-);
-
-typedef _c_wcsncpy = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-  ffi.Uint64 _Count,
-);
-
-typedef _dart_wcsncpy = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-  int _Count,
-);
-
-typedef _c_wcspbrk = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Control,
-);
-
-typedef _dart_wcspbrk = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Control,
-);
-
-typedef _c_wcsspn = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Control,
-);
-
-typedef _dart_wcsspn = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Control,
-);
-
-typedef _c_wcstok = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Delimiter,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Context,
-);
-
-typedef _dart_wcstok = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Delimiter,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Context,
-);
-
-typedef _c__wcserror = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Int32 _ErrorNumber,
-);
-
-typedef _dart__wcserror = ffi.Pointer<ffi.Uint16> Function(
-  int _ErrorNumber,
-);
-
-typedef _c__wcserror_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-  ffi.Int32 _ErrorNumber,
-);
-
-typedef _dart__wcserror_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-  int _ErrorNumber,
-);
-
-typedef _c___wcserror = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart___wcserror = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c___wcserror_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _ErrorMessage,
-);
-
-typedef _dart___wcserror_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _ErrorMessage,
-);
-
-typedef _c__wcsicmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _dart__wcsicmp = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _c__wcsicmp_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcsicmp_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcsnicmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart__wcsnicmp = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-);
-
-typedef _c__wcsnicmp_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcsnicmp_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcsnset_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Uint64 _SizeInWords,
-  ffi.Uint16 _Value,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart__wcsnset_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  int _SizeInWords,
-  int _Value,
-  int _MaxCount,
-);
-
-typedef _c__wcsnset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint16 _Value,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart__wcsnset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _Value,
-  int _MaxCount,
-);
-
-typedef _c__wcsrev = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wcsrev = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wcsset_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Uint64 _SizeInWords,
-  ffi.Uint16 _Value,
-);
-
-typedef _dart__wcsset_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  int _SizeInWords,
-  int _Value,
-);
-
-typedef _c__wcsset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint16 _Value,
-);
-
-typedef _dart__wcsset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _Value,
-);
-
-typedef _c__wcslwr_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint64 _SizeInWords,
-);
-
-typedef _dart__wcslwr_s = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _SizeInWords,
-);
-
-typedef _c__wcslwr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wcslwr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wcslwr_s_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcslwr_s_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _SizeInWords,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcslwr_l = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcslwr_l = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcsupr_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint64 _Size,
-);
-
-typedef _dart__wcsupr_s = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _Size,
-);
-
-typedef _c__wcsupr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wcsupr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wcsupr_s_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint64 _Size,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcsupr_s_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _Size,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcsupr_l = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcsupr_l = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_wcsxfrm = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart_wcsxfrm = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-  int _MaxCount,
-);
-
-typedef _c__wcsxfrm_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcsxfrm_l = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_wcscoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _dart_wcscoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _c__wcscoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcscoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcsicoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _dart__wcsicoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _c__wcsicoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcsicoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcsncoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart__wcsncoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-);
-
-typedef _c__wcsncoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcsncoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcsnicoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart__wcsnicoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-);
-
-typedef _c__wcsnicoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcsnicoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c_wcsdup = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart_wcsdup = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c_wcsicmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _dart_wcsicmp = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _c_wcsnicmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart_wcsnicmp = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-);
-
-typedef _c_wcsnset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint16 _Value,
-  ffi.Uint64 _MaxCount,
-);
-
-typedef _dart_wcsnset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _Value,
-  int _MaxCount,
-);
-
-typedef _c_wcsrev = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart_wcsrev = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c_wcsset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint16 _Value,
-);
-
-typedef _dart_wcsset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _Value,
-);
-
-typedef _c_wcslwr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart_wcslwr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c_wcsupr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart_wcsupr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c_wcsicoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _dart_wcsicoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
-
-typedef _c__wasctime = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<tm> _Tm,
-);
-
-typedef _dart__wasctime = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<tm> _Tm,
-);
-
-typedef _c__wasctime_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<tm> _Tm,
-);
-
-typedef _dart__wasctime_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-  ffi.Pointer<tm> _Tm,
-);
-
-typedef _c_wcsftime = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<tm> _Tm,
-);
-
-typedef _dart_wcsftime = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<tm> _Tm,
-);
-
-typedef _c__wcsftime_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<tm> _Tm,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcsftime_l = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _Format,
-  ffi.Pointer<tm> _Tm,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wctime32 = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Int64> _Time,
-);
-
-typedef _dart__wctime32 = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Int64> _Time,
-);
-
-typedef _c__wctime32_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Int64> _Time,
-);
-
-typedef _dart__wctime32_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Int64> _Time,
-);
-
-typedef _c__wctime64 = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Int64> _Time,
-);
-
-typedef _dart__wctime64 = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Int64> _Time,
-);
-
-typedef _c__wctime64_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Int64> _Time,
-);
-
-typedef _dart__wctime64_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Int64> _Time,
-);
-
-typedef _c__wstrdate_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-);
-
-typedef _dart__wstrdate_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-);
-
-typedef _c__wstrdate = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-);
-
-typedef _dart__wstrdate = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-);
-
-typedef _c__wstrtime_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-);
-
-typedef _dart__wstrtime_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-);
-
-typedef _c__wstrtime = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-);
-
-typedef _dart__wstrtime = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-);
-
-typedef _c__fstat32 = ffi.Int32 Function(
-  ffi.Int32 _FileHandle,
-  ffi.Pointer<_stat32> _Stat,
-);
-
-typedef _dart__fstat32 = int Function(
-  int _FileHandle,
-  ffi.Pointer<_stat32> _Stat,
-);
-
-typedef _c__fstat32i64 = ffi.Int32 Function(
-  ffi.Int32 _FileHandle,
-  ffi.Pointer<_stat32i64> _Stat,
-);
-
-typedef _dart__fstat32i64 = int Function(
-  int _FileHandle,
-  ffi.Pointer<_stat32i64> _Stat,
-);
-
-typedef _c__fstat64i32 = ffi.Int32 Function(
-  ffi.Int32 _FileHandle,
-  ffi.Pointer<_stat64i32> _Stat,
-);
-
-typedef _dart__fstat64i32 = int Function(
-  int _FileHandle,
-  ffi.Pointer<_stat64i32> _Stat,
-);
-
-typedef _c__fstat64 = ffi.Int32 Function(
-  ffi.Int32 _FileHandle,
-  ffi.Pointer<_stat64> _Stat,
-);
-
-typedef _dart__fstat64 = int Function(
-  int _FileHandle,
-  ffi.Pointer<_stat64> _Stat,
-);
-
-typedef _c__stat32_1 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _FileName,
-  ffi.Pointer<_stat32> _Stat,
-);
-
-typedef _dart__stat32_1 = int Function(
-  ffi.Pointer<ffi.Int8> _FileName,
-  ffi.Pointer<_stat32> _Stat,
-);
-
-typedef _c__stat32i64_1 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _FileName,
-  ffi.Pointer<_stat32i64> _Stat,
-);
-
-typedef _dart__stat32i64_1 = int Function(
-  ffi.Pointer<ffi.Int8> _FileName,
-  ffi.Pointer<_stat32i64> _Stat,
-);
-
-typedef _c__stat64i32_1 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _FileName,
-  ffi.Pointer<_stat64i32> _Stat,
-);
-
-typedef _dart__stat64i32_1 = int Function(
-  ffi.Pointer<ffi.Int8> _FileName,
-  ffi.Pointer<_stat64i32> _Stat,
-);
-
-typedef _c__stat64_1 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _FileName,
-  ffi.Pointer<_stat64> _Stat,
-);
-
-typedef _dart__stat64_1 = int Function(
-  ffi.Pointer<ffi.Int8> _FileName,
-  ffi.Pointer<_stat64> _Stat,
-);
-
-typedef _c__wstat32 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_stat32> _Stat,
-);
-
-typedef _dart__wstat32 = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_stat32> _Stat,
-);
-
-typedef _c__wstat32i64 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_stat32i64> _Stat,
-);
-
-typedef _dart__wstat32i64 = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_stat32i64> _Stat,
-);
-
-typedef _c__wstat64i32 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_stat64i32> _Stat,
-);
-
-typedef _dart__wstat64i32 = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_stat64i32> _Stat,
-);
-
-typedef _c__wstat64 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_stat64> _Stat,
-);
-
-typedef _dart__wstat64 = int Function(
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Pointer<_stat64> _Stat,
-);
-
-typedef _c__wsetlocale = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Int32 _Category,
-  ffi.Pointer<ffi.Uint16> _Locale,
-);
-
-typedef _dart__wsetlocale = ffi.Pointer<ffi.Uint16> Function(
-  int _Category,
-  ffi.Pointer<ffi.Uint16> _Locale,
-);
-
-typedef _c__wcreate_locale = ffi.Pointer<__crt_locale_pointers> Function(
-  ffi.Int32 _Category,
-  ffi.Pointer<ffi.Uint16> _Locale,
-);
-
-typedef _dart__wcreate_locale = ffi.Pointer<__crt_locale_pointers> Function(
-  int _Category,
-  ffi.Pointer<ffi.Uint16> _Locale,
-);
-
-typedef _c_btowc = ffi.Uint16 Function(
-  ffi.Int32 _Ch,
-);
-
-typedef _dart_btowc = int Function(
-  int _Ch,
-);
-
-typedef _c_mbrlen = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _Ch,
-  ffi.Uint64 _SizeInBytes,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _dart_mbrlen = int Function(
-  ffi.Pointer<ffi.Int8> _Ch,
-  int _SizeInBytes,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _c_mbrtowc = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _DstCh,
-  ffi.Pointer<ffi.Int8> _SrcCh,
-  ffi.Uint64 _SizeInBytes,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _dart_mbrtowc = int Function(
-  ffi.Pointer<ffi.Uint16> _DstCh,
-  ffi.Pointer<ffi.Int8> _SrcCh,
-  int _SizeInBytes,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _c_mbsrtowcs_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint64> _Retval,
-  ffi.Pointer<ffi.Uint16> _Dst,
-  ffi.Uint64 _Size,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _PSrc,
-  ffi.Uint64 _N,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _dart_mbsrtowcs_s = int Function(
-  ffi.Pointer<ffi.Uint64> _Retval,
-  ffi.Pointer<ffi.Uint16> _Dst,
-  int _Size,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _PSrc,
-  int _N,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _c_mbsrtowcs = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _Dest,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _PSrc,
-  ffi.Uint64 _Count,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _dart_mbsrtowcs = int Function(
-  ffi.Pointer<ffi.Uint16> _Dest,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _PSrc,
-  int _Count,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _c_wcrtomb_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint64> _Retval,
-  ffi.Pointer<ffi.Int8> _Dst,
-  ffi.Uint64 _SizeInBytes,
-  ffi.Uint16 _Ch,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _dart_wcrtomb_s = int Function(
-  ffi.Pointer<ffi.Uint64> _Retval,
-  ffi.Pointer<ffi.Int8> _Dst,
-  int _SizeInBytes,
-  int _Ch,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _c_wcrtomb = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _Dest,
-  ffi.Uint16 _Source,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _dart_wcrtomb = int Function(
-  ffi.Pointer<ffi.Int8> _Dest,
-  int _Source,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _c_wcsrtombs_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint64> _Retval,
-  ffi.Pointer<ffi.Int8> _Dst,
-  ffi.Uint64 _SizeInBytes,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Src,
-  ffi.Uint64 _Size,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _dart_wcsrtombs_s = int Function(
-  ffi.Pointer<ffi.Uint64> _Retval,
-  ffi.Pointer<ffi.Int8> _Dst,
-  int _SizeInBytes,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Src,
-  int _Size,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _c_wcsrtombs = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _Dest,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _PSource,
-  ffi.Uint64 _Count,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _dart_wcsrtombs = int Function(
-  ffi.Pointer<ffi.Int8> _Dest,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _PSource,
-  int _Count,
-  ffi.Pointer<_Mbstatet> _State,
-);
-
-typedef _c_wctob = ffi.Int32 Function(
-  ffi.Uint16 _WCh,
-);
-
-typedef _dart_wctob = int Function(
-  int _WCh,
-);
-
-typedef _c_wmemcpy_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _S1,
-  ffi.Uint64 _N1,
-  ffi.Pointer<ffi.Uint16> _S2,
-  ffi.Uint64 _N,
-);
-
-typedef _dart_wmemcpy_s = int Function(
-  ffi.Pointer<ffi.Uint16> _S1,
-  int _N1,
-  ffi.Pointer<ffi.Uint16> _S2,
-  int _N,
-);
-
-typedef _c_wmemmove_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _S1,
-  ffi.Uint64 _N1,
-  ffi.Pointer<ffi.Uint16> _S2,
-  ffi.Uint64 _N,
-);
-
-typedef _dart_wmemmove_s = int Function(
-  ffi.Pointer<ffi.Uint16> _S1,
-  int _N1,
-  ffi.Pointer<ffi.Uint16> _S2,
-  int _N,
-);
-
-typedef _c_Tolk_Load = ffi.Void Function();
-
-typedef _dart_Tolk_Load = void Function();
-
-typedef _c_Tolk_IsLoaded = ffi.Uint8 Function();
-
-typedef _dart_Tolk_IsLoaded = int Function();
-
-typedef _c_Tolk_Unload = ffi.Void Function();
-
-typedef _dart_Tolk_Unload = void Function();
-
-typedef _c_Tolk_TrySAPI = ffi.Void Function(
-  ffi.Uint8 trySAPI,
-);
-
-typedef _dart_Tolk_TrySAPI = void Function(
-  int trySAPI,
-);
-
-typedef _c_Tolk_PreferSAPI = ffi.Void Function(
-  ffi.Uint8 preferSAPI,
-);
-
-typedef _dart_Tolk_PreferSAPI = void Function(
-  int preferSAPI,
-);
-
-typedef _c_Tolk_DetectScreenReader = ffi.Pointer<ffi.Uint16> Function();
-
-typedef _dart_Tolk_DetectScreenReader = ffi.Pointer<ffi.Uint16> Function();
-
-typedef _c_Tolk_HasSpeech = ffi.Uint8 Function();
-
-typedef _dart_Tolk_HasSpeech = int Function();
-
-typedef _c_Tolk_HasBraille = ffi.Uint8 Function();
-
-typedef _dart_Tolk_HasBraille = int Function();
-
-typedef _c_Tolk_Output = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Uint16> str,
-  ffi.Uint8 interrupt,
-);
-
-typedef _dart_Tolk_Output = int Function(
-  ffi.Pointer<ffi.Uint16> str,
-  int interrupt,
-);
-
-typedef _c_Tolk_Speak = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Uint16> str,
-  ffi.Uint8 interrupt,
-);
-
-typedef _dart_Tolk_Speak = int Function(
-  ffi.Pointer<ffi.Uint16> str,
-  int interrupt,
-);
-
-typedef _c_Tolk_Braille = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Uint16> str,
-);
-
-typedef _dart_Tolk_Braille = int Function(
-  ffi.Pointer<ffi.Uint16> str,
-);
-
-typedef _c_Tolk_IsSpeaking = ffi.Uint8 Function();
-
-typedef _dart_Tolk_IsSpeaking = int Function();
-
-typedef _c_Tolk_Silence = ffi.Uint8 Function();
-
-typedef _dart_Tolk_Silence = int Function();
