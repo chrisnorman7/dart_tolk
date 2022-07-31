@@ -19,7 +19,7 @@ class Tolk {
   ///
   /// If you do not wish to pass a [DynamicLibrary] instance, you can use
   /// [Tolk.fromPath].
-  Tolk(DynamicLibrary lib) : _tolk = DartTolk(lib);
+  Tolk(final DynamicLibrary lib) : _tolk = DartTolk(lib);
 
   /// Create an instance from a path.
   ///
@@ -28,7 +28,7 @@ class Tolk {
   /// ```
   /// final t = Tolk.fromPath('tolk.dll');
   /// ```
-  factory Tolk.fromPath(String path) => Tolk(DynamicLibrary.open(path));
+  factory Tolk.fromPath(final String path) => Tolk(DynamicLibrary.open(path));
 
   /// Create an instance from "tolk.dll".
   ///
@@ -58,8 +58,8 @@ class Tolk {
   /// The provided string will be both spoken and brailled.
   ///
   /// Pass `interrupt: true` to interrupt speech before speaking.
-  bool output(String text, {bool interrupt = false}) {
-    final ptr = text.toNativeUtf16().cast<wchar_t>();
+  bool output(final String text, {final bool interrupt = false}) {
+    final ptr = text.toNativeUtf16().cast<WChar>();
     final value = _tolk.Tolk_Output(ptr, interrupt);
     malloc.free(ptr);
     return value;
@@ -68,15 +68,15 @@ class Tolk {
   /// Speak some text.
   ///
   /// Pass `interrupt: true` to stop speaking before speaking the new string.
-  void speak(String text, {bool interrupt = false}) {
-    final ptr = text.toNativeUtf16().cast<wchar_t>();
+  void speak(final String text, {final bool interrupt = false}) {
+    final ptr = text.toNativeUtf16().cast<WChar>();
     _tolk.Tolk_Speak(ptr, interrupt);
     malloc.free(ptr);
   }
 
   /// Braille some text.
-  void braille(String text) {
-    final ptr = text.toNativeUtf16().cast<wchar_t>();
+  void braille(final String text) {
+    final ptr = text.toNativeUtf16().cast<WChar>();
     _tolk.Tolk_Braille(ptr);
     malloc.free(ptr);
   }
@@ -86,11 +86,11 @@ class Tolk {
 
   /// Configures whether or not to try SAPI if no other screen reader can be
   /// found.
-  set trySapi(bool value) => _tolk.Tolk_TrySAPI(value);
+  set trySapi(final bool value) => _tolk.Tolk_TrySAPI(value);
 
   /// Configures whether or not SAPI should be preferred over other screen
   /// readers.
-  void preferSapi(bool value) => _tolk.Tolk_PreferSAPI(value);
+  set preferSapi(final bool value) => _tolk.Tolk_PreferSAPI(value);
 
   /// Returns `true` if the current screen reader supports speech.
   bool get hasSpeech => _tolk.Tolk_HasSpeech();
