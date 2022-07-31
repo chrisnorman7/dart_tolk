@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0]
+
+### Changed
+
+* Updated dependencies.
+* Regenerated the bindings.
+* Made `trySapi` a setter, rather than a function.
+
 ## [1.3.0]
 
 ### Fixed
