@@ -19,4 +19,8 @@ ffigen:
   description: "Bindings for the Tolk screen reader library"
   headers:
     entry-points:
-      - "tolk/tolk/src/tolk.h"
+      - "tolk/src/tolk.h"
+      - "tolk/src/tolkVersion.h"
+  functions:
+    include:
+      - "Tolk_.*"
