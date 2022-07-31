@@ -1,6 +1,6 @@
 name: dart_tolk
-description: Dart bindings for the Tolk screen reader library.
 version: 1.4.0
+description: Dart bindings for the Tolk screen reader library.
 homepage: https://github.com/chrisnorman7/dart_tolk
 
 environment:
